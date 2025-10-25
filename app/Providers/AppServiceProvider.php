@@ -2,6 +2,7 @@
 
 namespace App\Providers;
 
+use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -19,6 +20,32 @@ class AppServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        //
+        $this->configureGates();
+    }
+
+    /**
+     * Configure authorization gates.
+     */
+    protected function configureGates(): void
+    {
+        Gate::define('access-admin-panel', function ($user) {
+            return $user->role === 'admin';
+        });
+
+        Gate::define('manage-users', function ($user) {
+            return $user->role === 'admin';
+        });
+
+        Gate::define('manage-content', function ($user) {
+            return $user->role === 'admin';
+        });
+
+        Gate::define('view-analytics', function ($user) {
+            return $user->role === 'admin';
+        });
+
+        Gate::define('manage-appointments', function ($user) {
+            return $user->role === 'admin';
+        });
     }
 }
