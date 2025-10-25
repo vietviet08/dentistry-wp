@@ -4,17 +4,16 @@ use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 use Livewire\Volt\Volt;
 
-Route::get('/', function () {
-    return view('welcome');
-})->name('home');
+// Public Routes
+Volt::route('/', 'pages.home')->name('home');
+Volt::route('/about', 'pages.about')->name('about');
 
-Route::view('dashboard', 'dashboard')
-    ->middleware(['auth', 'verified'])
-    ->name('dashboard');
+// Authentication Routes (handled by Fortify)
+Route::middleware(['auth', 'verified'])->group(function () {
+    Route::get('/dashboard', \App\Livewire\Patient\Dashboard::class)->name('dashboard');
 
-Route::middleware(['auth'])->group(function () {
+    // Settings routes
     Route::redirect('settings', 'settings/profile');
-
     Volt::route('settings/profile', 'settings.profile')->name('profile.edit');
     Volt::route('settings/password', 'settings.password')->name('user-password.edit');
     Volt::route('settings/appearance', 'settings.appearance')->name('appearance.edit');
@@ -29,4 +28,9 @@ Route::middleware(['auth'])->group(function () {
             ),
         )
         ->name('two-factor.show');
+});
+
+// Admin Routes
+Route::middleware(['auth', 'can:access-admin-panel'])->prefix('admin')->group(function () {
+    Route::get('/', \App\Livewire\Admin\Dashboard::class)->name('admin.dashboard');
 });

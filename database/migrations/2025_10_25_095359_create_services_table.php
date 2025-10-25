@@ -29,7 +29,7 @@ return new class extends Migration
             $table->timestamps();
             $table->softDeletes();
         });
-        
+
         // Add CHECK constraint for category (PostgreSQL)
         DB::statement("ALTER TABLE services ADD CONSTRAINT services_category_check CHECK (category IN ('general','cosmetic','orthodontics','surgery','emergency','pediatric'))");
     }

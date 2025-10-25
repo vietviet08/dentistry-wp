@@ -57,7 +57,7 @@ class Doctor extends Model
     protected static function boot()
     {
         parent::boot();
-        
+
         static::creating(function ($doctor) {
             if (empty($doctor->slug)) {
                 $doctor->slug = Str::slug($doctor->name);

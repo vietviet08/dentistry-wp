@@ -18,10 +18,10 @@ return new class extends Migration
             $table->date('date_of_birth')->nullable();
             $table->string('avatar')->nullable();
             $table->boolean('is_active')->default(true)->index();
-            
-            // Add CHECK constraint for role (PostgreSQL)
-            DB::statement("ALTER TABLE users ADD CONSTRAINT users_role_check CHECK (role IN ('patient', 'admin'))");
         });
+
+        // Add CHECK constraint for role (PostgreSQL) - after table modification
+        DB::statement("ALTER TABLE users ADD CONSTRAINT users_role_check CHECK (role IN ('patient', 'admin'))");
     }
 
     /**
@@ -32,7 +32,7 @@ return new class extends Migration
         Schema::table('users', function (Blueprint $table) {
             // Drop CHECK constraint first (PostgreSQL)
             DB::statement('ALTER TABLE users DROP CONSTRAINT IF EXISTS users_role_check');
-            
+
             $table->dropColumn(['role', 'phone', 'date_of_birth', 'avatar', 'is_active']);
         });
     }

@@ -45,7 +45,7 @@ class Service extends Model
     protected static function boot()
     {
         parent::boot();
-        
+
         static::creating(function ($service) {
             if (empty($service->slug)) {
                 $service->slug = Str::slug($service->name);

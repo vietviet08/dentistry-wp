@@ -21,7 +21,7 @@ return new class extends Migration
             $table->time('break_end')->nullable();
             $table->integer('slot_duration')->default(30); // minutes
             $table->timestamps();
-            
+
             $table->unique(['doctor_id', 'day_of_week']);
         });
     }
