@@ -1,0 +1,15 @@
+{
+  "Servers": {
+    "1": {
+      "Name": "Dentistry PostgreSQL",
+      "Group": "Servers",
+      "Host": "pgsql",
+      "Port": 5432,
+      "MaintenanceDB": "dentistry",
+      "Username": "postgres",
+      "SSLMode": "prefer",
+      "PassFile": "/tmp/pgpassfile"
+    }
+  }
+}
+
