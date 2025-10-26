@@ -7,6 +7,17 @@ use Livewire\Volt\Volt;
 // Public Routes
 Volt::route('/', 'pages.home')->name('home');
 Volt::route('/about', 'pages.about')->name('about');
+Volt::route('/about-us', 'pages.about-us')->name('about-us');
+Volt::route('/services', 'pages.services')->name('services');
+Volt::route('/services/{service}', 'pages.service-detail')->name('service-detail');
+Volt::route('/team', 'pages.team')->name('team');
+Volt::route('/team/{doctor}', 'pages.doctor-detail')->name('doctor-detail');
+Volt::route('/testimonials', 'pages.testimonials')->name('testimonials');
+Volt::route('/blog', 'pages.blog')->name('blog');
+Volt::route('/blog/{post}', 'pages.blog-detail')->name('blog-detail');
+Volt::route('/faqs', 'pages.faqs')->name('faqs');
+Volt::route('/contact', 'pages.contact')->name('contact');
+Volt::route('/gallery', 'pages.gallery')->name('gallery');
 
 // Authentication Routes (handled by Fortify)
 Route::middleware(['auth', 'verified'])->group(function () {

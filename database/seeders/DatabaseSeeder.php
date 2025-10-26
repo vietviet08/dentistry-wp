@@ -16,6 +16,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             ServiceSeeder::class,
             DoctorSeeder::class,
+            PostSeeder::class,
+            GalleryItemSeeder::class,
         ]);
 
         // Create test users

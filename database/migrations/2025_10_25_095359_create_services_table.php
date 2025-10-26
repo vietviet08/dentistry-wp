@@ -30,8 +30,10 @@ return new class extends Migration
             $table->softDeletes();
         });
 
-        // Add CHECK constraint for category (PostgreSQL)
-        DB::statement("ALTER TABLE services ADD CONSTRAINT services_category_check CHECK (category IN ('general','cosmetic','orthodontics','surgery','emergency','pediatric'))");
+        // Add CHECK constraint for category (PostgreSQL only)
+        if (DB::getDriverName() === 'pgsql') {
+            DB::statement("ALTER TABLE services ADD CONSTRAINT services_category_check CHECK (category IN ('general','cosmetic','orthodontics','surgery','emergency','pediatric'))");
+        }
     }
 
     /**
@@ -39,7 +41,9 @@ return new class extends Migration
      */
     public function down(): void
     {
-        DB::statement('ALTER TABLE services DROP CONSTRAINT IF EXISTS services_category_check');
+        if (DB::getDriverName() === 'pgsql') {
+            DB::statement('ALTER TABLE services DROP CONSTRAINT IF EXISTS services_category_check');
+        }
         Schema::dropIfExists('services');
     }
 };
