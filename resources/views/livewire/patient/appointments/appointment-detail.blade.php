@@ -82,8 +82,52 @@
             </div>
         @endif
 
+        <!-- Reschedule Form -->
+        @if($isRescheduling)
+            <div class="bg-blue-50 border-l-4 border-blue-500 p-6 mb-6">
+                <h3 class="font-semibold text-gray-900 mb-4">Reschedule Appointment</h3>
+                
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">New Date</label>
+                        <input type="date" 
+                               wire:model="newDate" 
+                               min="{{ now()->addDay()->format('Y-m-d') }}"
+                               class="w-full px-4 py-2 border border-gray-300 rounded-lg @error('newDate') border-red-500 @enderror">
+                        @error('newDate') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
+                    </div>
+
+                    <div>
+                        <label class="block text-sm font-medium text-gray-700 mb-2">New Time</label>
+                        <input type="time" 
+                               wire:model="newTime" 
+                               class="w-full px-4 py-2 border border-gray-300 rounded-lg @error('newTime') border-red-500 @enderror">
+                        @error('newTime') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
+                    </div>
+                </div>
+
+                <div class="mt-4 flex gap-4">
+                    <button wire:click="reschedule" 
+                            class="px-6 py-2 bg-green-600 text-white rounded-lg hover:bg-green-700">
+                        Confirm Reschedule
+                    </button>
+                    <button wire:click="cancelReschedule" 
+                            class="px-6 py-2 border border-gray-300 rounded-lg text-gray-700 hover:bg-gray-50">
+                        Cancel
+                    </button>
+                </div>
+            </div>
+        @endif
+
         <!-- Actions -->
         <div class="flex gap-4">
+            @if($appointment->canBeRescheduledBy(auth()->user()) && !$isRescheduling)
+                <button wire:click="startReschedule" 
+                        class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700">
+                    Reschedule Appointment
+                </button>
+            @endif
+
             @if($appointment->canBeCancelledBy(auth()->user()))
                 <button wire:click="cancel" 
                         wire:confirm="Are you sure you want to cancel this appointment?"
@@ -92,10 +136,10 @@
                 </button>
             @endif
 
-            @if($appointment->qr_code)
+            @if($appointment->qr_code && $appointment->status !== 'cancelled')
                 <a href="{{ \Storage::disk('public')->url($appointment->qr_code) }}" 
                    download
-                   class="px-6 py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 inline-block">
+                   class="px-6 py-3 bg-gray-600 text-white rounded-lg hover:bg-gray-700 inline-block">
                     Download QR Code
                 </a>
             @endif

@@ -28,9 +28,20 @@ Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/appointments/create', \App\Livewire\Patient\Appointments\AppointmentCreate::class)->name('appointments.create');
     Route::get('/appointments/{appointment}', \App\Livewire\Patient\Appointments\AppointmentDetail::class)->name('appointments.show');
 
+    // Profile Management
+    Route::get('/profile/edit', \App\Livewire\Patient\Profile\ProfileEdit::class)->name('profile.edit');
+    Route::get('/profile/medical', \App\Livewire\Patient\Profile\MedicalInfo::class)->name('profile.medical');
+
+    // Documents
+    Route::get('/documents', \App\Livewire\Patient\Documents\DocumentUpload::class)->name('documents.index');
+
+    // Reviews
+    Route::get('/reviews', \App\Livewire\Patient\Reviews\ReviewList::class)->name('reviews.index');
+    Route::get('/reviews/create/{appointment}', \App\Livewire\Patient\Reviews\ReviewForm::class)->name('reviews.create');
+
     // Settings routes
     Route::redirect('settings', 'settings/profile');
-    Volt::route('settings/profile', 'settings.profile')->name('profile.edit');
+    Volt::route('settings/profile', 'settings.profile')->name('profile.settings');
     Volt::route('settings/password', 'settings.password')->name('user-password.edit');
     Volt::route('settings/appearance', 'settings.appearance')->name('appearance.edit');
 

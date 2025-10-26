@@ -15,6 +15,10 @@ class AppointmentDetail extends Component
         $this->appointment = $appointment->load(['doctor', 'service', 'patient']);
     }
 
+    public $isRescheduling = false;
+    public $newDate;
+    public $newTime;
+
     public function cancel()
     {
         $this->authorize('cancel', $this->appointment);
@@ -28,6 +32,57 @@ class AppointmentDetail extends Component
 
         session()->flash('success', 'Appointment cancelled successfully.');
         return redirect()->route('appointments.index');
+    }
+
+    public function startReschedule()
+    {
+        $this->authorize('reschedule', $this->appointment);
+        $this->isRescheduling = true;
+        $this->newDate = $this->appointment->appointment_date->format('Y-m-d');
+        $this->newTime = $this->appointment->appointment_time->format('H:i');
+    }
+
+    public function cancelReschedule()
+    {
+        $this->isRescheduling = false;
+        $this->newDate = null;
+        $this->newTime = null;
+    }
+
+    public function reschedule()
+    {
+        $this->authorize('reschedule', $this->appointment);
+
+        $this->validate([
+            'newDate' => 'required|date|after:today',
+            'newTime' => 'required|date_format:H:i',
+        ]);
+
+        // Check if the new slot is available
+        $service = app(\App\Services\AppointmentService::class);
+        $availableSlots = $service->getAvailableSlots(
+            $this->appointment->doctor_id,
+            $this->newDate
+        );
+
+        if (!$availableSlots->contains($this->newTime)) {
+            $this->addError('newTime', 'The selected time slot is not available.');
+            return;
+        }
+
+        // Calculate new end time
+        $endTime = \Carbon\Carbon::parse($this->newTime)
+            ->addMinutes($this->appointment->service->duration);
+
+        $this->appointment->update([
+            'appointment_date' => $this->newDate,
+            'appointment_time' => $this->newTime,
+            'end_time' => $endTime->format('H:i:s'),
+            'status' => 'pending',
+        ]);
+
+        session()->flash('success', 'Appointment rescheduled successfully.');
+        $this->isRescheduling = false;
     }
 
     public function render()

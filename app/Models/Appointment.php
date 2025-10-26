@@ -68,6 +68,11 @@ class Appointment extends Model
         return $this->belongsTo(User::class, 'confirmed_by');
     }
 
+    public function review()
+    {
+        return $this->hasOne(Review::class);
+    }
+
     // Accessors
     public function getAppointmentDatetimeAttribute()
     {
