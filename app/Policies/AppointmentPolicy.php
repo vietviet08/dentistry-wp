@@ -12,7 +12,8 @@ class AppointmentPolicy
      */
     public function viewAny(User $user): bool
     {
-        return false;
+        // Patients see their own appointments, admins see all
+        return true;
     }
 
     /**
@@ -20,7 +21,7 @@ class AppointmentPolicy
      */
     public function view(User $user, Appointment $appointment): bool
     {
-        return false;
+        return $user->isAdmin() || $user->id === $appointment->patient_id;
     }
 
     /**
@@ -28,7 +29,7 @@ class AppointmentPolicy
      */
     public function create(User $user): bool
     {
-        return false;
+        return $user->isPatient() && $user->is_active;
     }
 
     /**
@@ -36,6 +37,7 @@ class AppointmentPolicy
      */
     public function update(User $user, Appointment $appointment): bool
     {
+        // Updates are done through specific actions (reschedule, cancel)
         return false;
     }
 
@@ -44,7 +46,47 @@ class AppointmentPolicy
      */
     public function delete(User $user, Appointment $appointment): bool
     {
-        return false;
+        return $user->isAdmin();
+    }
+
+    /**
+     * Determine whether the user can cancel the appointment.
+     */
+    public function cancel(User $user, Appointment $appointment): bool
+    {
+        return $appointment->canBeCancelledBy($user);
+    }
+
+    /**
+     * Determine whether the user can reschedule the appointment.
+     */
+    public function reschedule(User $user, Appointment $appointment): bool
+    {
+        return $appointment->canBeRescheduledBy($user);
+    }
+
+    /**
+     * Determine whether the user can confirm the appointment.
+     */
+    public function confirm(User $user, Appointment $appointment): bool
+    {
+        return $user->isAdmin() && $appointment->status === 'pending';
+    }
+
+    /**
+     * Determine whether the user can complete the appointment.
+     */
+    public function complete(User $user, Appointment $appointment): bool
+    {
+        return $user->isAdmin() && $appointment->status === 'confirmed';
+    }
+
+    /**
+     * Determine whether the user can mark appointment as no-show.
+     */
+    public function markAsNoShow(User $user, Appointment $appointment): bool
+    {
+        return $user->isAdmin();
     }
 
     /**
@@ -52,7 +94,7 @@ class AppointmentPolicy
      */
     public function restore(User $user, Appointment $appointment): bool
     {
-        return false;
+        return $user->isAdmin();
     }
 
     /**
@@ -60,6 +102,6 @@ class AppointmentPolicy
      */
     public function forceDelete(User $user, Appointment $appointment): bool
     {
-        return false;
+        return $user->isAdmin();
     }
 }

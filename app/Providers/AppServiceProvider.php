@@ -47,5 +47,8 @@ class AppServiceProvider extends ServiceProvider
         Gate::define('manage-appointments', function ($user) {
             return $user->role === 'admin';
         });
+
+        // Register policies
+        Gate::policy(\App\Models\Appointment::class, \App\Policies\AppointmentPolicy::class);
     }
 }

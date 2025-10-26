@@ -26,7 +26,7 @@ new class extends Component {
 
 <x-slot name="title">SmileLux - Nha khoa thẩm mỹ</x-slot>
 
-<div class="min-h-screen">
+<div>
     <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
         <!-- Background Image -->
@@ -50,12 +50,12 @@ new class extends Component {
                     SmileLux kiến tạo nụ cười rạng ngời bằng chuyên môn, công nghệ và sự tận tâm
                 </p>
                 <div class="flex flex-col sm:flex-row gap-6 justify-center">
-                    <button class="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all transform hover:scale-105">
+                    <a href="{{ route('appointments.create') }}" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all transform hover:scale-105 inline-block text-center">
                         Đặt lịch ngay
-                    </button>
-                    <button class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-blue-600 transition-all">
+                    </a>
+                    <a href="{{ route('services') }}" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-blue-600 transition-all inline-block text-center">
                         Tìm hiểu thêm
-                    </button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -593,9 +593,11 @@ new class extends Component {
                                 <span class="ml-2 text-sm text-gray-700">Tôi xác nhận đã đọc và đồng ý với Hướng dẫn dành cho khách hàng và Điều khoản sử dụng.</span>
                             </label>
                         </div>
-                        <button type="submit" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all transform hover:scale-105">
-                            Đặt lịch ngay
-                        </button>
+                        <div class="flex justify-end">
+                            <a href="{{ route('appointments.create') }}" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all transform hover:scale-105 inline-block text-center">
+                                Đặt lịch ngay
+                            </a>
+                        </div>
                     </div>
                 </form>
             </div>
@@ -622,9 +624,9 @@ new class extends Component {
                 </div>
                 
                 <div class="flex flex-col items-center gap-8">
-                    <button class="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all transform hover:scale-105">
+                    <a href="{{ route('appointments.create') }}" class="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all transform hover:scale-105 inline-block text-center">
                         Đặt lịch Ngay
-                    </button>
+                    </a>
                     
                     <div class="flex items-center gap-4 bg-white/10 backdrop-blur-sm rounded-2xl p-6">
                         <div class="w-16 h-16 bg-gradient-to-br from-blue-400 to-blue-600 rounded-xl flex items-center justify-center">

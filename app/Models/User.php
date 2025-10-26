@@ -84,4 +84,20 @@ class User extends Authenticatable implements MustVerifyEmail
             ->map(fn ($word) => Str::substr($word, 0, 1))
             ->implode('');
     }
+
+    /**
+     * Appointments
+     */
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class, 'patient_id');
+    }
+
+    /**
+     * Doctor profile
+     */
+    public function doctor()
+    {
+        return $this->hasOne(Doctor::class);
+    }
 }

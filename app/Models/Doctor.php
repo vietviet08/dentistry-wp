@@ -47,6 +47,16 @@ class Doctor extends Model
         return $this->hasMany(DoctorSchedule::class);
     }
 
+    public function appointments()
+    {
+        return $this->hasMany(Appointment::class);
+    }
+
+    public function upcomingAppointments()
+    {
+        return $this->appointments()->where('appointment_date', '>=', today());
+    }
+
     // Route binding
     public function getRouteKeyName()
     {

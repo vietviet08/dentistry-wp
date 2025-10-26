@@ -23,6 +23,11 @@ Volt::route('/gallery', 'pages.gallery')->name('gallery');
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', \App\Livewire\Patient\Dashboard::class)->name('dashboard');
 
+    // Appointments
+    Route::get('/appointments', \App\Livewire\Patient\Appointments\AppointmentList::class)->name('appointments.index');
+    Route::get('/appointments/create', \App\Livewire\Patient\Appointments\AppointmentCreate::class)->name('appointments.create');
+    Route::get('/appointments/{appointment}', \App\Livewire\Patient\Appointments\AppointmentDetail::class)->name('appointments.show');
+
     // Settings routes
     Route::redirect('settings', 'settings/profile');
     Volt::route('settings/profile', 'settings.profile')->name('profile.edit');

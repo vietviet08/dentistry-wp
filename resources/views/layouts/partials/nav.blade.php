@@ -33,9 +33,9 @@
                     </div>
                     <span class="text-sm text-gray-600">VN</span>
                 </div>
-                <button class="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition">
+                <a href="{{ route('appointments.create') }}" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition">
                     Đặt lịch ngay
-                </button>
+                </a>
             </div>
         </div>
     </div>

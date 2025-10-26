@@ -58,7 +58,7 @@
         @include('layouts.partials.nav')
 
         <!-- Page Content -->
-        <main>
+        <main class="pt-16">
             @if (isset($slot))
                 {{ $slot }}
             @else
