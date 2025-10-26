@@ -4,9 +4,11 @@ namespace App\Livewire\Patient\Documents;
 
 use App\Models\PatientDocument;
 use Livewire\Component;
+use Livewire\Attributes\Layout;
 use Livewire\WithFileUploads;
 use Illuminate\Support\Facades\Storage;
 
+#[Layout('components.layouts.app')]
 class DocumentUpload extends Component
 {
     use WithFileUploads;

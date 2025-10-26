@@ -110,6 +110,14 @@ class User extends Authenticatable implements MustVerifyEmail
     }
 
     /**
+     * Alias for patientProfile for backward compatibility
+     */
+    public function profile()
+    {
+        return $this->hasOne(PatientProfile::class);
+    }
+
+    /**
      * Patient documents
      */
     public function documents()

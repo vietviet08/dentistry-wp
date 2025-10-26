@@ -5,7 +5,9 @@ namespace App\Livewire\Patient\Reviews;
 use App\Models\Appointment;
 use App\Models\Review;
 use Livewire\Component;
+use Livewire\Attributes\Layout;
 
+#[Layout('components.layouts.app')]
 class ReviewForm extends Component
 {
     public $appointment;

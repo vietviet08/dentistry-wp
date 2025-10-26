@@ -6,7 +6,9 @@ use App\Models\Appointment;
 use App\Models\Doctor;
 use App\Models\Service;
 use Livewire\Component;
+use Livewire\Attributes\Layout;
 
+#[Layout('components.layouts.app')]
 class Dashboard extends Component
 {
     public function render()
@@ -29,4 +31,6 @@ class Dashboard extends Component
         ]);
     }
 }
+
+
 

@@ -58,6 +58,52 @@ Route::middleware(['auth', 'verified'])->group(function () {
 });
 
 // Admin Routes
-Route::middleware(['auth', 'can:access-admin-panel'])->prefix('admin')->group(function () {
-    Route::get('/', \App\Livewire\Admin\Dashboard::class)->name('admin.dashboard');
+Route::middleware(['auth', 'can:access-admin-panel'])->prefix('admin')->name('admin.')->group(function () {
+    Route::get('/', \App\Livewire\Admin\Dashboard::class)->name('dashboard');
+    
+    // Appointments
+    Route::prefix('appointments')->group(function () {
+        Route::get('/', \App\Livewire\Admin\Appointments\AppointmentTable::class)->name('appointments.index');
+        Route::get('/calendar', \App\Livewire\Admin\Appointments\AppointmentCalendar::class)->name('appointments.calendar');
+        Route::get('/{appointment}', \App\Livewire\Admin\Appointments\AppointmentDetail::class)->name('appointments.show');
+    });
+    
+    // Patients
+    Route::prefix('patients')->group(function () {
+        Route::get('/', \App\Livewire\Admin\Patients\PatientTable::class)->name('patients.index');
+        Route::get('/{user}', \App\Livewire\Admin\Patients\PatientDetail::class)->name('patients.show');
+    });
+    
+    // Services
+    Route::prefix('services')->group(function () {
+        Route::get('/', \App\Livewire\Admin\Services\ServiceTable::class)->name('services.index');
+        Route::get('/create', \App\Livewire\Admin\Services\ServiceForm::class)->name('services.create');
+        Route::get('/{service}/edit', \App\Livewire\Admin\Services\ServiceForm::class)->name('services.edit');
+    });
+    
+    // Doctors
+    Route::prefix('doctors')->group(function () {
+        Route::get('/', \App\Livewire\Admin\Doctors\DoctorTable::class)->name('doctors.index');
+        Route::get('/create', \App\Livewire\Admin\Doctors\DoctorForm::class)->name('doctors.create');
+        Route::get('/{doctor}/edit', \App\Livewire\Admin\Doctors\DoctorForm::class)->name('doctors.edit');
+        Route::get('/{doctor}/schedule', \App\Livewire\Admin\Doctors\ScheduleManager::class)->name('doctors.schedule');
+    });
+    
+    // Blog
+    Route::prefix('posts')->group(function () {
+        Route::get('/', \App\Livewire\Admin\Posts\PostTable::class)->name('posts.index');
+        Route::get('/create', \App\Livewire\Admin\Posts\PostEditor::class)->name('posts.create');
+        Route::get('/{post}/edit', \App\Livewire\Admin\Posts\PostEditor::class)->name('posts.edit');
+    });
+    
+    // Gallery
+    Route::get('/gallery', \App\Livewire\Admin\Gallery\GalleryManager::class)->name('gallery.index');
+    
+    // Reviews
+    Route::get('/reviews', \App\Livewire\Admin\Reviews\ReviewModeration::class)->name('reviews.index');
+    
+    // Settings
+    Route::prefix('settings')->group(function () {
+        Route::get('/general', \App\Livewire\Admin\Settings\GeneralSettings::class)->name('settings.general');
+    });
 });

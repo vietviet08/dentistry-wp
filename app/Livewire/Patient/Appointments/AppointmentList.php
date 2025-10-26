@@ -4,17 +4,19 @@ namespace App\Livewire\Patient\Appointments;
 
 use App\Models\Appointment;
 use Livewire\Component;
+use Livewire\Attributes\Layout;
 use Livewire\WithPagination;
 
+#[Layout('components.layouts.app')]
 class AppointmentList extends Component
 {
     use WithPagination;
 
-    public $filter = 'all'; // all, upcoming, past, cancelled
+    public $statusFilter = 'all'; // all, upcoming, past, cancelled
     
-    public function filter($status)
+    public function setFilter($status)
     {
-        $this->filter = $status;
+        $this->statusFilter = $status;
         $this->resetPage();
     }
 
@@ -41,11 +43,11 @@ class AppointmentList extends Component
     {
         $query = auth()->user()->appointments()->with(['doctor', 'service']);
 
-        $query->when($this->filter === 'upcoming', function ($q) {
+        $query->when($this->statusFilter === 'upcoming', function ($q) {
             $q->upcoming();
-        })->when($this->filter === 'past', function ($q) {
+        })->when($this->statusFilter === 'past', function ($q) {
             $q->past();
-        })->when($this->filter === 'cancelled', function ($q) {
+        })->when($this->statusFilter === 'cancelled', function ($q) {
             $q->where('status', 'cancelled');
         });
 

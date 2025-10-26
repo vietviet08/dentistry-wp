@@ -8,24 +8,24 @@
 
     <!-- Filter Tabs -->
     <div class="flex gap-2 mb-6">
-        <button wire:click="filter('all')" 
+        <button wire:click="setFilter('all')" 
                 class="px-4 py-2 rounded-lg transition-colors
-                    @if($filter === 'all') bg-blue-600 text-white @else bg-gray-100 hover:bg-gray-200 @endif">
+                    @if($statusFilter === 'all') bg-blue-600 text-white @else bg-gray-100 hover:bg-gray-200 @endif">
             All
         </button>
-        <button wire:click="filter('upcoming')" 
+        <button wire:click="setFilter('upcoming')" 
                 class="px-4 py-2 rounded-lg transition-colors
-                    @if($filter === 'upcoming') bg-blue-600 text-white @else bg-gray-100 hover:bg-gray-200 @endif">
+                    @if($statusFilter === 'upcoming') bg-blue-600 text-white @else bg-gray-100 hover:bg-gray-200 @endif">
             Upcoming
         </button>
-        <button wire:click="filter('past')" 
+        <button wire:click="setFilter('past')" 
                 class="px-4 py-2 rounded-lg transition-colors
-                    @if($filter === 'past') bg-blue-600 text-white @else bg-gray-100 hover:bg-gray-200 @endif">
+                    @if($statusFilter === 'past') bg-blue-600 text-white @else bg-gray-100 hover:bg-gray-200 @endif">
             Past
         </button>
-        <button wire:click="filter('cancelled')" 
+        <button wire:click="setFilter('cancelled')" 
                 class="px-4 py-2 rounded-lg transition-colors
-                    @if($filter === 'cancelled') bg-blue-600 text-white @else bg-gray-100 hover:bg-gray-200 @endif">
+                    @if($statusFilter === 'cancelled') bg-blue-600 text-white @else bg-gray-100 hover:bg-gray-200 @endif">
             Cancelled
         </button>
     </div>

@@ -4,8 +4,10 @@ namespace App\Livewire\Patient\Reviews;
 
 use App\Models\Review;
 use Livewire\Component;
+use Livewire\Attributes\Layout;
 use Livewire\WithPagination;
 
+#[Layout('components.layouts.app')]
 class ReviewList extends Component
 {
     use WithPagination;

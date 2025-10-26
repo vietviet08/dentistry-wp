@@ -4,8 +4,10 @@ namespace App\Livewire\Patient\Profile;
 
 use App\Models\User;
 use Livewire\Component;
+use Livewire\Attributes\Layout;
 use Livewire\WithFileUploads;
 
+#[Layout('components.layouts.app')]
 class ProfileEdit extends Component
 {
     use WithFileUploads;

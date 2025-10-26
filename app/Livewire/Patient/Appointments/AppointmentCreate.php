@@ -8,9 +8,10 @@ use App\Models\Doctor;
 use App\Services\AppointmentService;
 use Illuminate\Support\Facades\DB;
 use Livewire\Component;
-// QR Code generation without external package
+use Livewire\Attributes\Layout;
 use Livewire\Attributes\Validate;
 
+#[Layout('components.layouts.app')]
 class AppointmentCreate extends Component
 {
     public $step = 1;

@@ -4,7 +4,9 @@ namespace App\Livewire\Patient\Appointments;
 
 use App\Models\Appointment;
 use Livewire\Component;
+use Livewire\Attributes\Layout;
 
+#[Layout('components.layouts.app')]
 class AppointmentDetail extends Component
 {
     public Appointment $appointment;

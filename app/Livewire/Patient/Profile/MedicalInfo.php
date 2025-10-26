@@ -4,7 +4,9 @@ namespace App\Livewire\Patient\Profile;
 
 use App\Models\PatientProfile;
 use Livewire\Component;
+use Livewire\Attributes\Layout;
 
+#[Layout('components.layouts.app')]
 class MedicalInfo extends Component
 {
     public $address;
