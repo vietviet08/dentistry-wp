@@ -9,7 +9,7 @@ new class extends Component {
     }
 }; ?>
 
-<x-slot name="title">Liên hệ - SmileLux</x-slot>
+<x-slot name="title">{{ __('contact.title_page') }}</x-slot>
 
 <div class="min-h-screen bg-white">
     <!-- Hero Section -->
@@ -18,7 +18,7 @@ new class extends Component {
         <div class="relative max-w-7xl mx-auto px-5">
             <div class="text-center">
                 <h1 class="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-indigo-900 via-blue-700 to-blue-700 bg-clip-text text-transparent">
-                    Liên hệ với chúng tôi
+                    {{ __('contact.hero.title') }}
                 </h1>
                 <div class="flex justify-center mt-8 mb-6">
                     <svg class="w-64 h-1" viewBox="0 0 256 1" fill="none">
@@ -31,7 +31,7 @@ new class extends Component {
                         </defs>
                     </svg>
                 </div>
-                <p class="text-xl text-gray-300">Vì nụ cười của bạn</p>
+                <p class="text-xl text-gray-300">{{ __('contact.hero.subtitle') }}</p>
             </div>
         </div>
     </div>
@@ -42,7 +42,7 @@ new class extends Component {
             <!-- Left: Contact Info -->
             <div class="bg-blue-600 rounded-2xl p-8 shadow-xl">
                 <h2 class="text-white text-2xl font-bold mb-6">
-                    Đội ngũ của chúng tôi luôn sẵn sàng giúp bạn và trả lời mọi câu hỏi
+                    {{ __('contact.info.title') }}
                 </h2>
                 
                 <div class="space-y-6">
@@ -55,10 +55,10 @@ new class extends Component {
                             </svg>
                         </div>
                         <div class="space-y-2">
-                            <p class="text-white text-sm">Hà Nội – Cơ sở 1: Tầng 6, 605 Quang Trung, Kiến Hưng, Hà Đông, Hà Nội</p>
-                            <p class="text-white text-sm">Hà Nội – Cơ sở 2: 133 Hải Âu 1, KĐT Vinhomes Ocean Park 1, xã Gia Lâm, Hà Nội</p>
-                            <p class="text-white text-sm">Đà Nẵng – Cơ sở 3: 106 Tố Hữu, phường Hòa Cường, Đà Nẵng (Pre-opening)</p>
-                            <p class="text-white text-sm">TP. HCM – Cơ sở 4: 658/5 Cách Mạng Tháng 8, Phường Nhiêu Lộc, TP. Hồ Chí Minh</p>
+                            <p class="text-white text-sm">{{ __('contact.info.locations.hanoi_1') }}</p>
+                            <p class="text-white text-sm">{{ __('contact.info.locations.hanoi_2') }}</p>
+                            <p class="text-white text-sm">{{ __('contact.info.locations.danang') }}</p>
+                            <p class="text-white text-sm">{{ __('contact.info.locations.hcmc') }}</p>
                         </div>
                     </div>
 
@@ -67,7 +67,7 @@ new class extends Component {
                         <svg class="w-6 h-6 text-white flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z" />
                         </svg>
-                        <p class="text-white">0918 19 69 91</p>
+                        <p class="text-white">{{ __('contact.info.phone') }}</p>
                     </div>
 
                     <!-- Email -->
@@ -75,7 +75,7 @@ new class extends Component {
                         <svg class="w-6 h-6 text-white flex-shrink-0" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z" />
                         </svg>
-                        <p class="text-white">smileluxmarketing@gmail.com</p>
+                        <p class="text-white">{{ __('contact.info.email') }}</p>
                     </div>
 
                     <!-- Hours -->
@@ -84,8 +84,8 @@ new class extends Component {
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
                         </svg>
                         <div>
-                            <p class="text-white">Thứ Hai - Thứ Sáu</p>
-                            <p class="text-white">8:00 AM to 20:00 PM</p>
+                            <p class="text-white">{{ __('contact.info.hours.label') }}</p>
+                            <p class="text-white">{{ __('contact.info.hours.time') }}</p>
                         </div>
                     </div>
                 </div>
@@ -93,43 +93,43 @@ new class extends Component {
 
             <!-- Right: Booking Form -->
             <div class="bg-white rounded-2xl p-8 shadow-xl">
-                <h2 class="text-2xl font-bold text-gray-900 mb-2">Đặt lịch hẹn</h2>
-                <p class="text-gray-600 mb-8">Hãy liên hệ với chúng tôi và gửi câu hỏi của bạn</p>
+                <h2 class="text-2xl font-bold text-gray-900 mb-2">{{ __('contact.form.booking_title') }}</h2>
+                <p class="text-gray-600 mb-8">{{ __('contact.form.booking_subtitle') }}</p>
 
                 <form class="space-y-5">
                     <!-- Name -->
                     <div>
-                        <label for="name" class="sr-only">Họ và tên</label>
-                        <input type="text" id="name" name="name" placeholder="Họ và tên"
+                        <label for="name" class="sr-only">{{ __('contact.form.name') }}</label>
+                        <input type="text" id="name" name="name" placeholder="{{ __('contact.form.name') }}"
                                class="w-full px-6 py-4 rounded-full border border-gray-200 bg-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                     </div>
 
                     <!-- Email -->
                     <div>
-                        <label for="email" class="sr-only">Địa chỉ email</label>
-                        <input type="email" id="email" name="email" placeholder="Địa chỉ email"
+                        <label for="email" class="sr-only">{{ __('contact.form.email') }}</label>
+                        <input type="email" id="email" name="email" placeholder="{{ __('contact.form.email') }}"
                                class="w-full px-6 py-4 rounded-full border border-gray-200 bg-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                     </div>
 
                     <!-- Phone -->
                     <div>
-                        <label for="phone" class="sr-only">Số điện thoại</label>
-                        <input type="tel" id="phone" name="phone" placeholder="Số điện thoại"
+                        <label for="phone" class="sr-only">{{ __('contact.form.phone') }}</label>
+                        <input type="tel" id="phone" name="phone" placeholder="{{ __('contact.form.phone') }}"
                                class="w-full px-6 py-4 rounded-full border border-gray-200 bg-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                     </div>
 
                     <!-- Consultation Topic -->
                     <div>
-                        <label for="consultation" class="sr-only">Nội dung cần tư vấn</label>
+                        <label for="consultation" class="sr-only">{{ __('contact.form.consultation') }}</label>
                         <div class="relative">
                             <select id="consultation" name="consultation"
                                     class="w-full px-6 py-4 rounded-full border border-gray-200 bg-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500 appearance-none">
-                                <option value="">Nội dung cần tư vấn</option>
-                                <option value="general">Tư vấn tổng quát</option>
-                                <option value="cleaning">Vệ sinh răng miệng</option>
-                                <option value="whitening">Tẩy trắng răng</option>
-                                <option value="braces">Niềng răng</option>
-                                <option value="implant">Cấy ghép implant</option>
+                                <option value="">{{ __('contact.form.consultation_placeholder') }}</option>
+                                <option value="general">{{ __('contact.form.consultation_options.general') }}</option>
+                                <option value="cleaning">{{ __('contact.form.consultation_options.cleaning') }}</option>
+                                <option value="whitening">{{ __('contact.form.consultation_options.whitening') }}</option>
+                                <option value="braces">{{ __('contact.form.consultation_options.braces') }}</option>
+                                <option value="implant">{{ __('contact.form.consultation_options.implant') }}</option>
                             </select>
                             <div class="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none">
                                 <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -143,9 +143,9 @@ new class extends Component {
                     <div class="grid grid-cols-2 gap-4">
                         <!-- Date -->
                         <div>
-                            <label for="date" class="sr-only">Ngày</label>
+                            <label for="date" class="sr-only">{{ __('contact.form.date') }}</label>
                             <div class="relative">
-                                <input type="date" id="date" name="date" placeholder="Ngày"
+                                <input type="date" id="date" name="date" placeholder="{{ __('contact.form.date') }}"
                                        class="w-full px-6 py-4 rounded-full border border-gray-200 bg-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                                 <div class="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none">
                                     <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -157,9 +157,9 @@ new class extends Component {
 
                         <!-- Time -->
                         <div>
-                            <label for="time" class="sr-only">Giờ</label>
+                            <label for="time" class="sr-only">{{ __('contact.form.time') }}</label>
                             <div class="relative">
-                                <input type="time" id="time" name="time" placeholder="Giờ"
+                                <input type="time" id="time" name="time" placeholder="{{ __('contact.form.time') }}"
                                        class="w-full px-6 py-4 rounded-full border border-gray-200 bg-gray-100 focus:ring-2 focus:ring-blue-500 focus:border-blue-500">
                                 <div class="absolute right-4 top-1/2 transform -translate-y-1/2 pointer-events-none">
                                     <svg class="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -172,7 +172,7 @@ new class extends Component {
 
                     <!-- Submit Button -->
                     <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-blue-800 text-white px-6 py-4 rounded-full font-semibold hover:shadow-lg transition">
-                        Đặt lịch hẹn Ngay
+                        {{ __('contact.form.submit') }}
                     </button>
                 </form>
             </div>
@@ -183,7 +183,7 @@ new class extends Component {
     <div class="py-12 bg-gray-50">
         <div class="max-w-7xl mx-auto px-5">
             <div class="bg-gray-200 rounded-2xl h-[400px] flex items-center justify-center">
-                <p class="text-gray-500">Bản đồ sẽ được hiển thị tại đây</p>
+                <p class="text-gray-500">{{ __('contact.map.placeholder') }}</p>
             </div>
         </div>
     </div>

@@ -9,7 +9,7 @@ new class extends Component {
     }
 }; ?>
 
-<x-slot name="title">Về chúng tôi - SmileLux</x-slot>
+<x-slot name="title">{{ __('about.title') }}</x-slot>
 
 <div class="min-h-screen">
     <!-- Hero Section -->
@@ -22,11 +22,11 @@ new class extends Component {
                 </div>
                 <h1 class="text-5xl md:text-6xl font-bold mb-6">
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">
-                        Về chúng tôi
+                        {{ __('about.hero.title') }}
                     </span>
                 </h1>
                 <p class="text-xl md:text-2xl mb-12 text-gray-200 max-w-4xl mx-auto leading-relaxed">
-                    Tại SmileLux, chúng tôi tin rằng mỗi nụ cười đều mang một câu chuyện riêng. Với đội ngũ bác sĩ tận tâm và công nghệ hiện đại, SmileLux mang đến giải pháp nha khoa an toàn, thẩm mỹ và hiệu quả.
+                    {{ __('about.hero.subtitle') }}
                 </p>
             </div>
         </div>
@@ -40,10 +40,10 @@ new class extends Component {
                     <div class="w-16 h-1 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full"></div>
                 </div>
                 <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">Sứ mệnh và Tầm nhìn của chúng tôi</span>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">{{ __('about.mission_vision.title') }}</span>
                 </h2>
                 <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                    SmileLux mong mọi khách hàng, dù ở bất kỳ đâu, đều có cơ hội tiếp cận dịch vụ nha khoa chất lượng, an toàn và tận tâm.
+                    {{ __('about.mission_vision.subtitle') }}
                 </p>
             </div>
             
@@ -56,9 +56,9 @@ new class extends Component {
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Sứ mệnh SmileLux</h3>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">{{ __('about.mission_vision.mission.title') }}</h3>
                     <p class="text-gray-600 leading-relaxed">
-                        Mang đến giải pháp nha khoa chuẩn y khoa, an toàn và tận tâm – kiến tạo nụ cười khỏe đẹp, bền vững cho mỗi khách hàng.
+                        {{ __('about.mission_vision.mission.description') }}
                     </p>
                 </div>
                 
@@ -69,9 +69,9 @@ new class extends Component {
                             <path d="M12 4.5C7 4.5 2.73 7.61 1 12c1.73 4.39 6 7.5 11 7.5s9.27-3.11 11-7.5c-1.73-4.39-6-7.5-11-7.5zM12 17c-2.76 0-5-2.24-5-5s2.24-5 5-5 5 2.24 5 5-2.24 5-5 5zm0-8c-1.66 0-3 1.34-3 3s1.34 3 3 3 3-1.34 3-3-1.34-3-3-3z"/>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Tầm nhìn SmileLux</h3>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">{{ __('about.mission_vision.vision.title') }}</h3>
                     <p class="text-gray-600 leading-relaxed">
-                        SmileLux tiên phong số hóa hành trình nha khoa để mọi khách hàng đều có thể sở hữu nụ cười rạng ngời
+                        {{ __('about.mission_vision.vision.description') }}
                     </p>
                 </div>
                 
@@ -82,9 +82,9 @@ new class extends Component {
                             <path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-bold text-gray-800 mb-4">Giá trị cốt lõi</h3>
+                    <h3 class="text-xl font-bold text-gray-800 mb-4">{{ __('about.mission_vision.core_values.title') }}</h3>
                     <p class="text-gray-600 leading-relaxed">
-                        Khách hàng là trung tâm – Dịch vụ tận tâm – Đổi mới liên tục – Bản sắc Việt, chuẩn quốc tế.
+                        {{ __('about.mission_vision.core_values.description') }}
                     </p>
                 </div>
             </div>
@@ -99,17 +99,17 @@ new class extends Component {
                     <div class="w-16 h-1 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full"></div>
                 </div>
                 <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">Bộ sưu tập</span>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">{{ __('about.gallery.title') }}</span>
                 </h2>
                 <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                    Mỗi chi nhánh SmileLux đều được xây dựng theo chuẩn quốc tế, chuẩn y khoa, mang lại cảm giác an tâm tuyệt đối cho khách hàng.
+                    {{ __('about.gallery.subtitle') }}
                 </p>
             </div>
             
             <!-- Gallery Grid -->
             <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                 <div class="md:col-span-1">
-                    <img src="https://images.unsplash.com/photo-1606811841689-23dfddceeee3?w=400&h=300&fit=crop" alt="Dental Clinic" class="w-full h-64 object-cover rounded-lg shadow-lg">
+                    <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2068" alt="Dental Clinic" class="w-full h-64 object-cover rounded-lg shadow-lg">
                 </div>
                 <div class="md:col-span-2">
                     <img src="https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?w=800&h=300&fit=crop" alt="Modern Dental Equipment" class="w-full h-64 object-cover rounded-lg shadow-lg">
@@ -138,10 +138,10 @@ new class extends Component {
                     <div class="w-16 h-1 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full"></div>
                 </div>
                 <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">Giải thưởng & Thành tựu</span>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">{{ __('about.awards.title') }}</span>
                 </h2>
                 <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                    Những thành tựu là minh chứng cho sự uy tín và chất lượng tại SmileLux
+                    {{ __('about.awards.subtitle') }}
                 </p>
             </div>
             
@@ -154,9 +154,9 @@ new class extends Component {
                             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                         </svg>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-4">Nha khoa uy tín hàng đầu Việt Nam</h3>
+                    <h3 class="text-lg font-bold text-gray-800 mb-4">{{ __('about.awards.top_dental.title') }}</h3>
                     <p class="text-gray-600 text-sm leading-relaxed">
-                        Được vinh danh bởi các tổ chức y tế uy tín, tiên phong trong implant, chỉnh nha và thẩm mỹ răng sứ chuẩn y khoa.
+                        {{ __('about.awards.top_dental.description') }}
                     </p>
                 </div>
                 
@@ -167,9 +167,9 @@ new class extends Component {
                             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                         </svg>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-4">Dịch vụ chăm sóc khách hàng xuất sắc</h3>
+                    <h3 class="text-lg font-bold text-gray-800 mb-4">{{ __('about.awards.excellent_service.title') }}</h3>
                     <p class="text-gray-600 text-sm leading-relaxed">
-                        Khẳng định quy trình chăm sóc tận tâm, theo dõi sát sau điều trị, mang lại sự hài lòng tuyệt đối cho khách hàng.
+                        {{ __('about.awards.excellent_service.description') }}
                     </p>
                 </div>
                 
@@ -180,9 +180,9 @@ new class extends Component {
                             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                         </svg>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-4">Chứng nhận ISO 9001:2015</h3>
+                    <h3 class="text-lg font-bold text-gray-800 mb-4">{{ __('about.awards.iso.title') }}</h3>
                     <p class="text-gray-600 text-sm leading-relaxed">
-                        Áp dụng hệ thống quản lý chất lượng quốc tế, đảm bảo mọi quy trình điều trị đạt chuẩn an toàn và hiệu quả cao nhất.
+                        {{ __('about.awards.iso.description') }}
                     </p>
                 </div>
                 
@@ -193,9 +193,9 @@ new class extends Component {
                             <path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/>
                         </svg>
                     </div>
-                    <h3 class="text-lg font-bold text-gray-800 mb-4">Chứng nhận Straumann (Thụy Sĩ)</h3>
+                    <h3 class="text-lg font-bold text-gray-800 mb-4">{{ __('about.awards.straumann.title') }}</h3>
                     <p class="text-gray-600 text-sm leading-relaxed">
-                        Đội ngũ bác sĩ được đào tạo và cấp chứng chỉ bởi Straumann, bảo chứng cho kỹ thuật implant chính xác và an toàn.
+                        {{ __('about.awards.straumann.description') }}
                     </p>
                 </div>
             </div>
@@ -210,10 +210,10 @@ new class extends Component {
                     <div class="w-16 h-1 bg-gradient-to-r from-yellow-400 to-orange-500 rounded-full"></div>
                 </div>
                 <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">Hành trình của chúng tôi</span>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">{{ __('about.journey.title') }}</span>
                 </h2>
                 <p class="text-xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
-                    SmileLux được thành lập với sứ mệnh đồng hành cùng người Việt trên hành trình chăm sóc sức khỏe răng miệng toàn diện. Từng bước phát triển, từng chi nhánh ra đời đều là nỗ lực không ngừng để kiến tạo nụ cười rạng ngời và cuộc đời an vui cho hàng ngàn khách hàng.
+                    {{ __('about.journey.subtitle') }}
                 </p>
             </div>
             
@@ -229,9 +229,9 @@ new class extends Component {
                         <div class="w-1/2 pr-8 text-right">
                             <div class="bg-white rounded-2xl p-8 shadow-xl">
                                 <div class="text-blue-600 text-6xl font-light mb-4">2024</div>
-                                <h3 class="text-3xl font-bold text-gray-800 mb-4">Thành lập & đặt nền tảng</h3>
+                                <h3 class="text-3xl font-bold text-gray-800 mb-4">{{ __('about.journey.milestones.2024.title') }}</h3>
                                 <p class="text-gray-600 leading-relaxed">
-                                    Đây là cột mốc đầu tiên đánh dấu sứ mệnh "Kiến tạo nụ cười hạnh phúc"–nơi nụ cười không chỉ đẹp mà còn khỏe mạnh và bền vững.
+                                    {{ __('about.journey.milestones.2024.description') }}
                                 </p>
                             </div>
                         </div>
@@ -250,9 +250,9 @@ new class extends Component {
                         <div class="w-1/2 pl-8">
                             <div class="bg-white rounded-2xl p-8 shadow-xl">
                                 <div class="text-blue-600 text-6xl font-light mb-4">2025</div>
-                                <h3 class="text-3xl font-bold text-gray-800 mb-4">Mở rộng & Khẳng định</h3>
+                                <h3 class="text-3xl font-bold text-gray-800 mb-4">{{ __('about.journey.milestones.2025.title') }}</h3>
                                 <p class="text-gray-600 leading-relaxed">
-                                    Hệ thống SmileLux mở rộng tại TP.HCM và Đà Nẵng, đầu tư công nghệ Scan 3D, chuẩn vô trùng quốc tế và đội ngũ chuyên khoa hàng đầu. Cùng năm, SmileLux vinh dự nhận giải thưởng "Nha khoa uy tín hàng đầu Việt Nam", khẳng định vị thế tiên phong trong lĩnh vực nha khoa thẩm mỹ.
+                                    {{ __('about.journey.milestones.2025.description') }}
                                 </p>
                             </div>
                         </div>
@@ -267,9 +267,9 @@ new class extends Component {
         <div class="max-w-7xl mx-auto px-5">
             <div class="bg-gradient-to-r from-blue-600 to-blue-800 rounded-2xl p-12 text-white">
                 <div class="text-center mb-12">
-                    <h2 class="text-4xl md:text-5xl font-bold mb-6">Về chúng tôi</h2>
+                    <h2 class="text-4xl md:text-5xl font-bold mb-6">{{ __('about.stats.title') }}</h2>
                     <p class="text-xl text-blue-100 max-w-4xl mx-auto leading-relaxed">
-                        Chúng tôi hướng đến việc không chỉ chăm sóc răng miệng, mà còn lan tỏa sự tự tin và niềm vui đến từng khách hàng, đồng hành cùng bạn trên hành trình kiến tạo nụ cười rạng rỡ.
+                        {{ __('about.stats.subtitle') }}
                     </p>
                 </div>
                 
@@ -277,19 +277,19 @@ new class extends Component {
                 <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
                     <div class="text-center">
                         <div class="text-5xl font-bold mb-2">100%</div>
-                        <div class="text-blue-100">Vô trùng chuẩn y khoa</div>
+                        <div class="text-blue-100">{{ __('about.stats.sterile') }}</div>
                     </div>
                     <div class="text-center">
                         <div class="text-5xl font-bold mb-2">1000+</div>
-                        <div class="text-blue-100">Nụ cười được kiến tạo</div>
+                        <div class="text-blue-100">{{ __('about.stats.smiles') }}</div>
                     </div>
                     <div class="text-center">
                         <div class="text-5xl font-bold mb-2">50+</div>
-                        <div class="text-blue-100">Chuyên gia và nhân sự y tế</div>
+                        <div class="text-blue-100">{{ __('about.stats.experts') }}</div>
                     </div>
                     <div class="text-center">
                         <div class="text-5xl font-bold mb-2">98%</div>
-                        <div class="text-blue-100">Khách hàng hài lòng</div>
+                        <div class="text-blue-100">{{ __('about.stats.satisfied') }}</div>
                     </div>
                 </div>
             </div>

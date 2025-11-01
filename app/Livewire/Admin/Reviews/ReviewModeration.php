@@ -34,21 +34,21 @@ class ReviewModeration extends Component
     {
         $review = Review::findOrFail($reviewId);
         $review->update(['status' => 'approved']);
-        session()->flash('success', 'Review approved successfully.');
+        session()->flash('success', __('admin.reviews.approved_success'));
     }
 
     public function reject($reviewId)
     {
         $review = Review::findOrFail($reviewId);
         $review->update(['status' => 'rejected']);
-        session()->flash('success', 'Review rejected.');
+        session()->flash('success', __('admin.reviews.rejected_success'));
     }
 
     public function toggleFeatured($reviewId)
     {
         $review = Review::findOrFail($reviewId);
         $review->update(['is_featured' => !$review->is_featured]);
-        session()->flash('success', 'Review updated.');
+        session()->flash('success', __('admin.reviews.updated_success'));
     }
 
     public function render()

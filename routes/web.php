@@ -3,6 +3,21 @@
 use Illuminate\Support\Facades\Route;
 use Laravel\Fortify\Features;
 use Livewire\Volt\Volt;
+use Illuminate\Support\Facades\Session;
+
+// Locale Switch Route
+Route::get('/locale/{locale}', function ($locale) {
+    if (in_array($locale, ['vi', 'en'])) {
+        Session::put('locale', $locale);
+        
+        // Save to user if authenticated
+        if (auth()->check()) {
+            auth()->user()->update(['locale' => $locale]);
+        }
+    }
+    
+    return redirect()->back();
+})->name('locale.switch');
 
 // Public Routes
 Volt::route('/', 'pages.home')->name('home');

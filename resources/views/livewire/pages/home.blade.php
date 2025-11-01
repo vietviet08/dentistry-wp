@@ -24,14 +24,14 @@ new class extends Component {
     }
 }; ?>
 
-<x-slot name="title">SmileLux - Nha khoa thẩm mỹ</x-slot>
+<x-slot name="title">SmileLux - {{ __('home.hero.subtitle') }}</x-slot>
 
 <div>
     <!-- Hero Section -->
     <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
         <!-- Background Image -->
         <div class="absolute inset-0 z-0">
-            <img src="https://images.unsplash.com/photo-1606811841689-23dfddceeee3?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80" 
+            <img src="https://images.unsplash.com/photo-1629909613654-28e377c37b09?ixlib=rb-4.1.0&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&q=80&w=2068" 
                  alt="Dental Clinic" 
                  class="w-full h-full object-cover">
             <div class="absolute inset-0 bg-black/30"></div>
@@ -41,20 +41,20 @@ new class extends Component {
         <div class="relative z-10 max-w-7xl mx-auto px-5 text-center text-white">
             <div class="max-w-4xl mx-auto">
                 <h1 class="text-5xl md:text-7xl font-bold mb-8 leading-tight">
-                    Kiến tạo nụ cười<br>
+                    {{ __('home.hero.title') }}<br>
                     <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">
-                        rạng ngời
+                        
                     </span>
                     </h1>
                 <p class="text-xl md:text-2xl mb-12 text-gray-200 max-w-3xl mx-auto">
-                    SmileLux kiến tạo nụ cười rạng ngời bằng chuyên môn, công nghệ và sự tận tâm
+                    {{ __('home.hero.subtitle') }}
                 </p>
                 <div class="flex flex-col sm:flex-row gap-6 justify-center">
                     <a href="{{ route('appointments.create') }}" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all transform hover:scale-105 inline-block text-center">
-                        Đặt lịch ngay
+                        {{ __('home.hero.cta_book') }}
                     </a>
                     <a href="{{ route('services') }}" class="border-2 border-white text-white px-8 py-4 rounded-full font-semibold text-lg hover:bg-white hover:text-blue-600 transition-all inline-block text-center">
-                        Tìm hiểu thêm
+                        {{ __('home.hero.cta_learn_more') }}
                     </a>
                 </div>
             </div>
@@ -80,10 +80,10 @@ new class extends Component {
                     <div class="w-16 h-1 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full"></div>
                 </div>
                 <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">Giới thiệu</span>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">{{ __('home.sections.introduction') }}</span>
                 </h2>
                 <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                    SmileLux kiến tạo nụ cười rạng ngời bằng chuyên môn, công nghệ và sự tận tâm
+                    {{ __('home.hero.subtitle') }}
                 </p>
             </div>
              <!-- Services Section -->
@@ -97,9 +97,9 @@ new class extends Component {
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                                 </svg>
                             </div>
-                            <h3 class="text-lg font-semibold text-gray-800 mb-3">Dịch vụ thẩm mỹ</h3>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3">{{ __('home.sections.cosmetic') }}</h3>
                             <p class="text-sm text-gray-600 leading-relaxed">
-                                Mang đến nụ cười tự nhiên, rạng ngời với giải pháp dán sứ Veneer – khắc phục răng xỉn màu, sứt mẻ, khấp khểnh nhẹ và kém hài hòa.
+                                {{ __('home.sections.cosmetic_desc') }}
                             </p>
                         </div>
 
@@ -110,9 +110,9 @@ new class extends Component {
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
                                 </svg>
                             </div>
-                            <h3 class="text-lg font-semibold text-gray-800 mb-3">Dịch vụ Implant</h3>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3">{{ __('home.sections.implant') }}</h3>
                             <p class="text-sm text-gray-600 leading-relaxed">
-                                Khôi phục răng đã mất bằng giải pháp Implant hiện đại – an toàn, chắc chắn, đảm bảo chức năng ăn nhai và thẩm mỹ tự nhiên như răng thật.
+                                {{ __('home.sections.implant_desc') }}
                             </p>
                         </div>
 
@@ -123,9 +123,9 @@ new class extends Component {
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
                                 </svg>
                             </div>
-                            <h3 class="text-lg font-semibold text-gray-800 mb-3">Dịch vụ chỉnh nha</h3>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3">{{ __('home.sections.orthodontics') }}</h3>
                             <p class="text-sm text-gray-600 leading-relaxed">
-                                Giúp sắp xếp răng đều đẹp, cải thiện khớp cắn và nụ cười tự nhiên với các phương pháp niềng răng trong suốt hoặc niềng mắc cài.
+                                {{ __('home.sections.orthodontics_desc') }}
                             </p>
                         </div>
 
@@ -136,9 +136,9 @@ new class extends Component {
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19.428 15.428a2 2 0 00-1.022-.547l-2.387-.477a6 6 0 00-3.86.517l-.318.158a6 6 0 01-3.86.517L6.05 15.21a2 2 0 00-1.806.547M8 4h8l-1 1v5.172a2 2 0 00.586 1.414l5 5c1.26 1.26.367 3.414-1.415 3.414H4.828c-1.782 0-2.674-2.154-1.414-3.414l5-5A2 2 0 009 10.172V5L8 4z"></path>
                                 </svg>
                             </div>
-                            <h3 class="text-lg font-semibold text-gray-800 mb-3">Dịch vụ nha khoa tổng quát</h3>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3">{{ __('home.sections.general') }}</h3>
                             <p class="text-sm text-gray-600 leading-relaxed">
-                                Chăm sóc toàn diện sức khỏe răng miệng: tẩy trắng răng, trám, điều trị tủy, nhổ răng khôn, nha chu và gói chăm sóc gia đình.
+                                {{ __('home.sections.general_desc') }}
                             </p>
                         </div>
                     </div>
@@ -155,10 +155,10 @@ new class extends Component {
                     <div class="w-16 h-1 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full"></div>
                 </div>
                 <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">Trước & Sau điều trị</span>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">{{ __('home.sections.before_after') }}</span>
                 </h2>
                 <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                    Mỗi tấm hình trước – sau là một dấu mốc trong hành trình mà SmileLux đồng hành cùng khách hàng để tìm lại nụ cười rạng rỡ và tự tin hơn mỗi ngày.
+                    {{ __('home.sections.before_after_desc') }}
                 </p>
             </div>
             
@@ -171,10 +171,10 @@ new class extends Component {
                     
                     <!-- Before/After Labels -->
                     <div class="absolute top-8 left-8">
-                        <span class="bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg">Trước</span>
+                        <span class="bg-white text-gray-800 px-4 py-2 rounded-full font-semibold shadow-lg">{{ __('home.sections.before') }}</span>
                     </div>
                     <div class="absolute top-8 right-8">
-                        <span class="bg-blue-600 text-white px-4 py-2 rounded-full font-semibold shadow-lg">Sau</span>
+                        <span class="bg-blue-600 text-white px-4 py-2 rounded-full font-semibold shadow-lg">{{ __('home.sections.after') }}</span>
                     </div>
                     
                     <!-- Play Button -->
@@ -198,10 +198,10 @@ new class extends Component {
                     <div class="w-16 h-1 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full"></div>
                 </div>
                 <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">Đội ngũ y bác sĩ</span>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">{{ __('home.sections.doctors_team') }}</span>
                 </h2>
                 <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                    Đội ngũ bác sĩ tận tâm, giàu kinh nghiệm – đồng hành cùng bạn trong hành trình chăm sóc nụ cười
+                    {{ __('home.sections.doctors_desc') }}
                 </p>
             </div>
             
@@ -296,7 +296,7 @@ new class extends Component {
                     <div class="w-16 h-1 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full"></div>
                 </div>
                 <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">Cơ sở vật chất của chúng tôi</span>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">{{ __('home.sections.facilities') }}</span>
                 </h2>
             </div>
             
@@ -324,9 +324,9 @@ new class extends Component {
                             <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                         </div>
                         <div class="p-6">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-3">Phòng tư vấn & chẩn đoán</h3>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3">{{ __('home.sections.consultation_room') }}</h3>
                             <p class="text-sm text-gray-600 leading-relaxed">
-                                Không gian riêng tư, thân thiện - nơi bác sĩ lắng nghe và lập kế hoạch điều trị cá nhân hóa cho từng khách hàng.
+                                {{ __('home.sections.consultation_desc') }}
                             </p>
                         </div>
                     </div>
@@ -340,9 +340,9 @@ new class extends Component {
                             <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                         </div>
                         <div class="p-6">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-3">Phòng X-quang & Scan 3D</h3>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3">{{ __('home.sections.xray_room') }}</h3>
                             <p class="text-sm text-gray-600 leading-relaxed">
-                                Trang bị công nghệ chẩn đoán hình ảnh tiên tiến, giúp phát hiện chính xác tình trạng răng và lên phác đồ điều trị tối ưu.
+                                {{ __('home.sections.xray_desc') }}
                             </p>
                         </div>
                     </div>
@@ -356,9 +356,9 @@ new class extends Component {
                             <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
                         </div>
                         <div class="p-6">
-                            <h3 class="text-lg font-semibold text-gray-800 mb-3">Phòng điều trị & Implant</h3>
+                            <h3 class="text-lg font-semibold text-gray-800 mb-3">{{ __('home.sections.treatment_room') }}</h3>
                             <p class="text-sm text-gray-600 leading-relaxed">
-                                Đạt tiêu chuẩn vô trùng, tích hợp thiết bị hiện đại hỗ trợ phẫu thuật và phục hình Implant an toàn, chính xác.
+                                {{ __('home.sections.treatment_desc') }}
                             </p>
                         </div>
                     </div>
@@ -383,10 +383,10 @@ new class extends Component {
                     <div class="w-16 h-1 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full"></div>
                 </div>
                 <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">Khách hàng nói gì về SmileLux</span>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">{{ __('home.sections.testimonials') }}</span>
                 </h2>
                 <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                    Niềm tin của khách hàng là minh chứng rõ ràng nhất cho chất lượng SmileLux.
+                    {{ __('home.sections.testimonials_desc') }}
                 </p>
             </div>
             
@@ -479,10 +479,10 @@ new class extends Component {
                     <div class="w-16 h-1 bg-gradient-to-r from-blue-600 to-blue-800 rounded-full"></div>
                 </div>
                 <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">Lý do bạn nên chọn SmileLux</span>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">{{ __('home.sections.why_choose') }}</span>
                 </h2>
                 <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                    SmileLux mang đến trải nghiệm nha khoa chuẩn y khoa với công nghệ hiện đại, chi phí minh bạch, chính sách bảo hành dài lâu và quy trình vô trùng tuyệt đối – giúp mỗi khách hàng an tâm trên hành trình kiến tạo nụ cười hạnh phúc.
+                    {{ __('home.sections.why_choose_desc') }}
                 </p>
             </div>
             
@@ -495,9 +495,9 @@ new class extends Component {
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9.663 17h4.673M12 3v1m6.364 1.636l-.707.707M21 12h-1M4 12H3m3.343-5.657l-.707-.707m2.828 9.9a5 5 0 117.072 0l-.548.547A3.374 3.374 0 0014 18.469V19a2 2 0 11-4 0v-.531c0-.895-.356-1.754-.988-2.386l-.548-.547z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Công nghệ hiện đại</h3>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">{{ __('home.sections.modern_tech') }}</h3>
                     <p class="text-sm text-gray-600 leading-relaxed">
-                        Ứng dụng Scan 3D chẩn đoán chính xác và lập phác đồ điều trị tối ưu.
+                        {{ __('home.sections.modern_tech_desc') }}
                     </p>
                 </div>
                 
@@ -508,9 +508,9 @@ new class extends Component {
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1"></path>
                         </svg>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Minh bạch chi phí</h3>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">{{ __('home.sections.transparent_cost') }}</h3>
                     <p class="text-sm text-gray-600 leading-relaxed">
-                        Bảng giá rõ ràng, cam kết không phát sinh và đa dạng hình thức thanh toán.
+                        {{ __('home.sections.transparent_cost_desc') }}
                     </p>
                 </div>
                 
@@ -521,9 +521,9 @@ new class extends Component {
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Chuẩn vô trùng</h3>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">{{ __('home.sections.sterile_standard') }}</h3>
                     <p class="text-sm text-gray-600 leading-relaxed">
-                        Tuân thủ tiêu chuẩn vô trùng quốc tế, đảm bảo an toàn tuyệt đối cho khách hàng.
+                        {{ __('home.sections.sterile_standard_desc') }}
                     </p>
         </div>
 
@@ -534,9 +534,9 @@ new class extends Component {
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4.318 6.318a4.5 4.5 0 000 6.364L12 20.364l7.682-7.682a4.5 4.5 0 00-6.364-6.364L12 7.636l-1.318-1.318a4.5 4.5 0 00-6.364 0z"></path>
                         </svg>
                     </div>
-                    <h3 class="text-lg font-semibold text-gray-800 mb-3">Bảo hành dài lâu</h3>
+                    <h3 class="text-lg font-semibold text-gray-800 mb-3">{{ __('home.sections.long_warranty') }}</h3>
                     <p class="text-sm text-gray-600 leading-relaxed">
-                        Chính sách bảo hành minh bạch, đồng hành cùng khách hàng dài lâu.
+                        {{ __('home.sections.long_warranty_desc') }}
                     </p>
                 </div>
             </div>
@@ -548,9 +548,9 @@ new class extends Component {
         <div class="max-w-7xl mx-auto px-5">
             <div class="bg-white rounded-3xl p-12 shadow-2xl">
                 <div class="text-center mb-12">
-                    <p class="text-sm text-gray-500 mb-2">NHẬN THÔNG TIN MỚI NHẤT</p>
+                    <p class="text-sm text-gray-500 mb-2">{{ __('home.sections.consultation_subtitle') }}</p>
                     <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">Tư vấn miễn phí</span>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">{{ __('home.sections.consultation') }}</span>
                     </h2>
                 </div>
                 
@@ -558,26 +558,26 @@ new class extends Component {
                 <form class="max-w-4xl mx-auto">
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">Họ và tên</label>
-                            <input type="text" placeholder="Nhập họ và tên của bạn" 
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">{{ __('contact.form.name') }}</label>
+                            <input type="text" placeholder="{{ __('forms.name_placeholder') }}" 
                                    class="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                         </div>
                         <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">Địa chỉ email</label>
-                            <input type="email" placeholder="Nhập địa chỉ Email của bạn" 
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">{{ __('contact.form.email') }}</label>
+                            <input type="email" placeholder="{{ __('forms.email_placeholder') }}" 
                                    class="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                         </div>
                     </div>
                     
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">Số điện thoại</label>
-                            <input type="tel" placeholder="Nhập số điện thoại của bạn" 
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">{{ __('contact.form.phone') }}</label>
+                            <input type="tel" placeholder="{{ __('forms.phone_placeholder') }}" 
                                    class="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                         </div>
                         <div>
-                            <label class="block text-sm font-semibold text-gray-700 mb-2">Vấn đề bạn cần tư vấn</label>
-                            <input type="text" placeholder="Vấn đề bạn cần từ vấn" 
+                            <label class="block text-sm font-semibold text-gray-700 mb-2">{{ __('contact.form.issue') }}</label>
+                            <input type="text" placeholder="{{ __('forms.issue_placeholder') }}" 
                                    class="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent">
                         </div>
                             </div>
@@ -586,16 +586,16 @@ new class extends Component {
                         <div class="space-y-4">
                             <label class="flex items-center">
                                 <input type="checkbox" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
-                                <span class="ml-2 text-sm text-gray-700">Gửi cho tôi các thông tin cập nhật hàng tháng qua bản tin</span>
+                                <span class="ml-2 text-sm text-gray-700">{{ __('contact.newsletter') }}</span>
                             </label>
                             <label class="flex items-center">
                                 <input type="checkbox" class="w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
-                                <span class="ml-2 text-sm text-gray-700">Tôi xác nhận đã đọc và đồng ý với Hướng dẫn dành cho khách hàng và Điều khoản sử dụng.</span>
+                                <span class="ml-2 text-sm text-gray-700">{{ __('contact.terms_accept') }}</span>
                             </label>
                         </div>
                         <div class="flex justify-end">
                             <a href="{{ route('appointments.create') }}" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all transform hover:scale-105 inline-block text-center">
-                                Đặt lịch ngay
+                                {{ __('common.book_now') }}
                             </a>
                         </div>
                     </div>
@@ -618,14 +618,13 @@ new class extends Component {
             <div class="flex flex-col lg:flex-row items-center justify-between gap-12">
                 <div class="text-center lg:text-left">
                     <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                        Tận tâm &<br>
-                        Chuyên nghiệp
+                        {{ __('home.sections.professional') }}
                     </h2>
                 </div>
                 
                 <div class="flex flex-col items-center gap-8">
                     <a href="{{ route('appointments.create') }}" class="bg-white text-blue-600 px-8 py-4 rounded-full font-semibold text-lg hover:shadow-xl transition-all transform hover:scale-105 inline-block text-center">
-                        Đặt lịch Ngay
+                        {{ __('common.book_now') }}
                     </a>
                     
                     <div class="flex items-center gap-4 bg-white/10 backdrop-blur-sm rounded-2xl p-6">
@@ -635,7 +634,7 @@ new class extends Component {
                             </svg>
                         </div>
                         <div>
-                            <h3 class="font-semibold text-lg">Nha khoa khẩn cấp 24H</h3>
+                            <h3 class="font-semibold text-lg">{{ __('home.sections.emergency_24h') }}</h3>
                             <p class="text-blue-100">0918 19 69 91</p>
                         </div>
                     </div>

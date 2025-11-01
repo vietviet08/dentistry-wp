@@ -1,0 +1,709 @@
+{
+    "nav": {
+        "home": "Trang chủ",
+        "about": "Về chúng tôi",
+        "services": "Dịch vụ",
+        "doctors": "Bác sĩ",
+        "team": "Đội ngũ",
+        "testimonials": "Cảm nhận",
+        "blog": "Blog",
+        "faqs": "FAQs",
+        "gallery": "Thư viện ảnh",
+        "pricing": "Bảng giá",
+        "contact": "Liên hệ",
+        "appointment": "Đặt lịch hẹn",
+        "dashboard": "Dashboard",
+        "admin": "Admin Panel",
+        "login": "Đăng nhập",
+        "register": "Đăng ký",
+        "logout": "Đăng xuất",
+        "language": "Ngôn ngữ",
+        "language_vi": "Tiếng Việt",
+        "language_en": "Tiếng Anh",
+        "my_appointments": "Lịch hẹn của tôi",
+        "my_profile": "Thông tin cá nhân",
+        "my_documents": "Tài liệu của tôi",
+        "my_reviews": "Đánh giá của tôi",
+        "book_appointment": "Đặt lịch hẹn"
+    },
+    "footer": {
+        "rights": "Tất cả các quyền được bảo lưu.",
+        "about": "Về chúng tôi",
+        "links": "Liên kết",
+        "quick_links": "Liên kết nhanh",
+        "branches": "Chi nhánh",
+        "contact": "Liên hệ",
+        "address": "Địa chỉ",
+        "hours": "Giờ làm việc",
+        "phone": "Điện thoại",
+        "email": "Email",
+        "follow_us": "Theo dõi chúng tôi",
+        "privacy_policy": "Chính sách bảo mật",
+        "terms_of_service": "Điều khoản dịch vụ",
+        "hanoi_branch_1": "Hà Nội - Cơ sở 1:",
+        "hanoi_branch_2": "Hà Nội - Cơ sở 2:",
+        "danang_branch": "Đà Nẵng - Cơ sở 3:",
+        "hcmc_branch": "TP.HCM - Cơ sở 4:"
+    },
+    "home": {
+        "hero": {
+            "title": "Kiến tạo nụ cười rạng ngời",
+            "subtitle": "SmileLux kiến tạo nụ cười rạng ngời bằng chuyên môn, công nghệ và sự tận tâm",
+            "cta_book": "Đặt lịch ngay",
+            "cta_learn_more": "Tìm hiểu thêm"
+        },
+        "sections": {
+            "introduction": "Giới thiệu",
+            "services": "Dịch vụ của chúng tôi",
+            "cosmetic": "Dịch vụ thẩm mỹ",
+            "cosmetic_desc": "Mang đến nụ cười tự nhiên, rạng ngời với giải pháp dán sứ Veneer – khắc phục răng xỉn màu, sứt mẻ, khấp khểnh nhẹ và kém hài hòa.",
+            "implant": "Dịch vụ Implant",
+            "implant_desc": "Khôi phục răng đã mất bằng giải pháp Implant hiện đại – an toàn, chắc chắn, đảm bảo chức năng ăn nhai và thẩm mỹ tự nhiên như răng thật.",
+            "orthodontics": "Dịch vụ chỉnh nha",
+            "orthodontics_desc": "Giúp sắp xếp răng đều đẹp, cải thiện khớp cắn và nụ cười tự nhiên với các phương pháp niềng răng trong suốt hoặc niềng mắc cài.",
+            "general": "Dịch vụ nha khoa tổng quát",
+            "general_desc": "Chăm sóc toàn diện sức khỏe răng miệng: tẩy trắng răng, trám, điều trị tủy, nhổ răng khôn, nha chu và gói chăm sóc gia đình.",
+            "before_after": "Trước & Sau điều trị",
+            "before_after_desc": "Mỗi tấm hình trước – sau là một dấu mốc trong hành trình mà SmileLux đồng hành cùng khách hàng để tìm lại nụ cười rạng rỡ và tự tin hơn mỗi ngày.",
+            "before": "Trước",
+            "after": "Sau",
+            "doctors_team": "Đội ngũ y bác sĩ",
+            "doctors_desc": "Đội ngũ bác sĩ tận tâm, giàu kinh nghiệm – đồng hành cùng bạn trong hành trình chăm sóc nụ cười",
+            "facilities": "Cơ sở vật chất của chúng tôi",
+            "consultation_room": "Phòng tư vấn & chẩn đoán",
+            "consultation_desc": "Không gian riêng tư, thân thiện - nơi bác sĩ lắng nghe và lập kế hoạch điều trị cá nhân hóa cho từng khách hàng.",
+            "xray_room": "Phòng X-quang & Scan 3D",
+            "xray_desc": "Trang bị công nghệ chẩn đoán hình ảnh tiên tiến, giúp phát hiện chính xác tình trạng răng và lên phác đồ điều trị tối ưu.",
+            "treatment_room": "Phòng điều trị & Implant",
+            "treatment_desc": "Đạt tiêu chuẩn vô trùng, tích hợp thiết bị hiện đại hỗ trợ phẫu thuật và phục hình Implant an toàn, chính xác.",
+            "testimonials": "Khách hàng nói gì về SmileLux",
+            "testimonials_desc": "Niềm tin của khách hàng là minh chứng rõ ràng nhất cho chất lượng SmileLux.",
+            "why_choose": "Lý do bạn nên chọn SmileLux",
+            "why_choose_desc": "SmileLux mang đến trải nghiệm nha khoa chuẩn y khoa với công nghệ hiện đại, chi phí minh bạch, chính sách bảo hành dài lâu và quy trình vô trùng tuyệt đối – giúp mỗi khách hàng an tâm trên hành trình kiến tạo nụ cười hạnh phúc.",
+            "modern_tech": "Công nghệ hiện đại",
+            "modern_tech_desc": "Ứng dụng Scan 3D chẩn đoán chính xác và lập phác đồ điều trị tối ưu.",
+            "transparent_cost": "Minh bạch chi phí",
+            "transparent_cost_desc": "Bảng giá rõ ràng, cam kết không phát sinh và đa dạng hình thức thanh toán.",
+            "sterile_standard": "Chuẩn vô trùng",
+            "sterile_standard_desc": "Tuân thủ tiêu chuẩn vô trùng quốc tế, đảm bảo an toàn tuyệt đối cho khách hàng.",
+            "long_warranty": "Bảo hành dài lâu",
+            "long_warranty_desc": "Chính sách bảo hành minh bạch, đồng hành cùng khách hàng dài lâu.",
+            "consultation": "Tư vấn miễn phí",
+            "consultation_subtitle": "NHẬN THÔNG TIN MỚI NHẤT",
+            "emergency_24h": "Nha khoa khẩn cấp 24H",
+            "professional": "Tận tâm & Chuyên nghiệp"
+        }
+    },
+    "about": {
+        "title": "Về chúng tôi - SmileLux",
+        "hero": {
+            "title": "Về chúng tôi",
+            "subtitle": "Tại SmileLux, chúng tôi tin rằng mỗi nụ cười đều mang một câu chuyện riêng. Với đội ngũ bác sĩ tận tâm và công nghệ hiện đại, SmileLux mang đến giải pháp nha khoa an toàn, thẩm mỹ và hiệu quả."
+        },
+        "mission_vision": {
+            "title": "Sứ mệnh và Tầm nhìn của chúng tôi",
+            "subtitle": "SmileLux mong mọi khách hàng, dù ở bất kỳ đâu, đều có cơ hội tiếp cận dịch vụ nha khoa chất lượng, an toàn và tận tâm.",
+            "mission": {
+                "title": "Sứ mệnh SmileLux",
+                "description": "Mang đến giải pháp nha khoa chuẩn y khoa, an toàn và tận tâm – kiến tạo nụ cười khỏe đẹp, bền vững cho mỗi khách hàng."
+            },
+            "vision": {
+                "title": "Tầm nhìn SmileLux",
+                "description": "SmileLux tiên phong số hóa hành trình nha khoa để mọi khách hàng đều có thể sở hữu nụ cười rạng ngời"
+            },
+            "core_values": {
+                "title": "Giá trị cốt lõi",
+                "description": "Khách hàng là trung tâm – Dịch vụ tận tâm – Đổi mới liên tục – Bản sắc Việt, chuẩn quốc tế."
+            }
+        },
+        "gallery": {
+            "title": "Bộ sưu tập",
+            "subtitle": "Mỗi chi nhánh SmileLux đều được xây dựng theo chuẩn quốc tế, chuẩn y khoa, mang lại cảm giác an tâm tuyệt đối cho khách hàng."
+        },
+        "awards": {
+            "title": "Giải thưởng & Thành tựu",
+            "subtitle": "Những thành tựu là minh chứng cho sự uy tín và chất lượng tại SmileLux",
+            "top_dental": {
+                "title": "Nha khoa uy tín hàng đầu Việt Nam",
+                "description": "Được vinh danh bởi các tổ chức y tế uy tín, tiên phong trong implant, chỉnh nha và thẩm mỹ răng sứ chuẩn y khoa."
+            },
+            "excellent_service": {
+                "title": "Dịch vụ chăm sóc khách hàng xuất sắc",
+                "description": "Khẳng định quy trình chăm sóc tận tâm, theo dõi sát sau điều trị, mang lại sự hài lòng tuyệt đối cho khách hàng."
+            },
+            "iso": {
+                "title": "Chứng nhận ISO 9001:2015",
+                "description": "Áp dụng hệ thống quản lý chất lượng quốc tế, đảm bảo mọi quy trình điều trị đạt chuẩn an toàn và hiệu quả cao nhất."
+            },
+            "straumann": {
+                "title": "Chứng nhận Straumann (Thụy Sĩ)",
+                "description": "Đội ngũ bác sĩ được đào tạo và cấp chứng chỉ bởi Straumann, bảo chứng cho kỹ thuật implant chính xác và an toàn."
+            }
+        },
+        "journey": {
+            "title": "Hành trình của chúng tôi",
+            "subtitle": "SmileLux được thành lập với sứ mệnh đồng hành cùng người Việt trên hành trình chăm sóc sức khỏe răng miệng toàn diện. Từng bước phát triển, từng chi nhánh ra đời đều là nỗ lực không ngừng để kiến tạo nụ cười rạng ngời và cuộc đời an vui cho hàng ngàn khách hàng.",
+            "milestones": {
+                "2024": {
+                    "title": "Thành lập & đặt nền tảng",
+                    "description": "Đây là cột mốc đầu tiên đánh dấu sứ mệnh \"Kiến tạo nụ cười hạnh phúc\"–nơi nụ cười không chỉ đẹp mà còn khỏe mạnh và bền vững."
+                },
+                "2025": {
+                    "title": "Mở rộng & Khẳng định",
+                    "description": "Hệ thống SmileLux mở rộng tại TP.HCM và Đà Nẵng, đầu tư công nghệ Scan 3D, chuẩn vô trùng quốc tế và đội ngũ chuyên khoa hàng đầu. Cùng năm, SmileLux vinh dự nhận giải thưởng \"Nha khoa uy tín hàng đầu Việt Nam\", khẳng định vị thế tiên phong trong lĩnh vực nha khoa thẩm mỹ."
+                }
+            }
+        },
+        "stats": {
+            "title": "Về chúng tôi",
+            "subtitle": "Chúng tôi hướng đến việc không chỉ chăm sóc răng miệng, mà còn lan tỏa sự tự tin và niềm vui đến từng khách hàng, đồng hành cùng bạn trên hành trình kiến tạo nụ cười rạng rỡ.",
+            "sterile": "Vô trùng chuẩn y khoa",
+            "smiles": "Nụ cười được kiến tạo",
+            "experts": "Chuyên gia và nhân sự y tế",
+            "satisfied": "Khách hàng hài lòng"
+        }
+    },
+    "services": {
+        "index": {
+            "title": "Các dịch vụ chuyên môn của SmileLux",
+            "subtitle": "Các dịch vụ kỹ thuật chuyên môn của SmileLux",
+            "description": "Tại SmileLux, chúng tôi không chỉ chú trọng đến chuyên môn mà còn đề cao trải nghiệm và cảm xúc của khách hàng."
+        },
+        "card": {
+            "duration": "phút",
+            "price_from": "Từ",
+            "read_more": "Đọc thêm",
+            "view_detail": "Xem chi tiết"
+        },
+        "show": {
+            "title": "Chi tiết dịch vụ",
+            "book_now": "Đặt lịch ngay",
+            "faq": "Câu hỏi thường gặp"
+        },
+        "empty": "Chưa có dịch vụ nào",
+        "empty_desc": "Hiện tại chưa có dịch vụ nào được cung cấp."
+    },
+    "doctors": {
+        "index": {
+            "title": "Đội ngũ y bác sĩ",
+            "search_placeholder": "Tìm kiếm bác sĩ..."
+        },
+        "card": {
+            "years_experience": "năm kinh nghiệm",
+            "specialization": "Chuyên khoa"
+        },
+        "show": {
+            "bio": "Tiểu sử",
+            "qualification": "Bằng cấp",
+            "experience": "Kinh nghiệm",
+            "book_with_doctor": "Đặt lịch với bác sĩ này",
+            "specialist_in": "Chuyên gia về"
+        }
+    },
+    "blog": {
+        "index": {
+            "title": "Bài viết mới nhất",
+            "read_more": "Đọc thêm",
+            "hero_title": "Chăm sóc nụ cười của bạn",
+            "hero_subtitle": "BLOG - NEWS"
+        },
+        "show": {
+            "related_posts": "Bài viết liên quan",
+            "author": "Tác giả",
+            "published_on": "Xuất bản vào",
+            "category": "Danh mục",
+            "tags": "Thẻ",
+            "table_of_contents": "Mục lục",
+            "introduction": "Giới thiệu",
+            "equipment": "Trang thiết bị",
+            "conclusion": "Kết luận",
+            "highlights": "Ưu điểm nổi bật tại SmileLux",
+            "highlights_item1": "Tự nhiên & hài hòa: Màu sắc và hình dáng răng được thiết kế riêng theo gương mặt và nụ cười từng khách hàng.",
+            "highlights_item2": "Tối thiểu xâm lấn: Bác sĩ chỉ mài nhẹ phần men ngoài, đảm bảo không ảnh hưởng đến tủy và cấu trúc răng.",
+            "highlights_item3": "Công nghệ thiết kế nụ cười 3D: Cho phép khách hàng xem trước kết quả, điều chỉnh theo mong muốn trước khi thực hiện.",
+            "highlights_item4": "Chăm sóc & bảo hành lâu dài: Sau điều trị, khách hàng được theo dõi định kỳ, duy trì nụ cười khỏe đẹp bền vững."
+        }
+    },
+    "team": {
+        "title": "Đội ngũ - SmileLux",
+        "hero": {
+            "title": "Đội ngũ y bác sĩ",
+            "description": "Tại SmileLux, đội ngũ bác sĩ chính là trái tim của hành trình kiến tạo nụ cười hạnh phúc. Mỗi chuyên gia đều sở hữu nền tảng chuyên môn vững vàng, tay nghề chuẩn y khoa và tận tâm trong từng ca điều trị. Không chỉ chú trọng kỹ thuật, đội ngũ SmileLux còn đồng hành cùng khách hàng bằng sự thấu hiểu – để mỗi nụ cười không chỉ đẹp về hình thể, mà còn trọn vẹn về cảm xúc và sức khỏe lâu dài."
+        },
+        "featured": {
+            "view_profile": "Xem hồ sơ chi tiết",
+            "years_experience": "năm kinh nghiệm"
+        },
+        "experts": {
+            "title": "Đội ngũ chuyên gia",
+            "description": "Đội ngũ bác sĩ giàu kinh nghiệm, được đào tạo chuyên sâu và luôn cập nhật những kỹ thuật mới nhất trong lĩnh vực nha khoa."
+        },
+        "qualifications": {
+            "title": "Chứng chỉ & Bằng cấp",
+            "description": "Đội ngũ SmileLux được đào tạo và cấp chứng chỉ bởi các tổ chức y tế uy tín trong và ngoài nước.",
+            "straumann": {
+                "title": "Chứng chỉ Straumann",
+                "description": "Được đào tạo và cấp chứng chỉ bởi Straumann (Thụy Sĩ) về kỹ thuật implant chính xác và an toàn."
+            },
+            "iso": {
+                "title": "ISO 9001:2015",
+                "description": "Áp dụng hệ thống quản lý chất lượng quốc tế, đảm bảo mọi quy trình điều trị đạt chuẩn an toàn."
+            },
+            "international": {
+                "title": "Chứng chỉ Quốc tế",
+                "description": "Được đào tạo tại các trường đại học và bệnh viện hàng đầu thế giới về nha khoa."
+            },
+            "continuous": {
+                "title": "Liên tục Cập nhật",
+                "description": "Tham gia các khóa học, hội thảo quốc tế để cập nhật kỹ thuật mới nhất trong nha khoa."
+            }
+        },
+        "booking": {
+            "subtitle": "NHẬN THÔNG TIN MỚI NHẤT",
+            "title": "Tư vấn miễn phí"
+        },
+        "no_doctors": "Hiện chưa có bác sĩ nào được hiển thị."
+    },
+    "testimonials": {
+        "title": "Cảm nhận khách hàng - SmileLux",
+        "hero": {
+            "title": "Khách hàng nói gì về SmileLux",
+            "customer_testimonials": "Cảm nhận của khách hàng",
+            "description": "Mỗi tấm hình trước – sau là một dấu mốc trong hành trình mà SmileLux đồng hành cùng khách hàng để tìm lại nụ cười rạng rỡ và tự tin hơn mỗi ngày."
+        },
+        "booking": {
+            "subtitle": "NHẬN THÔNG TIN MỚI NHẤT",
+            "title": "Tư vấn miễn phí",
+            "description": "Đăng ký ngay để nhận tư vấn miễn phí từ đội ngũ chuyên gia của SmileLux và khám phá các dịch vụ nha khoa hàng đầu."
+        }
+    },
+    "faqs": {
+        "title": "Câu hỏi thường gặp - SmileLux",
+        "hero": {
+            "title": "Mọi câu trả lời cho<br>nụ cười tự tin của bạn"
+        },
+        "categories": {
+            "services": {
+                "title": "Dịch vụ",
+                "description": "Hỏi chúng tôi về dịch vụ"
+            },
+            "payment": {
+                "title": "Thanh toán",
+                "description": "Hỏi chúng tôi về thanh toán"
+            },
+            "warranty": {
+                "title": "Bảo hành",
+                "description": "Hỏi chúng tôi về bảo hành"
+            }
+        },
+        "section": {
+            "title": "Câu hỏi thường gặp"
+        },
+        "questions": {
+            "q1": "SmileLux có dịch vụ tư vấn miễn phí không?",
+            "q2": "Quy trình dán sứ/niềng răng/implant tại SmileLux gồm những bước nào?",
+            "q2_answer": "Mọi dịch vụ tại SmileLux đều tuân theo 4 bước tiêu chuẩn y khoa:<br><br>1. Tư vấn & khám tổng quát<br>2. Scan 3D chẩn đoán – lập phác đồ điều trị<br>3. Thực hiện điều trị chính (dán sứ, niềng, implant...)<br>4. Chăm sóc & bảo hành sau điều trị.<br><br>Quy trình được cá nhân hóa theo từng khách hàng để đạt kết quả tối ưu.",
+            "q3": "Thời gian điều trị trung bình là bao lâu?",
+            "q4": "Sau khi điều trị có được tái khám miễn phí không?"
+        }
+    },
+    "gallery": {
+        "title": "Thư viện ảnh",
+        "before_after": "Trước & Sau",
+        "facility": "Cơ sở vật chất",
+        "team": "Đội ngũ",
+        "treatments": "Điều trị"
+    },
+    "pricing": {
+        "title": "Bảng giá",
+        "popular": "Phổ biến nhất",
+        "per_visit": "mỗi lần",
+        "per_month": "mỗi tháng",
+        "includes": "Bao gồm"
+    },
+    "contact": {
+        "title": "Liên hệ với chúng tôi",
+        "title_page": "Liên hệ - SmileLux",
+        "hero": {
+            "title": "Liên hệ với chúng tôi",
+            "subtitle": "Vì nụ cười của bạn"
+        },
+        "info": {
+            "title": "Đội ngũ của chúng tôi luôn sẵn sàng giúp bạn và trả lời mọi câu hỏi",
+            "locations": {
+                "hanoi_1": "Hà Nội – Cơ sở 1: Tầng 6, 605 Quang Trung, Kiến Hưng, Hà Đông, Hà Nội",
+                "hanoi_2": "Hà Nội – Cơ sở 2: 133 Hải Âu 1, KĐT Vinhomes Ocean Park 1, xã Gia Lâm, Hà Nội",
+                "danang": "Đà Nẵng – Cơ sở 3: 106 Tố Hữu, phường Hòa Cường, Đà Nẵng (Pre-opening)",
+                "hcmc": "TP. HCM – Cơ sở 4: 658/5 Cách Mạng Tháng 8, Phường Nhiêu Lộc, TP. Hồ Chí Minh"
+            },
+            "phone": "0918 19 69 91",
+            "email": "smileluxmarketing@gmail.com",
+            "hours": {
+                "label": "Thứ Hai - Thứ Sáu",
+                "time": "8:00 AM to 20:00 PM"
+            }
+        },
+        "form": {
+            "booking_title": "Đặt lịch hẹn",
+            "booking_subtitle": "Hãy liên hệ với chúng tôi và gửi câu hỏi của bạn",
+            "name": "Họ và tên",
+            "email": "Địa chỉ email",
+            "phone": "Số điện thoại",
+            "consultation": "Nội dung cần tư vấn",
+            "consultation_placeholder": "Nội dung cần tư vấn",
+            "consultation_options": {
+                "general": "Tư vấn tổng quát",
+                "cleaning": "Vệ sinh răng miệng",
+                "whitening": "Tẩy trắng răng",
+                "braces": "Niềng răng",
+                "implant": "Cấy ghép implant"
+            },
+            "date": "Ngày",
+            "time": "Giờ",
+            "submit": "Đặt lịch hẹn Ngay"
+        },
+        "map": {
+            "placeholder": "Bản đồ sẽ được hiển thị tại đây"
+        },
+        "alert": {
+            "success": "Tin nhắn của bạn đã được gửi thành công!",
+            "error": "Đã xảy ra lỗi. Vui lòng thử lại."
+        },
+        "newsletter": "Gửi cho tôi các thông tin cập nhật hàng tháng qua bản tin",
+        "terms_accept": "Tôi xác nhận đã đọc và đồng ý với Hướng dẫn dành cho khách hàng và Điều khoản sử dụng."
+    },
+    "auth": {
+        "login": {
+            "title": "Đăng nhập",
+            "email": "Email",
+            "password": "Mật khẩu",
+            "remember": "Ghi nhớ đăng nhập",
+            "submit": "Đăng nhập",
+            "forgot": "Quên mật khẩu?"
+        },
+        "register": {
+            "title": "Đăng ký",
+            "name": "Họ và tên",
+            "email": "Email",
+            "password": "Mật khẩu",
+            "password_confirm": "Xác nhận mật khẩu",
+            "submit": "Đăng ký"
+        },
+        "verify": {
+            "notice": "Vui lòng xác minh địa chỉ email của bạn"
+        },
+        "two_factor": {
+            "title": "Xác thực hai yếu tố",
+            "code": "Mã xác thực",
+            "recovery_code": "Mã khôi phục",
+            "submit": "Xác minh"
+        }
+    },
+    "patient": {
+        "dashboard": {
+            "title": "Chào mừng trở lại, :name!",
+            "overview": "Đây là tổng quan về hành trình chăm sóc răng miệng của bạn",
+            "total_appointments": "Tổng số lịch hẹn",
+            "upcoming_appointments": "Lịch hẹn sắp tới",
+            "past_appointments": "Lịch hẹn đã qua",
+            "available_doctors": "Bác sĩ có sẵn",
+            "quick_actions": "Thao tác nhanh",
+            "view_all": "Xem tất cả",
+            "no_appointments": "Không có lịch hẹn sắp tới",
+            "book_first": "Đặt lịch hẹn đầu tiên của bạn để bắt đầu"
+        },
+        "appointments": {
+            "title": "Lịch hẹn của tôi",
+            "create": "Đặt lịch hẹn",
+            "cancel": "Hủy",
+            "reschedule": "Đổi lịch",
+            "view": "Xem",
+            "status": {
+                "pending": "Chờ xác nhận",
+                "confirmed": "Đã xác nhận",
+                "completed": "Hoàn thành",
+                "cancelled": "Đã hủy",
+                "no_show": "Không đến"
+            }
+        },
+        "profile": {
+            "title": "Thông tin cá nhân",
+            "update": "Cập nhật thông tin"
+        },
+        "documents": {
+            "title": "Tài liệu của tôi"
+        },
+        "reviews": {
+            "title": "Đánh giá của tôi"
+        }
+    },
+    "admin": {
+        "dashboard": {
+            "title": "Bảng điều khiển Admin",
+            "total_patients": "Tổng số bệnh nhân",
+            "today_appointments": "Lịch hẹn hôm nay",
+            "pending_appointments": "Lịch hẹn chờ xác nhận",
+            "monthly_revenue": "Doanh thu tháng",
+            "total_appointments": "Tổng lịch hẹn",
+            "upcoming": "Sắp tới",
+            "active_doctors": "Bác sĩ hoạt động",
+            "pending_reviews": "Đánh giá chờ duyệt",
+            "recent_appointments": "Lịch hẹn gần đây",
+            "popular_services": "Dịch vụ phổ biến",
+            "quick_actions": "Thao tác nhanh",
+            "bookings": "lượt đặt",
+            "no_appointments": "Chưa có lịch hẹn nào",
+            "no_services_data": "Chưa có dữ liệu dịch vụ",
+            "view_all_appointments": "Xem tất cả lịch hẹn",
+            "manage_appointments": "Quản lý lịch hẹn",
+            "manage_patients": "Quản lý bệnh nhân",
+            "manage_doctors": "Quản lý bác sĩ",
+            "manage_services": "Quản lý dịch vụ"
+        },
+        "menu": {
+            "services": "Dịch vụ",
+            "doctors": "Bác sĩ",
+            "appointments": "Lịch hẹn",
+            "patients": "Bệnh nhân",
+            "reviews": "Đánh giá",
+            "blog": "Blog",
+            "gallery": "Thư viện",
+            "settings": "Cài đặt"
+        },
+        "common": {
+            "create": "Tạo mới",
+            "edit": "Chỉnh sửa",
+            "delete": "Xóa",
+            "save": "Lưu",
+            "save_changes": "Lưu thay đổi",
+            "cancel": "Hủy",
+            "search": "Tìm kiếm",
+            "actions": "Thao tác",
+            "status": "Trạng thái",
+            "back": "Quay lại",
+            "back_to_dashboard": "Quay lại dashboard",
+            "calendar_view": "Xem lịch",
+            "create_service": "Tạo dịch vụ",
+            "view_manage": "Xem và quản lý"
+        },
+        "appointments": {
+            "title": "Quản lý lịch hẹn",
+            "subtitle": "Xem và quản lý tất cả lịch hẹn",
+            "search_placeholder": "Bệnh nhân, bác sĩ, dịch vụ...",
+            "filter_status": "Trạng thái",
+            "filter_doctor": "Bác sĩ",
+            "filter_date": "Ngày",
+            "all_status": "Tất cả trạng thái",
+            "all_doctors": "Tất cả bác sĩ",
+            "table": {
+                "patient": "Bệnh nhân",
+                "doctor": "Bác sĩ",
+                "service": "Dịch vụ",
+                "datetime": "Ngày & Giờ"
+            },
+            "confirm": "Xác nhận",
+            "complete": "Hoàn thành",
+            "no_appointments": "Không tìm thấy lịch hẹn"
+        },
+        "services": {
+            "title": "Quản lý dịch vụ",
+            "subtitle": "Quản lý các dịch vụ nha khoa",
+            "search_placeholder": "Tìm kiếm dịch vụ...",
+            "filter_category": "Danh mục",
+            "all_categories": "Tất cả danh mục",
+            "table": {
+                "service": "Dịch vụ",
+                "category": "Danh mục",
+                "duration": "Thời gian",
+                "price": "Giá",
+                "bookings": "Lượt đặt"
+            },
+            "activate": "Kích hoạt",
+            "deactivate": "Vô hiệu hóa",
+            "delete_confirm": "Bạn có chắc muốn xóa dịch vụ này?",
+            "no_services": "Không tìm thấy dịch vụ",
+            "active": "Hoạt động",
+            "inactive": "Không hoạt động"
+        },
+        "patients": {
+            "title": "Quản lý bệnh nhân",
+            "subtitle": "Xem và quản lý hồ sơ bệnh nhân",
+            "search_placeholder": "Tìm theo tên, email hoặc số điện thoại...",
+            "table": {
+                "patient": "Bệnh nhân",
+                "contact": "Liên hệ",
+                "member_since": "Thành viên từ"
+            },
+            "view_details": "Xem chi tiết",
+            "no_patients": "Không tìm thấy bệnh nhân",
+            "no_phone": "Không có SĐT"
+        },
+        "doctors": {
+            "title": "Quản lý bác sĩ",
+            "subtitle": "Quản lý hồ sơ và lịch làm việc bác sĩ",
+            "create_doctor": "Tạo bác sĩ",
+            "search_placeholder": "Tìm theo tên hoặc chuyên môn...",
+            "show_inactive": "Hiển thị bác sĩ không hoạt động",
+            "table": {
+                "doctor": "Bác sĩ",
+                "specialization": "Chuyên môn",
+                "experience": "Kinh nghiệm",
+                "fee": "Phí khám",
+                "appointments": "Lịch hẹn"
+            },
+            "years": "năm",
+            "schedule": "Lịch làm việc",
+            "available": "Có sẵn",
+            "unavailable": "Không có sẵn",
+            "make_available": "Kích hoạt",
+            "make_unavailable": "Vô hiệu hóa",
+            "delete_confirm": "Bạn có chắc muốn xóa bác sĩ này?",
+            "no_doctors": "Không tìm thấy bác sĩ"
+        },
+        "posts": {
+            "title": "Quản lý bài viết Blog",
+            "subtitle": "Quản lý bài viết và nội dung blog",
+            "create_post": "Tạo bài viết",
+            "search_placeholder": "Tìm kiếm bài viết...",
+            "table": {
+                "title": "Tiêu đề",
+                "author": "Tác giả",
+                "category": "Danh mục",
+                "published": "Xuất bản",
+                "views": "Lượt xem"
+            },
+            "not_published": "Chưa xuất bản",
+            "publish": "Xuất bản",
+            "unpublish": "Gỡ xuất bản",
+            "delete_confirm": "Bạn có chắc muốn xóa bài viết này?",
+            "no_posts": "Không tìm thấy bài viết"
+        },
+        "gallery": {
+            "title": "Quản lý thư viện",
+            "subtitle": "Quản lý hình ảnh và ảnh thư viện",
+            "search_placeholder": "Tìm kiếm thư viện...",
+            "featured": "Nổi bật ⭐",
+            "not_featured": "Không nổi bật",
+            "no_image": "Không có ảnh",
+            "no_items": "Không tìm thấy mục nào"
+        },
+        "reviews": {
+            "title": "Quản lý đánh giá",
+            "subtitle": "Duyệt đánh giá của bệnh nhân",
+            "search_placeholder": "Tìm kiếm theo tên bệnh nhân...",
+            "filter_status": "Trạng thái",
+            "all_status": "Tất cả trạng thái",
+            "table": {
+                "patient": "Bệnh nhân",
+                "rating": "Đánh giá",
+                "comment": "Bình luận",
+                "date": "Ngày",
+                "status": "Trạng thái",
+                "actions": "Thao tác"
+            },
+            "status": {
+                "pending": "Chờ duyệt",
+                "approved": "Đã duyệt",
+                "rejected": "Từ chối"
+            },
+            "approve": "Duyệt",
+            "reject": "Từ chối",
+            "feature": "Đánh dấu nổi bật",
+            "unfeature": "Bỏ đánh dấu nổi bật",
+            "approved_success": "Đánh giá đã được duyệt thành công.",
+            "rejected_success": "Đánh giá đã bị từ chối.",
+            "updated_success": "Đánh giá đã được cập nhật.",
+            "no_reviews": "Không tìm thấy đánh giá nào"
+        },
+        "forms": {
+            "service_name": "Tên dịch vụ",
+            "slug": "Slug",
+            "category": "Danh mục",
+            "duration_minutes": "Thời gian (phút)",
+            "price": "Giá ($)",
+            "display_order": "Thứ tự hiển thị",
+            "icon": "Biểu tượng (emoji)",
+            "active_visible": "Hoạt động (hiển thị cho bệnh nhân)",
+            "description": "Mô tả",
+            "featured_image": "Ảnh nổi bật",
+            "seo_settings": "Cài đặt SEO",
+            "meta_title": "Tiêu đề Meta",
+            "meta_description": "Mô tả Meta",
+            "save_service": "Lưu dịch vụ",
+            "save_doctor": "Lưu bác sĩ",
+            "back_to_services": "Quay lại danh sách dịch vụ",
+            "back_to_doctors": "Quay lại danh sách bác sĩ",
+            "edit_service": "Chỉnh sửa dịch vụ",
+            "create_service": "Tạo dịch vụ mới",
+            "edit_doctor": "Chỉnh sửa bác sĩ",
+            "create_doctor": "Tạo bác sĩ mới",
+            "doctor_name": "Tên",
+            "specialization": "Chuyên môn",
+            "qualification": "Bằng cấp",
+            "experience_years": "Kinh nghiệm (năm)",
+            "consultation_fee": "Phí tư vấn ($)",
+            "doctor_photo": "Ảnh bác sĩ",
+            "bio": "Tiểu sử",
+            "available_appointments": "Có sẵn cho lịch hẹn"
+        },
+        "settings": {
+            "title": "Cài đặt chung",
+            "subtitle": "Quản lý cài đặt và tùy chọn hệ thống",
+            "clinic_info": "Thông tin phòng khám",
+            "clinic_name": "Tên phòng khám",
+            "phone_number": "Số điện thoại",
+            "email": "Email",
+            "address": "Địa chỉ",
+            "enter_clinic_name": "Nhập tên phòng khám",
+            "enter_phone": "Nhập số điện thoại",
+            "enter_email": "Nhập email",
+            "enter_address": "Nhập địa chỉ",
+            "appointment_settings": "Cài đặt lịch hẹn"
+        }
+    },
+    "common": {
+        "ok": "Đồng ý",
+        "cancel": "Cancel",
+        "save": "Lưu",
+        "close": "Đóng",
+        "search": "Tìm kiếm",
+        "read_more": "Đọc thêm",
+        "learn_more": "Tìm hiểu thêm",
+        "loading": "Đang tải...",
+        "book_now": "Đặt lịch ngay",
+        "view_details": "Xem chi tiết",
+        "book_appointment": "Đặt lịch hẹn",
+        "view_appointments": "Xem lịch hẹn",
+        "browse_services": "Xem dịch vụ",
+        "update_profile": "Cập nhật thông tin"
+    },
+    "forms": {
+        "required": "Trường này là bắt buộc",
+        "select": "Vui lòng chọn",
+        "select_doctor": "Chọn bác sĩ",
+        "select_service": "Chọn dịch vụ",
+        "date": "Ngày",
+        "time": "Giờ",
+        "notes": "Ghi chú",
+        "upload": "Tải lên",
+        "name_placeholder": "Nhập họ và tên của bạn",
+        "email_placeholder": "Nhập địa chỉ Email của bạn",
+        "phone_placeholder": "Nhập số điện thoại của bạn",
+        "issue_placeholder": "Vấn đề bạn cần tư vấn"
+    },
+    "feedback": {
+        "success": "Thành công!",
+        "error": "Lỗi!",
+        "saved": "Đã lưu thành công",
+        "updated": "Đã cập nhật thành công",
+        "deleted": "Đã xóa thành công",
+        "created": "Đã tạo thành công"
+    },
+    "appointments": {
+        "confirmed_count": "Đã xác nhận: :n",
+        "booked_for": "Đã đặt lịch cho :date lúc :time",
+        "with_doctor": "với Bác sĩ :name",
+        "cancellation_policy": "Có thể hủy lịch trước :hours giờ trước cuộc hẹn.",
+        "at": "lúc"
+    }
+}

@@ -1,11 +1,11 @@
-<x-slot name="title">Patient Dashboard</x-slot>
+<x-slot name="title">{{ __('patient.dashboard.title', ['name' => auth()->user()->name]) }}</x-slot>
 
 <div class="py-12">
     <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <!-- Header -->
         <div class="mb-8">
-            <h1 class="text-3xl font-bold text-gray-900">Welcome back, {{ auth()->user()->name }}!</h1>
-            <p class="text-gray-600 mt-2">Here's an overview of your dental care journey</p>
+            <h1 class="text-3xl font-bold text-gray-900">{{ __('patient.dashboard.title', ['name' => auth()->user()->name]) }}</h1>
+            <p class="text-gray-600 mt-2">{{ __('patient.dashboard.overview') }}</p>
         </div>
 
         <!-- Stats Cards -->
@@ -20,7 +20,7 @@
                         </div>
                     </div>
                     <div class="ml-4">
-                        <p class="text-sm font-medium text-gray-500">Total Appointments</p>
+                        <p class="text-sm font-medium text-gray-500">{{ __('patient.dashboard.total_appointments') }}</p>
                         <p class="text-2xl font-semibold text-gray-900">{{ $totalCount }}</p>
                     </div>
                 </div>
@@ -36,7 +36,7 @@
                         </div>
                     </div>
                     <div class="ml-4">
-                        <p class="text-sm font-medium text-gray-500">Upcoming</p>
+                        <p class="text-sm font-medium text-gray-500">{{ __('patient.dashboard.upcoming_appointments') }}</p>
                         <p class="text-2xl font-semibold text-gray-900">{{ $upcomingCount }}</p>
                     </div>
                 </div>
@@ -52,7 +52,7 @@
                         </div>
                     </div>
                     <div class="ml-4">
-                        <p class="text-sm font-medium text-gray-500">Past Appointments</p>
+                        <p class="text-sm font-medium text-gray-500">{{ __('patient.dashboard.past_appointments') }}</p>
                         <p class="text-2xl font-semibold text-gray-900">{{ $pastCount }}</p>
                     </div>
                 </div>
@@ -68,7 +68,7 @@
                         </div>
                     </div>
                     <div class="ml-4">
-                        <p class="text-sm font-medium text-gray-500">Available Doctors</p>
+                        <p class="text-sm font-medium text-gray-500">{{ __('patient.dashboard.available_doctors') }}</p>
                         <p class="text-2xl font-semibold text-gray-900">{{ $doctors }}</p>
                     </div>
                 </div>
@@ -77,19 +77,19 @@
 
         <!-- Quick Actions -->
         <div class="bg-white rounded-lg shadow p-6 mb-8">
-            <h2 class="text-xl font-semibold text-gray-900 mb-4">Quick Actions</h2>
+            <h2 class="text-xl font-semibold text-gray-900 mb-4">{{ __('patient.dashboard.quick_actions') }}</h2>
             <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4">
                 <a href="/appointments/create" class="bg-blue-600 text-white px-4 py-3 rounded-lg text-center hover:bg-blue-700 transition">
-                    Book Appointment
+                    {{ __('common.book_appointment') }}
                 </a>
                 <a href="/appointments" class="bg-gray-600 text-white px-4 py-3 rounded-lg text-center hover:bg-gray-700 transition">
-                    View Appointments
+                    {{ __('common.view_appointments') }}
                 </a>
                 <a href="/services" class="bg-green-600 text-white px-4 py-3 rounded-lg text-center hover:bg-green-700 transition">
-                    Browse Services
+                    {{ __('common.browse_services') }}
                 </a>
                 <a href="/profile" class="bg-purple-600 text-white px-4 py-3 rounded-lg text-center hover:bg-purple-700 transition">
-                    Update Profile
+                    {{ __('common.update_profile') }}
                 </a>
             </div>
         </div>
@@ -97,8 +97,8 @@
         <!-- Upcoming Appointments -->
         <div class="bg-white rounded-lg shadow p-6 mb-8">
             <div class="flex items-center justify-between mb-4">
-                <h2 class="text-xl font-semibold text-gray-900">Upcoming Appointments</h2>
-                <a href="{{ route('appointments.index') }}" class="text-blue-600 hover:text-blue-800 text-sm font-medium">View All</a>
+                <h2 class="text-xl font-semibold text-gray-900">{{ __('patient.dashboard.upcoming_appointments') }}</h2>
+                <a href="{{ route('appointments.index') }}" class="text-blue-600 hover:text-blue-800 text-sm font-medium">{{ __('patient.dashboard.view_all') }}</a>
             </div>
             
             @if($upcomingAppointments->count() > 0)
@@ -118,7 +118,7 @@
                                         <p class="font-semibold text-gray-900">{{ $appointment->service->name }}</p>
                                         <p class="text-sm text-gray-600">{{ $appointment->doctor->name }}</p>
                                         <p class="text-xs text-gray-500 mt-1">
-                                            {{ $appointment->appointment_date->format('M d, Y') }} at {{ $appointment->appointment_time }}
+                                            {{ $appointment->appointment_date->format('M d, Y') }} {{ __('appointments.at') }} {{ $appointment->appointment_time }}
                                         </p>
                                     </div>
                                 </div>
@@ -128,10 +128,10 @@
                                         @elseif($appointment->status === 'confirmed') bg-green-100 text-green-800
                                         @else bg-gray-100 text-gray-800
                                         @endif">
-                                        {{ ucfirst($appointment->status) }}
+                                        {{ __('patient.appointments.status.' . $appointment->status) }}
                                     </span>
                                     <a href="{{ route('appointments.show', $appointment) }}" class="text-blue-600 hover:text-blue-800 text-sm font-medium">
-                                        View
+                                        {{ __('patient.appointments.view') }}
                                     </a>
                                 </div>
                             </div>
@@ -141,10 +141,10 @@
             @else
                 <div class="text-center py-8 text-gray-500">
                     <div class="text-4xl mb-4">📅</div>
-                    <p>No upcoming appointments</p>
-                    <p class="text-sm">Book your first appointment to get started</p>
+                    <p>{{ __('patient.dashboard.no_appointments') }}</p>
+                    <p class="text-sm">{{ __('patient.dashboard.book_first') }}</p>
                     <a href="{{ route('appointments.create') }}" class="mt-4 inline-block bg-blue-600 text-white px-4 py-2 rounded-lg hover:bg-blue-700 transition">
-                        Book Appointment
+                        {{ __('common.book_appointment') }}
                     </a>
                 </div>
             @endif

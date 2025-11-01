@@ -9,7 +9,7 @@ new class extends Component {
     }
 }; ?>
 
-<x-slot name="title">Cảm nhận khách hàng - SmileLux</x-slot>
+<x-slot name="title">{{ __('testimonials.title') }}</x-slot>
 
 <div class="min-h-screen bg-white">
     <!-- Main Content -->
@@ -18,7 +18,7 @@ new class extends Component {
         <div class="mb-16">
             <div class="flex items-center mb-4">
                 <h1 class="text-3xl md:text-4xl font-bold">
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">Khách hàng nói gì về SmileLux</span>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">{{ __('testimonials.hero.title') }}</span>
                 </h1>
                 <svg class="w-24 h-16 ml-4 text-blue-600" viewBox="0 0 100 80" fill="currentColor">
                     <path d="M2 2 L98 78 L2 78 Z" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -100,11 +100,11 @@ new class extends Component {
         <!-- Hero Section -->
         <div class="text-center mb-20">
             <h2 class="text-5xl md:text-6xl font-bold mb-6">
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">Cảm nhận của khách hàng</span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">{{ __('testimonials.hero.customer_testimonials') }}</span>
             </h2>
             <div class="w-96 h-1 bg-blue-600 mx-auto mb-8"></div>
             <p class="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed">
-                Mỗi tấm hình trước – sau là một dấu mốc trong hành trình mà SmileLux đồng hành cùng khách hàng để tìm lại nụ cười rạng rỡ và tự tin hơn mỗi ngày.
+                {{ __('testimonials.hero.description') }}
             </p>
         </div>
     </div>
@@ -114,52 +114,52 @@ new class extends Component {
         <div class="max-w-7xl mx-auto px-5">
             <div class="bg-blue-100 rounded-3xl p-8 md:p-16 flex flex-col lg:flex-row items-center justify-between gap-12">
                 <div class="lg:w-1/2 text-center lg:text-left">
-                    <p class="text-blue-600 font-semibold text-lg mb-2">NHẬN THÔNG TIN MỚI NHẤT</p>
+                    <p class="text-blue-600 font-semibold text-lg mb-2">{{ __('testimonials.booking.subtitle') }}</p>
                     <h2 class="text-4xl md:text-5xl font-bold text-gray-800 leading-tight mb-6">
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">Tư vấn miễn phí</span>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">{{ __('testimonials.booking.title') }}</span>
                     </h2>
                     <p class="text-gray-600 text-lg">
-                        Đăng ký ngay để nhận tư vấn miễn phí từ đội ngũ chuyên gia của SmileLux và khám phá các dịch vụ nha khoa hàng đầu.
+                        {{ __('testimonials.booking.description') }}
                     </p>
                 </div>
                 <div class="lg:w-1/2 w-full bg-white p-8 rounded-2xl shadow-lg">
                     <form class="space-y-6">
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">Họ và tên</label>
-                                <input type="text" id="name" name="name" placeholder="Nhập họ và tên của bạn"
+                                <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">{{ __('contact.form.name') }}</label>
+                                <input type="text" id="name" name="name" placeholder="{{ __('forms.name_placeholder') }}"
                                        class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-blue-500 focus:border-blue-500 bg-gray-50 text-gray-800">
                             </div>
                             <div>
-                                <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Địa chỉ email</label>
-                                <input type="email" id="email" name="email" placeholder="Nhập địa chỉ Email của bạn"
+                                <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">{{ __('contact.form.email') }}</label>
+                                <input type="email" id="email" name="email" placeholder="{{ __('forms.email_placeholder') }}"
                                        class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-blue-500 focus:border-blue-500 bg-gray-50 text-gray-800">
                             </div>
                         </div>
                         <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
                             <div>
-                                <label for="phone" class="block text-sm font-semibold text-gray-700 mb-2">Số điện thoại</label>
-                                <input type="tel" id="phone" name="phone" placeholder="Nhập số điện thoại của bạn"
+                                <label for="phone" class="block text-sm font-semibold text-gray-700 mb-2">{{ __('contact.form.phone') }}</label>
+                                <input type="tel" id="phone" name="phone" placeholder="{{ __('forms.phone_placeholder') }}"
                                        class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-blue-500 focus:border-blue-500 bg-gray-50 text-gray-800">
                             </div>
                             <div>
-                                <label for="issue" class="block text-sm font-semibold text-gray-700 mb-2">Vấn đề bạn cần tư vấn</label>
-                                <input type="text" id="issue" name="issue" placeholder="Vấn đề bạn cần từ vấn"
+                                <label for="issue" class="block text-sm font-semibold text-gray-700 mb-2">{{ __('contact.form.issue') }}</label>
+                                <input type="text" id="issue" name="issue" placeholder="{{ __('forms.issue_placeholder') }}"
                                        class="w-full px-4 py-3 rounded-xl border border-gray-300 focus:ring-blue-500 focus:border-blue-500 bg-gray-50 text-gray-800">
                             </div>
                         </div>
                         <div class="space-y-3">
                             <div class="flex items-center">
                                 <input type="checkbox" id="newsletter" name="newsletter" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
-                                <label for="newsletter" class="ml-2 block text-sm text-gray-600">Gửi cho tôi các thông tin cập nhật hàng tháng qua bản tin</label>
+                                <label for="newsletter" class="ml-2 block text-sm text-gray-600">{{ __('contact.newsletter') }}</label>
                             </div>
                             <div class="flex items-center">
                                 <input type="checkbox" id="terms" name="terms" class="h-4 w-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
-                                <label for="terms" class="ml-2 block text-sm text-gray-600">Tôi xác nhận đã đọc và đồng ý với Hướng dẫn dành cho khách hàng và Điều khoản sử dụng.</label>
+                                <label for="terms" class="ml-2 block text-sm text-gray-600">{{ __('contact.terms_accept') }}</label>
                             </div>
                         </div>
                         <button type="submit" class="w-full bg-gradient-to-r from-blue-600 to-blue-800 text-white px-6 py-3 rounded-full font-semibold hover:shadow-lg transition">
-                            Đặt lịch ngay
+                            {{ __('common.book_now') }}
                         </button>
                     </form>
                 </div>

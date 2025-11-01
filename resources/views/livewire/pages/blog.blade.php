@@ -19,7 +19,7 @@ new class extends Component {
     }
 }; ?>
 
-<x-slot name="title">Blog - SmileLux</x-slot>
+<x-slot name="title">{{ __('blog.index.title') }} - SmileLux</x-slot>
 
 <div class="min-h-screen bg-white">
     <!-- Hero Section -->
@@ -31,9 +31,9 @@ new class extends Component {
                      class="w-full h-96 object-cover rounded-2xl">
                 <div class="absolute inset-0 bg-gradient-to-r from-blue-600/80 to-transparent rounded-2xl flex items-center">
                     <div class="px-8 md:px-12 py-12 text-white">
-                        <p class="text-blue-100 text-xl font-medium mb-2">BLOG - NEWS</p>
+                        <p class="text-blue-100 text-xl font-medium mb-2">{{ __('blog.index.hero_subtitle') }}</p>
                         <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold mb-4 leading-tight">
-                            Chăm sóc nụ cười của bạn
+                            {{ __('blog.index.hero_title') }}
                         </h1>
                         <svg class="w-72 h-6 text-white" viewBox="0 0 284 6" fill="none">
                             <path d="M0 3 L282 3" stroke="currentColor" stroke-width="6" stroke-linecap="round"/>

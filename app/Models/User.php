@@ -28,6 +28,7 @@ class User extends Authenticatable implements MustVerifyEmail
         'date_of_birth',
         'avatar',
         'is_active',
+        'locale',
     ];
 
     /**

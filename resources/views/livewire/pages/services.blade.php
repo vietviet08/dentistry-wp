@@ -20,7 +20,7 @@ new class extends Component {
     }
 }; ?>
 
-<x-slot name="title">Dịch vụ - SmileLux</x-slot>
+<x-slot name="title">{{ __('nav.services') }} - SmileLux</x-slot>
 
 <div class="min-h-screen bg-white">
     <!-- Hero Section -->
@@ -30,10 +30,10 @@ new class extends Component {
         </div>
         <div class="max-w-7xl mx-auto px-5 relative z-10 text-center">
             <h1 class="text-5xl md:text-6xl font-bold mb-6">
-                <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">Các dịch vụ kỹ thuật chuyên môn của SmileLux</span>
+                <span class="text-transparent bg-clip-text bg-gradient-to-r from-yellow-400 to-orange-500">{{ __('services.index.title') }}</span>
             </h1>
             <p class="text-xl md:text-2xl mb-12 text-gray-200 max-w-4xl mx-auto leading-relaxed">
-                Tại SmileLux, chúng tôi không chỉ chú trọng đến chuyên môn mà còn đề cao trải nghiệm và cảm xúc của khách hàng. Với đội ngũ bác sĩ tận tâm cùng hệ thống công nghệ hiện đại, mỗi quy trình đều được thực hiện cẩn trọng và an toàn tuyệt đối. Chúng tôi hướng đến việc mang lại những giá trị bền vững, giúp khách hàng tự tin với nụ cười khỏe đẹp mỗi ngày. SmileLux – nơi kết hợp giữa kỹ thuật, tận tâm và thẩm mỹ hoàn hảo.
+                {{ __('services.index.description') }}
             </p>
         </div>
     </section>
@@ -74,7 +74,7 @@ new class extends Component {
                                             <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24">
                                                 <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8zm.5-13H11v6l5.25 3.15.75-1.23-4.5-2.67z"/>
                                             </svg>
-                                            {{ $service->duration }} phút
+                                            {{ $service->duration }} {{ __('services.card.duration') }}
                                         </span>
                                     @endif
                                     
@@ -89,7 +89,7 @@ new class extends Component {
                                 </div>
                                 
                                 <a href="{{ route('service-detail', $service->slug) }}" class="text-blue-600 hover:text-blue-800 font-semibold text-sm transition">
-                                    Xem chi tiết
+                                    {{ __('services.card.view_detail') }}
                                 </a>
                             </div>
                         </div>
@@ -104,8 +104,8 @@ new class extends Component {
                             <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                         </svg>
                     </div>
-                    <h3 class="text-xl font-semibold text-gray-600 mb-2">Chưa có dịch vụ nào</h3>
-                    <p class="text-gray-500">Hiện tại chưa có dịch vụ nào được cung cấp.</p>
+                    <h3 class="text-xl font-semibold text-gray-600 mb-2">{{ __('services.empty') }}</h3>
+                    <p class="text-gray-500">{{ __('services.empty_desc') }}</p>
                 </div>
             @endif
         </div>
@@ -116,9 +116,9 @@ new class extends Component {
         <div class="max-w-7xl mx-auto px-5">
             <div class="bg-white rounded-3xl p-8 md:p-12 shadow-2xl">
                 <div class="text-center mb-8">
-                    <p class="text-gray-600 text-lg mb-2">NHẬN THÔNG TIN MỚI NHẤT</p>
+                    <p class="text-gray-600 text-lg mb-2">{{ __('home.sections.consultation_subtitle') }}</p>
                     <h2 class="text-4xl md:text-5xl font-bold mb-6">
-                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">Tư vấn miễn phí</span>
+                        <span class="text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800">{{ __('home.sections.consultation') }}</span>
                     </h2>
                 </div>
                 
@@ -126,15 +126,15 @@ new class extends Component {
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <!-- Name Field -->
                         <div>
-                            <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">Họ và tên</label>
-                            <input type="text" id="name" name="name" placeholder="Nhập họ và tên của bạn" 
+                            <label for="name" class="block text-sm font-semibold text-gray-700 mb-2">{{ __('contact.form.name') }}</label>
+                            <input type="text" id="name" name="name" placeholder="{{ __('forms.name_placeholder') }}" 
                                    class="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
                         </div>
                         
                         <!-- Email Field -->
                         <div>
-                            <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">Địa chỉ email</label>
-                            <input type="email" id="email" name="email" placeholder="Nhập địa chỉ Email của bạn" 
+                            <label for="email" class="block text-sm font-semibold text-gray-700 mb-2">{{ __('contact.form.email') }}</label>
+                            <input type="email" id="email" name="email" placeholder="{{ __('forms.email_placeholder') }}" 
                                    class="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
                         </div>
                     </div>
@@ -142,15 +142,15 @@ new class extends Component {
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
                         <!-- Phone Field -->
                         <div>
-                            <label for="phone" class="block text-sm font-semibold text-gray-700 mb-2">Số điện thoại</label>
-                            <input type="tel" id="phone" name="phone" placeholder="Nhập số điện thoại của bạn" 
+                            <label for="phone" class="block text-sm font-semibold text-gray-700 mb-2">{{ __('contact.form.phone') }}</label>
+                            <input type="tel" id="phone" name="phone" placeholder="{{ __('forms.phone_placeholder') }}" 
                                    class="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
                         </div>
                         
                         <!-- Issue Field -->
                         <div>
-                            <label for="issue" class="block text-sm font-semibold text-gray-700 mb-2">Vấn đề bạn cần tư vấn</label>
-                            <input type="text" id="issue" name="issue" placeholder="Vấn đề bạn cần tư vấn" 
+                            <label for="issue" class="block text-sm font-semibold text-gray-700 mb-2">{{ __('contact.form.issue') }}</label>
+                            <input type="text" id="issue" name="issue" placeholder="{{ __('forms.issue_placeholder') }}" 
                                    class="w-full px-4 py-3 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-blue-500 focus:border-transparent transition">
                         </div>
                     </div>
@@ -159,19 +159,19 @@ new class extends Component {
                     <div class="space-y-4 mb-8">
                         <label class="flex items-start space-x-3">
                             <input type="checkbox" class="mt-1 w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
-                            <span class="text-gray-700 text-sm">Gửi cho tôi các thông tin cập nhật hàng tháng qua bản tin</span>
+                            <span class="text-gray-700 text-sm">{{ __('contact.newsletter') }}</span>
                         </label>
                         
                         <label class="flex items-start space-x-3">
                             <input type="checkbox" class="mt-1 w-4 h-4 text-blue-600 border-gray-300 rounded focus:ring-blue-500">
-                            <span class="text-gray-700 text-sm">Tôi xác nhận đã đọc và đồng ý với Hướng dẫn dành cho khách hàng và Điều khoản sử dụng.</span>
+                            <span class="text-gray-700 text-sm">{{ __('contact.terms_accept') }}</span>
                         </label>
                     </div>
                     
                     <!-- Submit Button -->
                     <div class="text-center">
                         <button type="submit" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-12 py-4 rounded-full font-semibold text-lg hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                            Đặt lịch ngay
+                            {{ __('home.hero.cta_book') }}
                         </button>
                     </div>
                 </form>

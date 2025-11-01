@@ -1,0 +1,709 @@
+{
+    "nav": {
+        "home": "Home",
+        "about": "About Us",
+        "services": "Services",
+        "doctors": "Doctors",
+        "team": "Team",
+        "testimonials": "Testimonials",
+        "blog": "Blog",
+        "faqs": "FAQs",
+        "gallery": "Gallery",
+        "pricing": "Pricing",
+        "contact": "Contact",
+        "appointment": "Book Appointment",
+        "dashboard": "Dashboard",
+        "admin": "Admin Panel",
+        "login": "Login",
+        "register": "Register",
+        "logout": "Logout",
+        "language": "Language",
+        "language_vi": "Vietnamese",
+        "language_en": "English",
+        "my_appointments": "My Appointments",
+        "my_profile": "My Profile",
+        "my_documents": "My Documents",
+        "my_reviews": "My Reviews",
+        "book_appointment": "Book Appointment"
+    },
+    "footer": {
+        "rights": "All rights reserved.",
+        "about": "About",
+        "links": "Links",
+        "quick_links": "Quick Links",
+        "branches": "Branches",
+        "contact": "Contact",
+        "address": "Address",
+        "hours": "Working Hours",
+        "phone": "Phone",
+        "email": "Email",
+        "follow_us": "Follow Us",
+        "privacy_policy": "Privacy Policy",
+        "terms_of_service": "Terms of Service",
+        "hanoi_branch_1": "Hanoi - Branch 1:",
+        "hanoi_branch_2": "Hanoi - Branch 2:",
+        "danang_branch": "Da Nang - Branch 3:",
+        "hcmc_branch": "HCMC - Branch 4:"
+    },
+    "home": {
+        "hero": {
+            "title": "Creating Bright Smiles",
+            "subtitle": "SmileLux creates radiant smiles with expertise, technology, and dedication",
+            "cta_book": "Book Now",
+            "cta_learn_more": "Learn More"
+        },
+        "sections": {
+            "introduction": "Introduction",
+            "services": "Our Services",
+            "cosmetic": "Cosmetic Services",
+            "cosmetic_desc": "Achieve a natural, radiant smile with Veneer solutions – addressing discolored, chipped, slightly misaligned, and unharmonious teeth.",
+            "implant": "Implant Services",
+            "implant_desc": "Restore missing teeth with modern Implant solutions – safe, stable, ensuring natural chewing function and aesthetics like real teeth.",
+            "orthodontics": "Orthodontic Services",
+            "orthodontics_desc": "Achieve straight, beautiful teeth and improved bite with transparent or bracket orthodontic methods.",
+            "general": "General Dentistry",
+            "general_desc": "Comprehensive oral health care: teeth whitening, filling, root canal treatment, wisdom tooth extraction, periodontal care, and family care packages.",
+            "before_after": "Before & After Treatment",
+            "before_after_desc": "Each before-after image is a milestone in the journey where SmileLux accompanies customers to regain radiant smiles and greater confidence every day.",
+            "before": "Before",
+            "after": "After",
+            "doctors_team": "Our Medical Team",
+            "doctors_desc": "Dedicated, experienced doctors – accompanying you on your smile care journey",
+            "facilities": "Our Facilities",
+            "consultation_room": "Consultation & Diagnosis Room",
+            "consultation_desc": "Private, friendly space - where doctors listen and create personalized treatment plans for each customer.",
+            "xray_room": "X-ray & 3D Scan Room",
+            "xray_desc": "Equipped with advanced imaging technology, helping accurately detect dental conditions and develop optimal treatment plans.",
+            "treatment_room": "Treatment & Implant Room",
+            "treatment_desc": "Meeting sterile standards, integrating modern equipment to support safe and accurate Implant surgery and restoration.",
+            "testimonials": "What Customers Say About SmileLux",
+            "testimonials_desc": "Customer trust is the clearest evidence of SmileLux's quality.",
+            "why_choose": "Why Choose SmileLux",
+            "why_choose_desc": "SmileLux provides medical-standard dental experience with modern technology, transparent costs, long-term warranty policy, and absolute sterile procedures – helping each customer feel confident on their journey to creating happy smiles.",
+            "modern_tech": "Modern Technology",
+            "modern_tech_desc": "3D Scan application for accurate diagnosis and optimal treatment planning.",
+            "transparent_cost": "Transparent Costs",
+            "transparent_cost_desc": "Clear pricing, no hidden fees, and diverse payment methods.",
+            "sterile_standard": "Sterile Standard",
+            "sterile_standard_desc": "Complying with international sterile standards, ensuring absolute customer safety.",
+            "long_warranty": "Long-term Warranty",
+            "long_warranty_desc": "Transparent warranty policy, long-term customer support.",
+            "consultation": "Free Consultation",
+            "consultation_subtitle": "GET THE LATEST INFORMATION",
+            "emergency_24h": "Emergency Dentistry 24H",
+            "professional": "Dedicated & Professional"
+        }
+    },
+    "about": {
+        "title": "About Us - SmileLux",
+        "hero": {
+            "title": "About Us",
+            "subtitle": "At SmileLux, we believe that every smile carries its own story. With our dedicated team of doctors and modern technology, SmileLux brings safe, aesthetic, and effective dental solutions."
+        },
+        "mission_vision": {
+            "title": "Our Mission & Vision",
+            "subtitle": "SmileLux hopes that every customer, wherever they are, has the opportunity to access quality, safe, and dedicated dental services.",
+            "mission": {
+                "title": "SmileLux Mission",
+                "description": "Bringing medical-standard dental solutions that are safe and dedicated – creating healthy, beautiful, and sustainable smiles for each customer."
+            },
+            "vision": {
+                "title": "SmileLux Vision",
+                "description": "SmileLux pioneers digitalizing the dental journey so every customer can own radiant smiles"
+            },
+            "core_values": {
+                "title": "Core Values",
+                "description": "Customer-centric – Dedicated service – Continuous innovation – Vietnamese identity, international standards."
+            }
+        },
+        "gallery": {
+            "title": "Gallery",
+            "subtitle": "Every SmileLux branch is built according to international standards and medical standards, bringing absolute peace of mind to customers."
+        },
+        "awards": {
+            "title": "Awards & Achievements",
+            "subtitle": "These achievements are proof of the reputation and quality at SmileLux",
+            "top_dental": {
+                "title": "Top Dental Practice in Vietnam",
+                "description": "Honored by prestigious medical organizations, pioneering in implant, orthodontics and medical-standard porcelain dental aesthetics."
+            },
+            "excellent_service": {
+                "title": "Excellent Customer Service",
+                "description": "Affirming the dedicated care process, close follow-up after treatment, bringing absolute satisfaction to customers."
+            },
+            "iso": {
+                "title": "ISO 9001:2015 Certification",
+                "description": "Applying international quality management systems, ensuring all treatment processes meet the highest safety and efficiency standards."
+            },
+            "straumann": {
+                "title": "Straumann Certification (Switzerland)",
+                "description": "The team of doctors are trained and certified by Straumann, guaranteeing precise and safe implant techniques."
+            }
+        },
+        "journey": {
+            "title": "Our Journey",
+            "subtitle": "SmileLux was founded with the mission to accompany Vietnamese people on the journey of comprehensive oral health care. Every step of development, every branch established is a continuous effort to create radiant smiles and peaceful lives for thousands of customers.",
+            "milestones": {
+                "2024": {
+                    "title": "Founding & Foundation",
+                    "description": "This is the first milestone marking the mission \"Creating Happy Smiles\" – where smiles are not only beautiful but also healthy and sustainable."
+                },
+                "2025": {
+                    "title": "Expansion & Recognition",
+                    "description": "The SmileLux system expanded to Ho Chi Minh City and Da Nang, invested in 3D Scan technology, international sterile standards and leading specialist teams. In the same year, SmileLux was honored to receive the \"Top Dental Practice in Vietnam\" award, affirming its pioneering position in aesthetic dentistry."
+                }
+            }
+        },
+        "stats": {
+            "title": "About Us",
+            "subtitle": "We aim not only to care for oral health, but also to spread confidence and joy to each customer, accompanying you on the journey to create radiant smiles.",
+            "sterile": "Medical-grade Sterilization",
+            "smiles": "Smiles Created",
+            "experts": "Medical Experts & Staff",
+            "satisfied": "Satisfied Customers"
+        }
+    },
+    "services": {
+        "index": {
+            "title": "Our Professional Services",
+            "subtitle": "Professional technical services by SmileLux",
+            "description": "At SmileLux, we focus not only on expertise but also on customer experience and emotions."
+        },
+        "card": {
+            "duration": "minutes",
+            "price_from": "From",
+            "read_more": "Read More",
+            "view_detail": "View Details"
+        },
+        "show": {
+            "title": "Service Details",
+            "book_now": "Book Now",
+            "faq": "Frequently Asked Questions"
+        },
+        "empty": "No services available",
+        "empty_desc": "Currently no services are being offered."
+    },
+    "doctors": {
+        "index": {
+            "title": "Our Medical Team",
+            "search_placeholder": "Search doctors..."
+        },
+        "card": {
+            "years_experience": "years experience",
+            "specialization": "Specialization"
+        },
+        "show": {
+            "bio": "Biography",
+            "qualification": "Qualifications",
+            "experience": "Experience",
+            "book_with_doctor": "Book with this doctor",
+            "specialist_in": "Specialist in"
+        }
+    },
+    "blog": {
+        "index": {
+            "title": "Latest Articles",
+            "read_more": "Read More",
+            "hero_title": "Caring for your smile",
+            "hero_subtitle": "BLOG - NEWS"
+        },
+        "show": {
+            "related_posts": "Related Articles",
+            "author": "Author",
+            "published_on": "Published on",
+            "category": "Category",
+            "tags": "Tags",
+            "table_of_contents": "Table of Contents",
+            "introduction": "Introduction",
+            "equipment": "Equipment",
+            "conclusion": "Conclusion",
+            "highlights": "Highlights at SmileLux",
+            "highlights_item1": "Natural & Harmonious: Tooth color and shape are individually designed according to each customer's face and smile.",
+            "highlights_item2": "Minimal Invasiveness: Doctors only gently polish the outer enamel, ensuring no impact on the pulp and tooth structure.",
+            "highlights_item3": "3D Smile Design Technology: Allows customers to preview results and adjust according to their wishes before implementation.",
+            "highlights_item4": "Long-term Care & Warranty: After treatment, customers are monitored regularly to maintain healthy, beautiful, sustainable smiles."
+        }
+    },
+    "team": {
+        "title": "Team - SmileLux",
+        "hero": {
+            "title": "Medical Team",
+            "description": "At SmileLux, our team of doctors is the heart of the journey to create happy smiles. Each expert has a solid professional foundation, medical-standard skills, and dedication in every treatment case. Not only focusing on technique, the SmileLux team also accompanies customers with understanding – so that every smile is not only beautiful in form, but also complete in emotion and long-term health."
+        },
+        "featured": {
+            "view_profile": "View detailed profile",
+            "years_experience": "years experience"
+        },
+        "experts": {
+            "title": "Expert Team",
+            "description": "Experienced team of doctors, deeply trained and always updating the latest techniques in dentistry."
+        },
+        "qualifications": {
+            "title": "Certifications & Qualifications",
+            "description": "The SmileLux team is trained and certified by prestigious medical organizations domestically and internationally.",
+            "straumann": {
+                "title": "Straumann Certification",
+                "description": "Trained and certified by Straumann (Switzerland) on precise and safe implant techniques."
+            },
+            "iso": {
+                "title": "ISO 9001:2015",
+                "description": "Applying international quality management systems, ensuring all treatment processes meet safety standards."
+            },
+            "international": {
+                "title": "International Certification",
+                "description": "Trained at leading universities and hospitals worldwide in dentistry."
+            },
+            "continuous": {
+                "title": "Continuous Updates",
+                "description": "Participating in courses and international seminars to update the latest techniques in dentistry."
+            }
+        },
+        "booking": {
+            "subtitle": "GET THE LATEST INFORMATION",
+            "title": "Free Consultation"
+        },
+        "no_doctors": "No doctors are currently displayed."
+    },
+    "testimonials": {
+        "title": "Customer Testimonials - SmileLux",
+        "hero": {
+            "title": "What Customers Say About SmileLux",
+            "customer_testimonials": "Customer Testimonials",
+            "description": "Each before-after image is a milestone in the journey where SmileLux accompanies customers to regain radiant smiles and greater confidence every day."
+        },
+        "booking": {
+            "subtitle": "GET THE LATEST INFORMATION",
+            "title": "Free Consultation",
+            "description": "Sign up now to receive free consultation from SmileLux's expert team and discover leading dental services."
+        }
+    },
+    "faqs": {
+        "title": "FAQs - SmileLux",
+        "hero": {
+            "title": "All answers for<br>your confident smile"
+        },
+        "categories": {
+            "services": {
+                "title": "Services",
+                "description": "Ask us about services"
+            },
+            "payment": {
+                "title": "Payment",
+                "description": "Ask us about payment"
+            },
+            "warranty": {
+                "title": "Warranty",
+                "description": "Ask us about warranty"
+            }
+        },
+        "section": {
+            "title": "Frequently Asked Questions"
+        },
+        "questions": {
+            "q1": "Does SmileLux offer free consultation services?",
+            "q2": "What are the steps in the veneer/braces/implant process at SmileLux?",
+            "q2_answer": "All services at SmileLux follow 4 standard medical steps:<br><br>1. Consultation & General Examination<br>2. 3D Scan Diagnosis – Treatment Plan Development<br>3. Main Treatment Implementation (veneer, braces, implant...)<br>4. Post-Treatment Care & Warranty.<br><br>The process is personalized for each customer to achieve optimal results.",
+            "q3": "What is the average treatment time?",
+            "q4": "Are free follow-up visits available after treatment?"
+        }
+    },
+    "gallery": {
+        "title": "Gallery",
+        "before_after": "Before & After",
+        "facility": "Facility",
+        "team": "Team",
+        "treatments": "Treatments"
+    },
+    "pricing": {
+        "title": "Pricing Plans",
+        "popular": "Most Popular",
+        "per_visit": "per visit",
+        "per_month": "per month",
+        "includes": "Includes"
+    },
+    "contact": {
+        "title": "Contact Us",
+        "title_page": "Contact - SmileLux",
+        "hero": {
+            "title": "Contact Us",
+            "subtitle": "For your smile"
+        },
+        "info": {
+            "title": "Our team is always ready to help you and answer all questions",
+            "locations": {
+                "hanoi_1": "Hanoi – Branch 1: Floor 6, 605 Quang Trung, Kien Hung, Ha Dong, Hanoi",
+                "hanoi_2": "Hanoi – Branch 2: 133 Hai Au 1, Vinhomes Ocean Park 1, Gia Lam, Hanoi",
+                "danang": "Da Nang – Branch 3: 106 To Huu, Hoa Cuong Ward, Da Nang (Pre-opening)",
+                "hcmc": "HCMC – Branch 4: 658/5 Cach Mang Thang 8, Nhieu Loc Ward, Ho Chi Minh City"
+            },
+            "phone": "0918 19 69 91",
+            "email": "smileluxmarketing@gmail.com",
+            "hours": {
+                "label": "Monday - Friday",
+                "time": "8:00 AM to 20:00 PM"
+            }
+        },
+        "form": {
+            "booking_title": "Book Appointment",
+            "booking_subtitle": "Contact us and send your questions",
+            "name": "Full Name",
+            "email": "Email Address",
+            "phone": "Phone Number",
+            "consultation": "Consultation Topic",
+            "consultation_placeholder": "Consultation content needed",
+            "consultation_options": {
+                "general": "General Consultation",
+                "cleaning": "Oral Hygiene",
+                "whitening": "Teeth Whitening",
+                "braces": "Braces",
+                "implant": "Implant Surgery"
+            },
+            "date": "Date",
+            "time": "Time",
+            "submit": "Book Appointment Now"
+        },
+        "map": {
+            "placeholder": "Map will be displayed here"
+        },
+        "alert": {
+            "success": "Your message has been sent successfully!",
+            "error": "An error occurred. Please try again."
+        },
+        "newsletter": "Send me monthly updates via newsletter",
+        "terms_accept": "I confirm that I have read and agree to the Customer Guidelines and Terms of Use."
+    },
+    "auth": {
+        "login": {
+            "title": "Login",
+            "email": "Email",
+            "password": "Password",
+            "remember": "Remember me",
+            "submit": "Login",
+            "forgot": "Forgot password?"
+        },
+        "register": {
+            "title": "Register",
+            "name": "Full Name",
+            "email": "Email",
+            "password": "Password",
+            "password_confirm": "Confirm Password",
+            "submit": "Register"
+        },
+        "verify": {
+            "notice": "Please verify your email address"
+        },
+        "two_factor": {
+            "title": "Two-Factor Authentication",
+            "code": "Authentication Code",
+            "recovery_code": "Recovery Code",
+            "submit": "Verify"
+        }
+    },
+    "patient": {
+        "dashboard": {
+            "title": "Welcome back, :name!",
+            "overview": "Here's an overview of your dental care journey",
+            "total_appointments": "Total Appointments",
+            "upcoming_appointments": "Upcoming Appointments",
+            "past_appointments": "Past Appointments",
+            "available_doctors": "Available Doctors",
+            "quick_actions": "Quick Actions",
+            "view_all": "View All",
+            "no_appointments": "No upcoming appointments",
+            "book_first": "Book your first appointment to get started"
+        },
+        "appointments": {
+            "title": "My Appointments",
+            "create": "Book Appointment",
+            "cancel": "Cancel",
+            "reschedule": "Reschedule",
+            "view": "View",
+            "status": {
+                "pending": "Pending",
+                "confirmed": "Confirmed",
+                "completed": "Completed",
+                "cancelled": "Cancelled",
+                "no_show": "No Show"
+            }
+        },
+        "profile": {
+            "title": "My Profile",
+            "update": "Update Profile"
+        },
+        "documents": {
+            "title": "My Documents"
+        },
+        "reviews": {
+            "title": "My Reviews"
+        }
+    },
+    "admin": {
+        "dashboard": {
+            "title": "Admin Dashboard",
+            "total_patients": "Total Patients",
+            "today_appointments": "Today's Appointments",
+            "pending_appointments": "Pending Appointments",
+            "monthly_revenue": "Monthly Revenue",
+            "total_appointments": "Total Appointments",
+            "upcoming": "Upcoming",
+            "active_doctors": "Active Doctors",
+            "pending_reviews": "Pending Reviews",
+            "recent_appointments": "Recent Appointments",
+            "popular_services": "Popular Services",
+            "quick_actions": "Quick Actions",
+            "bookings": "bookings",
+            "no_appointments": "No appointments yet",
+            "no_services_data": "No services data available",
+            "view_all_appointments": "View all appointments",
+            "manage_appointments": "Manage Appointments",
+            "manage_patients": "Manage Patients",
+            "manage_doctors": "Manage Doctors",
+            "manage_services": "Manage Services"
+        },
+        "menu": {
+            "services": "Services",
+            "doctors": "Doctors",
+            "appointments": "Appointments",
+            "patients": "Patients",
+            "reviews": "Reviews",
+            "blog": "Blog",
+            "gallery": "Gallery",
+            "settings": "Settings"
+        },
+        "common": {
+            "create": "Create",
+            "edit": "Edit",
+            "delete": "Delete",
+            "save": "Save",
+            "save_changes": "Save Changes",
+            "cancel": "Cancel",
+            "search": "Search",
+            "actions": "Actions",
+            "status": "Status",
+            "back": "Back",
+            "back_to_dashboard": "Back to dashboard",
+            "calendar_view": "Calendar View",
+            "create_service": "Create Service",
+            "view_manage": "View and manage"
+        },
+        "appointments": {
+            "title": "Manage Appointments",
+            "subtitle": "View and manage all appointments",
+            "search_placeholder": "Patient, doctor, service...",
+            "filter_status": "Status",
+            "filter_doctor": "Doctor",
+            "filter_date": "Date",
+            "all_status": "All Status",
+            "all_doctors": "All Doctors",
+            "table": {
+                "patient": "Patient",
+                "doctor": "Doctor",
+                "service": "Service",
+                "datetime": "Date & Time"
+            },
+            "confirm": "Confirm",
+            "complete": "Complete",
+            "no_appointments": "No appointments found"
+        },
+        "services": {
+            "title": "Manage Services",
+            "subtitle": "Manage dental services and treatments",
+            "search_placeholder": "Search services...",
+            "filter_category": "Category",
+            "all_categories": "All Categories",
+            "table": {
+                "service": "Service",
+                "category": "Category",
+                "duration": "Duration",
+                "price": "Price",
+                "bookings": "Bookings"
+            },
+            "activate": "Activate",
+            "deactivate": "Deactivate",
+            "delete_confirm": "Are you sure you want to delete this service?",
+            "no_services": "No services found",
+            "active": "Active",
+            "inactive": "Inactive"
+        },
+        "patients": {
+            "title": "Manage Patients",
+            "subtitle": "View and manage patient records",
+            "search_placeholder": "Search by name, email, or phone...",
+            "table": {
+                "patient": "Patient",
+                "contact": "Contact",
+                "member_since": "Member Since"
+            },
+            "view_details": "View Details",
+            "no_patients": "No patients found",
+            "no_phone": "No phone"
+        },
+        "doctors": {
+            "title": "Manage Doctors",
+            "subtitle": "Manage doctor profiles and schedules",
+            "create_doctor": "Create Doctor",
+            "search_placeholder": "Search by name or specialization...",
+            "show_inactive": "Show inactive doctors",
+            "table": {
+                "doctor": "Doctor",
+                "specialization": "Specialization",
+                "experience": "Experience",
+                "fee": "Fee",
+                "appointments": "Appointments"
+            },
+            "years": "years",
+            "schedule": "Schedule",
+            "available": "Available",
+            "unavailable": "Unavailable",
+            "make_available": "Make Available",
+            "make_unavailable": "Make Unavailable",
+            "delete_confirm": "Are you sure you want to delete this doctor?",
+            "no_doctors": "No doctors found"
+        },
+        "posts": {
+            "title": "Manage Blog Posts",
+            "subtitle": "Manage blog articles and content",
+            "create_post": "Create Post",
+            "search_placeholder": "Search posts...",
+            "table": {
+                "title": "Title",
+                "author": "Author",
+                "category": "Category",
+                "published": "Published",
+                "views": "Views"
+            },
+            "not_published": "Not published",
+            "publish": "Publish",
+            "unpublish": "Unpublish",
+            "delete_confirm": "Are you sure you want to delete this post?",
+            "no_posts": "No posts found"
+        },
+        "gallery": {
+            "title": "Manage Gallery",
+            "subtitle": "Manage gallery images and photos",
+            "search_placeholder": "Search gallery...",
+            "featured": "Featured ⭐",
+            "not_featured": "Not Featured",
+            "no_image": "No image",
+            "no_items": "No gallery items found"
+        },
+        "reviews": {
+            "title": "Review Moderation",
+            "subtitle": "Moderate patient reviews",
+            "search_placeholder": "Search by patient name...",
+            "filter_status": "Status",
+            "all_status": "All Status",
+            "table": {
+                "patient": "Patient",
+                "rating": "Rating",
+                "comment": "Comment",
+                "date": "Date",
+                "status": "Status",
+                "actions": "Actions"
+            },
+            "status": {
+                "pending": "Pending",
+                "approved": "Approved",
+                "rejected": "Rejected"
+            },
+            "approve": "Approve",
+            "reject": "Reject",
+            "feature": "Feature",
+            "unfeature": "Unfeature",
+            "approved_success": "Review approved successfully.",
+            "rejected_success": "Review rejected.",
+            "updated_success": "Review updated.",
+            "no_reviews": "No reviews found"
+        },
+        "forms": {
+            "service_name": "Service Name",
+            "slug": "Slug",
+            "category": "Category",
+            "duration_minutes": "Duration (minutes)",
+            "price": "Price ($)",
+            "display_order": "Display Order",
+            "icon": "Icon (emoji)",
+            "active_visible": "Active (visible to patients)",
+            "description": "Description",
+            "featured_image": "Featured Image",
+            "seo_settings": "SEO Settings",
+            "meta_title": "Meta Title",
+            "meta_description": "Meta Description",
+            "save_service": "Save Service",
+            "save_doctor": "Save Doctor",
+            "back_to_services": "Back to Services",
+            "back_to_doctors": "Back to Doctors",
+            "edit_service": "Edit Service",
+            "create_service": "Create New Service",
+            "edit_doctor": "Edit Doctor",
+            "create_doctor": "Create New Doctor",
+            "doctor_name": "Name",
+            "specialization": "Specialization",
+            "qualification": "Qualification",
+            "experience_years": "Experience (years)",
+            "consultation_fee": "Consultation Fee ($)",
+            "doctor_photo": "Doctor Photo",
+            "bio": "Bio",
+            "available_appointments": "Available for appointments"
+        },
+        "settings": {
+            "title": "General Settings",
+            "subtitle": "Manage system settings and preferences",
+            "clinic_info": "Clinic Information",
+            "clinic_name": "Clinic Name",
+            "phone_number": "Phone Number",
+            "email": "Email",
+            "address": "Address",
+            "enter_clinic_name": "Enter clinic name",
+            "enter_phone": "Enter phone number",
+            "enter_email": "Enter email",
+            "enter_address": "Enter address",
+            "appointment_settings": "Appointment Settings"
+        }
+    },
+    "common": {
+        "ok": "OK",
+        "cancel": "Cancel",
+        "save": "Save",
+        "close": "Close",
+        "search": "Search",
+        "read_more": "Read More",
+        "learn_more": "Learn More",
+        "loading": "Loading...",
+        "book_now": "Book Now",
+        "view_details": "View Details",
+        "book_appointment": "Book Appointment",
+        "view_appointments": "View Appointments",
+        "browse_services": "Browse Services",
+        "update_profile": "Update Profile"
+    },
+    "forms": {
+        "required": "This field is required",
+        "select": "Please select",
+        "select_doctor": "Select a doctor",
+        "select_service": "Select a service",
+        "date": "Date",
+        "time": "Time",
+        "notes": "Notes",
+        "upload": "Upload",
+        "name_placeholder": "Enter your full name",
+        "email_placeholder": "Enter your email address",
+        "phone_placeholder": "Enter your phone number",
+        "issue_placeholder": "Issue you need consultation"
+    },
+    "feedback": {
+        "success": "Success!",
+        "error": "Error!",
+        "saved": "Saved successfully",
+        "updated": "Updated successfully",
+        "deleted": "Deleted successfully",
+        "created": "Created successfully"
+    },
+    "appointments": {
+        "confirmed_count": "Confirmed: :n",
+        "booked_for": "Booked for :date at :time",
+        "with_doctor": "with Dr. :name",
+        "cancellation_policy": "Cancellation allowed up to :hours hours before the appointment.",
+        "at": "at"
+    }
+}

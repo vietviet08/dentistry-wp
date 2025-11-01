@@ -67,12 +67,12 @@ new class extends Component {
                     <div class="space-y-4">
                         <!-- Author -->
                         <div>
-                            <p class="text-gray-500 text-sm mb-1">Tác giả</p>
+                            <p class="text-gray-500 text-sm mb-1">{{ __('blog.show.author') }}</p>
                             <p class="text-gray-800 font-semibold">{{ $post->author->name ?? 'Team SmileLux' }}</p>
                         </div>
                         <!-- Date -->
                         <div>
-                            <p class="text-gray-500 text-sm mb-1">Ngày đăng</p>
+                            <p class="text-gray-500 text-sm mb-1">{{ __('blog.show.published_on') }}</p>
                             <p class="text-gray-800 font-semibold">{{ $post->published_at?->format('d/m/Y') }}</p>
                         </div>
                     </div>
@@ -80,16 +80,16 @@ new class extends Component {
 
                 <!-- Table of Contents -->
                 <div class="bg-white rounded-2xl shadow-lg p-6">
-                    <h3 class="text-xl font-bold text-blue-600 mb-4">Mục lục</h3>
+                    <h3 class="text-xl font-bold text-blue-600 mb-4">{{ __('blog.show.table_of_contents') }}</h3>
                     <div class="space-y-2">
                         <a href="#introduction" class="block p-3 rounded-xl bg-white hover:bg-blue-50 transition">
-                            <span class="text-gray-800">Giới thiệu</span>
+                            <span class="text-gray-800">{{ __('blog.show.introduction') }}</span>
                         </a>
                         <a href="#equipment" class="block p-3 rounded-xl bg-blue-50 text-blue-700 hover:bg-blue-100 transition">
-                            <span class="font-semibold">Trang thiết bị</span>
+                            <span class="font-semibold">{{ __('blog.show.equipment') }}</span>
                         </a>
                         <a href="#conclusion" class="block p-3 rounded-xl bg-white hover:bg-blue-50 transition">
-                            <span class="text-gray-800">Kết luận</span>
+                            <span class="text-gray-800">{{ __('blog.show.conclusion') }}</span>
                         </a>
                     </div>
                 </div>
@@ -121,32 +121,32 @@ new class extends Component {
                     <div class="mt-8 space-y-8">
                         <section id="equipment">
                             <h2 class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800 mb-4">
-                                Ưu điểm nổi bật tại SmileLux
+                                {{ __('blog.show.highlights') }}
                             </h2>
                             <ul class="space-y-3 text-gray-700">
                                 <li class="flex items-start">
                                     <svg class="w-6 h-6 text-blue-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                     </svg>
-                                    <span>Tự nhiên & hài hòa: Màu sắc và hình dáng răng được thiết kế riêng theo gương mặt và nụ cười từng khách hàng.</span>
+                                    <span>{{ __('blog.show.highlights_item1') }}</span>
                                 </li>
                                 <li class="flex items-start">
                                     <svg class="w-6 h-6 text-blue-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                     </svg>
-                                    <span>Tối thiểu xâm lấn: Bác sĩ chỉ mài nhẹ phần men ngoài, đảm bảo không ảnh hưởng đến tủy và cấu trúc răng.</span>
+                                    <span>{{ __('blog.show.highlights_item2') }}</span>
                                 </li>
                                 <li class="flex items-start">
                                     <svg class="w-6 h-6 text-blue-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                     </svg>
-                                    <span>Công nghệ thiết kế nụ cười 3D: Cho phép khách hàng xem trước kết quả, điều chỉnh theo mong muốn trước khi thực hiện.</span>
+                                    <span>{{ __('blog.show.highlights_item3') }}</span>
                                 </li>
                                 <li class="flex items-start">
                                     <svg class="w-6 h-6 text-blue-600 mr-3 flex-shrink-0 mt-1" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"></path>
                                     </svg>
-                                    <span>Chăm sóc & bảo hành lâu dài: Sau điều trị, khách hàng được theo dõi định kỳ, duy trì nụ cười khỏe đẹp bền vững.</span>
+                                    <span>{{ __('blog.show.highlights_item4') }}</span>
                                 </li>
                             </ul>
                         </section>
@@ -166,7 +166,7 @@ new class extends Component {
 
                         <section id="conclusion">
                             <h2 class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800 mb-4">
-                                Kết luận
+                                {{ __('blog.show.conclusion') }}
                             </h2>
                             <p class="text-gray-700 leading-relaxed">
                                 Dán sứ Veneer không chỉ mang lại một nụ cười sáng đẹp mà còn giúp bạn tìm lại sự tự tin trong cuộc sống. Với đội ngũ bác sĩ tận tâm, công nghệ hiện đại và chính sách bảo hành minh bạch, SmileLux cam kết đồng hành cùng bạn trên hành trình kiến tạo nụ cười hạnh phúc.
@@ -179,7 +179,7 @@ new class extends Component {
                 @if($relatedPosts->isNotEmpty())
                     <section class="mt-16">
                         <h2 class="text-3xl md:text-4xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800 mb-8">
-                            Bài viết liên quan
+                            {{ __('blog.show.related_posts') }}
                         </h2>
                         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
                             @foreach($relatedPosts as $relatedPost)

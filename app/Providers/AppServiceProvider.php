@@ -4,6 +4,8 @@ namespace App\Providers;
 
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
+use Illuminate\Translation\FileLoader;
+use Illuminate\Support\Arr;
 
 class AppServiceProvider extends ServiceProvider
 {
@@ -12,7 +14,36 @@ class AppServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        //
+        // Override translation loader to handle nested JSON
+        $this->app->extend('translation.loader', function ($loader, $app) {
+            return new class($app['files'], $app['path.lang']) extends FileLoader {
+                /**
+                 * Load the messages for the given locale and group.
+                 */
+                public function load($locale, $group, $namespace = null)
+                {
+                    // For JSON files (* group), flatten nested structure
+                    if ($group === '*' && $namespace === '*') {
+                        $langPath = $this->path ?? base_path('resources/lang');
+                        $path = $langPath . '/' . $locale . '.json';
+                        
+                        if ($this->files->exists($path)) {
+                            $decoded = json_decode($this->files->get($path), true);
+                            
+                            if (json_last_error() === JSON_ERROR_NONE && is_array($decoded)) {
+                                // Flatten nested array to dot notation keys
+                                return Arr::dot($decoded);
+                            }
+                        }
+                        
+                        return [];
+                    }
+                    
+                    // For other translation files, use default behavior
+                    return parent::load($locale, $group, $namespace);
+                }
+            };
+        });
     }
 
     /**

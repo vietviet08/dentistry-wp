@@ -23,7 +23,7 @@ new class extends Component {
     }
 }; ?>
 
-<x-slot name="title">Câu hỏi thường gặp - SmileLux</x-slot>
+<x-slot name="title">{{ __('faqs.title') }}</x-slot>
 
 <div class="min-h-screen bg-white">
     <!-- Hero Section -->
@@ -32,7 +32,7 @@ new class extends Component {
         <div class="relative max-w-7xl mx-auto px-5 h-full flex items-center justify-center">
             <div class="text-center">
                 <h1 class="text-5xl md:text-6xl font-bold mb-4 bg-gradient-to-r from-indigo-900 via-blue-700 to-blue-700 bg-clip-text text-transparent">
-                    Mọi câu trả lời cho<br>nụ cười tự tin của bạn
+                    {!! __('faqs.hero.title') !!}
                 </h1>
                 <div class="flex justify-center mt-8">
                     <svg class="w-96 h-1" viewBox="0 0 400 1" fill="none">
@@ -53,7 +53,7 @@ new class extends Component {
     <div class="max-w-7xl mx-auto px-5 -mt-32 mb-16">
         <div class="flex justify-center gap-6 flex-wrap">
             <!-- Category Card: Dịch vụ -->
-            <div wire:click="selectCategory('Dịch vụ')" class="w-full md:w-[397px] bg-blue-50 rounded-2xl p-9 shadow-lg cursor-pointer hover:shadow-xl transition {{ $selectedCategory === 'Dịch vụ' ? 'ring-4 ring-blue-200' : '' }}">
+            <div wire:click="selectCategory('{{ __('faqs.categories.services.title') }}')" class="w-full md:w-[397px] bg-blue-50 rounded-2xl p-9 shadow-lg cursor-pointer hover:shadow-xl transition {{ $selectedCategory === __('faqs.categories.services.title') ? 'ring-4 ring-blue-200' : '' }}">
                 <div class="flex items-start gap-6">
                     <div class="bg-white rounded-lg p-3 shadow-md">
                         <svg class="w-9 h-9 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -61,14 +61,14 @@ new class extends Component {
                         </svg>
                     </div>
                     <div>
-                        <h3 class="text-2xl font-medium text-gray-900 mb-2">Dịch vụ</h3>
-                        <p class="text-base text-gray-600">Hỏi chúng tôi về dịch vụ</p>
+                        <h3 class="text-2xl font-medium text-gray-900 mb-2">{{ __('faqs.categories.services.title') }}</h3>
+                        <p class="text-base text-gray-600">{{ __('faqs.categories.services.description') }}</p>
                     </div>
                 </div>
             </div>
 
             <!-- Category Card: Thanh toán -->
-            <div wire:click="selectCategory('Thanh toán')" class="w-full md:w-[397px] bg-white rounded-2xl p-9 shadow-lg cursor-pointer hover:shadow-xl transition {{ $selectedCategory === 'Thanh toán' ? 'ring-4 ring-blue-200' : '' }}">
+            <div wire:click="selectCategory('{{ __('faqs.categories.payment.title') }}')" class="w-full md:w-[397px] bg-white rounded-2xl p-9 shadow-lg cursor-pointer hover:shadow-xl transition {{ $selectedCategory === __('faqs.categories.payment.title') ? 'ring-4 ring-blue-200' : '' }}">
                 <div class="flex items-start gap-6">
                     <div class="bg-white rounded-lg p-3 shadow-md">
                         <svg class="w-9 h-9 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -76,14 +76,14 @@ new class extends Component {
                         </svg>
                     </div>
                     <div>
-                        <h3 class="text-2xl font-medium text-gray-900 mb-2">Thanh toán</h3>
-                        <p class="text-base text-gray-600">Hỏi chúng tôi về thanh toán</p>
+                        <h3 class="text-2xl font-medium text-gray-900 mb-2">{{ __('faqs.categories.payment.title') }}</h3>
+                        <p class="text-base text-gray-600">{{ __('faqs.categories.payment.description') }}</p>
                     </div>
                 </div>
             </div>
 
             <!-- Category Card: Bảo hành -->
-            <div wire:click="selectCategory('Bảo hành')" class="w-full md:w-[397px] bg-white rounded-2xl p-9 shadow-lg cursor-pointer hover:shadow-xl transition {{ $selectedCategory === 'Bảo hành' ? 'ring-4 ring-blue-200' : '' }}">
+            <div wire:click="selectCategory('{{ __('faqs.categories.warranty.title') }}')" class="w-full md:w-[397px] bg-white rounded-2xl p-9 shadow-lg cursor-pointer hover:shadow-xl transition {{ $selectedCategory === __('faqs.categories.warranty.title') ? 'ring-4 ring-blue-200' : '' }}">
                 <div class="flex items-start gap-6">
                     <div class="bg-white rounded-lg p-3 shadow-md">
                         <svg class="w-9 h-9 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -91,8 +91,8 @@ new class extends Component {
                         </svg>
                     </div>
                     <div>
-                        <h3 class="text-2xl font-medium text-gray-900 mb-2">Bảo hành</h3>
-                        <p class="text-base text-gray-600">Hỏi chúng tôi về bảo hành</p>
+                        <h3 class="text-2xl font-medium text-gray-900 mb-2">{{ __('faqs.categories.warranty.title') }}</h3>
+                        <p class="text-base text-gray-600">{{ __('faqs.categories.warranty.description') }}</p>
                     </div>
                 </div>
             </div>
@@ -103,7 +103,7 @@ new class extends Component {
     <div class="max-w-4xl mx-auto px-5 mb-12">
         <div class="text-center mb-12">
             <h2 class="text-4xl md:text-5xl font-bold bg-gradient-to-r from-indigo-900 via-blue-700 to-blue-700 bg-clip-text text-transparent mb-4">
-                Câu hỏi thường gặp
+                {{ __('faqs.section.title') }}
             </h2>
             <div class="flex justify-center">
                 <svg class="w-64 h-1" viewBox="0 0 256 1" fill="none">
@@ -124,7 +124,7 @@ new class extends Component {
             <div class="border-b border-gray-200">
                 <div wire:click="toggle(1)" class="flex justify-between items-center py-6 cursor-pointer hover:bg-gray-50 transition">
                     <h3 class="text-xl font-medium text-gray-900 pr-4">
-                        SmileLux có dịch vụ tư vấn miễn phí không?
+                        {{ __('faqs.questions.q1') }}
                     </h3>
                     <div class="flex-shrink-0">
                         @if($openIndex === 1)
@@ -144,7 +144,7 @@ new class extends Component {
             <div class="border-b border-gray-200">
                 <div wire:click="toggle(2)" class="flex justify-between items-center py-6 cursor-pointer hover:bg-gray-50 transition {{ $openIndex === 2 ? 'bg-gray-50' : '' }}">
                     <h3 class="text-xl font-medium text-gray-900 pr-4">
-                        Quy trình dán sứ/niềng răng/implant tại SmileLux gồm những bước nào?
+                        {{ __('faqs.questions.q2') }}
                     </h3>
                     <div class="flex-shrink-0">
                         @if($openIndex === 2)
@@ -161,12 +161,7 @@ new class extends Component {
                 @if($openIndex === 2)
                     <div class="pb-6 pl-0">
                         <p class="text-base text-gray-700 leading-relaxed">
-                            Mọi dịch vụ tại SmileLux đều tuân theo 4 bước tiêu chuẩn y khoa:<br><br>
-                            1. Tư vấn & khám tổng quát<br>
-                            2. Scan 3D chẩn đoán – lập phác đồ điều trị<br>
-                            3. Thực hiện điều trị chính (dán sứ, niềng, implant...)<br>
-                            4. Chăm sóc & bảo hành sau điều trị.<br><br>
-                            Quy trình được cá nhân hóa theo từng khách hàng để đạt kết quả tối ưu.
+                            {!! __('faqs.questions.q2_answer') !!}
                         </p>
                     </div>
                 @endif
@@ -176,7 +171,7 @@ new class extends Component {
             <div class="border-b border-gray-200">
                 <div wire:click="toggle(3)" class="flex justify-between items-center py-6 cursor-pointer hover:bg-gray-50 transition">
                     <h3 class="text-xl font-medium text-gray-900 pr-4">
-                        Thời gian điều trị trung bình là bao lâu?
+                        {{ __('faqs.questions.q3') }}
                     </h3>
                     <div class="flex-shrink-0">
                         @if($openIndex === 3)
@@ -196,7 +191,7 @@ new class extends Component {
             <div class="border-b border-gray-200">
                 <div wire:click="toggle(4)" class="flex justify-between items-center py-6 cursor-pointer hover:bg-gray-50 transition">
                     <h3 class="text-xl font-medium text-gray-900 pr-4">
-                        Sau khi điều trị có được tái khám miễn phí không?
+                        {{ __('faqs.questions.q4') }}
                     </h3>
                     <div class="flex-shrink-0">
                         @if($openIndex === 4)
