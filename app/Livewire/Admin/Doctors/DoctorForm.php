@@ -3,10 +3,12 @@
 namespace App\Livewire\Admin\Doctors;
 
 use App\Models\Doctor;
+use App\Models\User;
 use Livewire\Component;
 use Livewire\Attributes\Layout;
 use Livewire\WithFileUploads;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Str;
 
 #[Layout('components.layouts.admin')]
 class DoctorForm extends Component
@@ -42,7 +44,12 @@ class DoctorForm extends Component
             'qualification' => 'required|string',
             'experience_years' => 'required|integer|min:0',
             'bio' => 'required|string',
-            'email' => 'nullable|email|max:255',
+            'email' => [
+                'nullable',
+                'email',
+                'max:255',
+                Rule::unique('users', 'email')->ignore($this->doctorId ? Doctor::find($this->doctorId)?->user_id : null),
+            ],
             'phone' => 'nullable|string|max:255',
             'consultation_fee' => 'required|numeric|min:0',
             'is_available' => 'boolean',
@@ -109,8 +116,51 @@ class DoctorForm extends Component
 
         $doctor->save();
 
-        session()->flash('success', 'Doctor saved successfully!');
+        // Create or update user account for doctor
+        if (!$doctor->user_id) {
+            // Create new user
+            $user = User::create([
+                'name' => $doctor->name,
+                'email' => $doctor->email ?? $this->generateDoctorEmail($doctor),
+                'password' => bcrypt('password'), // Default password, doctor should change it
+                'role' => 'doctor',
+                'is_active' => $doctor->is_available,
+                'email_verified_at' => now(),
+                'phone' => $doctor->phone,
+            ]);
+
+            // Link user to doctor
+            $doctor->update(['user_id' => $user->id]);
+        } else {
+            // Update existing user
+            $user = $doctor->user;
+            $user->update([
+                'name' => $doctor->name,
+                'email' => $doctor->email ?? $user->email,
+                'phone' => $doctor->phone ?? $user->phone,
+                'is_active' => $doctor->is_available,
+            ]);
+        }
+
+        session()->flash('success', 'Doctor saved successfully! User account created/updated.');
         return redirect()->route('admin.doctors.index');
+    }
+
+    /**
+     * Generate email for doctor if not provided
+     */
+    private function generateDoctorEmail(Doctor $doctor): string
+    {
+        $baseEmail = Str::slug($doctor->name) . '@dentistry.test';
+        $email = $baseEmail;
+        $counter = 1;
+
+        while (User::where('email', $email)->exists()) {
+            $email = Str::slug($doctor->name) . $counter . '@dentistry.test';
+            $counter++;
+        }
+
+        return $email;
     }
 
     public function render()

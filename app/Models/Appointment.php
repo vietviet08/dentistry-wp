@@ -124,9 +124,25 @@ class Appointment extends Model
     }
 
     // Business Logic
+    /**
+     * Check if appointment belongs to a specific doctor
+     */
+    public function belongsToDoctor(User $user): bool
+    {
+        if (!$user->isDoctor() || !$user->doctor) {
+            return false;
+        }
+
+        return $this->doctor_id === $user->doctor->id;
+    }
+
     public function canBeCancelledBy(User $user): bool
     {
         if ($user->isAdmin()) {
+            return true;
+        }
+
+        if ($user->isDoctor() && $this->belongsToDoctor($user)) {
             return true;
         }
 
@@ -139,6 +155,11 @@ class Appointment extends Model
     {
         if ($user->isAdmin()) {
             return true;
+        }
+
+        if ($user->isDoctor() && $this->belongsToDoctor($user)) {
+            return in_array($this->status, ['pending', 'confirmed'])
+                && $this->appointment_date >= today();
         }
 
         return $user->id === $this->patient_id

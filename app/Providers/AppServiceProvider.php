@@ -79,6 +79,14 @@ class AppServiceProvider extends ServiceProvider
             return $user->role === 'admin';
         });
 
+        Gate::define('access-doctor-panel', function ($user) {
+            return $user->role === 'doctor';
+        });
+
+        Gate::define('manage-own-schedule', function ($user) {
+            return $user->role === 'doctor';
+        });
+
         // Register policies
         Gate::policy(\App\Models\Appointment::class, \App\Policies\AppointmentPolicy::class);
     }

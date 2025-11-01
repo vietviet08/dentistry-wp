@@ -12,7 +12,7 @@ class AppointmentPolicy
      */
     public function viewAny(User $user): bool
     {
-        // Patients see their own appointments, admins see all
+        // Patients see their own appointments, doctors see their appointments, admins see all
         return true;
     }
 
@@ -21,7 +21,15 @@ class AppointmentPolicy
      */
     public function view(User $user, Appointment $appointment): bool
     {
-        return $user->isAdmin() || $user->id === $appointment->patient_id;
+        if ($user->isAdmin()) {
+            return true;
+        }
+
+        if ($user->isDoctor() && $appointment->belongsToDoctor($user)) {
+            return true;
+        }
+
+        return $user->id === $appointment->patient_id;
     }
 
     /**
@@ -70,7 +78,19 @@ class AppointmentPolicy
      */
     public function confirm(User $user, Appointment $appointment): bool
     {
-        return $user->isAdmin() && $appointment->status === 'pending';
+        if ($appointment->status !== 'pending') {
+            return false;
+        }
+
+        if ($user->isAdmin()) {
+            return true;
+        }
+
+        if ($user->isDoctor() && $appointment->belongsToDoctor($user)) {
+            return true;
+        }
+
+        return false;
     }
 
     /**
@@ -78,7 +98,19 @@ class AppointmentPolicy
      */
     public function complete(User $user, Appointment $appointment): bool
     {
-        return $user->isAdmin() && $appointment->status === 'confirmed';
+        if ($appointment->status !== 'confirmed') {
+            return false;
+        }
+
+        if ($user->isAdmin()) {
+            return true;
+        }
+
+        if ($user->isDoctor() && $appointment->belongsToDoctor($user)) {
+            return true;
+        }
+
+        return false;
     }
 
     /**
@@ -86,7 +118,15 @@ class AppointmentPolicy
      */
     public function markAsNoShow(User $user, Appointment $appointment): bool
     {
-        return $user->isAdmin();
+        if ($user->isAdmin()) {
+            return true;
+        }
+
+        if ($user->isDoctor() && $appointment->belongsToDoctor($user)) {
+            return true;
+        }
+
+        return false;
     }
 
     /**

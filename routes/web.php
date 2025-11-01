@@ -122,3 +122,24 @@ Route::middleware(['auth', 'can:access-admin-panel'])->prefix('admin')->name('ad
         Route::get('/general', \App\Livewire\Admin\Settings\GeneralSettings::class)->name('settings.general');
     });
 });
+
+// Doctor Routes
+Route::middleware(['auth', 'can:access-doctor-panel'])->prefix('doctor')->name('doctor.')->group(function () {
+    Route::get('/', \App\Livewire\Doctor\Dashboard::class)->name('dashboard');
+    
+    // Appointments
+    Route::prefix('appointments')->group(function () {
+        Route::get('/', \App\Livewire\Doctor\Appointments\AppointmentList::class)->name('appointments.index');
+        Route::get('/calendar', \App\Livewire\Doctor\Appointments\AppointmentCalendar::class)->name('appointments.calendar');
+        Route::get('/{appointment}', \App\Livewire\Doctor\Appointments\AppointmentDetail::class)->name('appointments.show');
+    });
+    
+    // Schedule
+    Route::get('/schedule', \App\Livewire\Doctor\Schedule\ScheduleManager::class)->name('schedule.index');
+    
+    // Patients
+    Route::prefix('patients')->group(function () {
+        Route::get('/', \App\Livewire\Doctor\Patients\PatientList::class)->name('patients.index');
+        Route::get('/{user}', \App\Livewire\Doctor\Patients\PatientDetail::class)->name('patients.show');
+    });
+});
