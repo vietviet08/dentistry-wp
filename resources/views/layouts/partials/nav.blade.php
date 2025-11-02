@@ -4,10 +4,13 @@
         <div class="flex items-center justify-between h-16">
             <!-- Logo -->
             <div class="flex items-center">
-                <a href="{{ route('home') }}">
-                    <div class="w-32 h-8 bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg flex items-center justify-center">
-                        <span class="text-white font-bold text-lg">SmileLux</span>
-                    </div>
+                <a href="{{ route('home') }}" class="flex items-center group">
+                    <img 
+                        src="{{ asset('logo.png') }}" 
+                        alt="{{ __('auth.brand_name') }}" 
+                        class="h-10 w-auto object-contain group-hover:opacity-80 transition-opacity"
+                        loading="eager"
+                    />
                 </a>
             </div>
             
@@ -140,7 +143,7 @@
                         <a href="{{ route('appointments.create') }}" class="bg-gradient-to-r from-blue-600 to-blue-800 text-white px-6 py-2 rounded-full font-semibold hover:shadow-lg transition">
                             {{ __('home.hero.cta_book') }}
                         </a>
-                        <a href="{{ route('login') }}" class="px-6 py-2 border border-gray-300 text-gray-700 rounded-full font-semibold hover:bg-gray-50 transition">
+                        <a href="{{ route('auth') }}" class="px-6 py-2 border border-gray-300 text-gray-700 rounded-full font-semibold hover:bg-gray-50 transition">
                             {{ __('nav.login') }}
                         </a>
                     </div>

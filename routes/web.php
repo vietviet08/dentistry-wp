@@ -34,6 +34,9 @@ Volt::route('/faqs', 'pages.faqs')->name('faqs');
 Volt::route('/contact', 'pages.contact')->name('contact');
 Volt::route('/gallery', 'pages.gallery')->name('gallery');
 
+// New Auth Page (Split Layout with Tabs)
+Volt::route('/auth', 'auth.auth-page')->name('auth');
+
 // Authentication Routes (handled by Fortify)
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('/dashboard', \App\Livewire\Patient\Dashboard::class)->name('dashboard');

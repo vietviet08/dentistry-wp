@@ -4,9 +4,14 @@
             <!-- Logo & Social -->
             <div class="md:col-span-1">
                 <div class="mb-6">
-                    <div class="w-32 h-8 bg-gradient-to-r from-blue-600 to-blue-800 rounded-lg flex items-center justify-center mb-4">
-                        <span class="text-white font-bold text-lg">SmileLux</span>
-                    </div>
+                    <a href="{{ route('home') }}" class="inline-block mb-4 group">
+                        <img 
+                            src="{{ asset('logo.png') }}" 
+                            alt="{{ __('auth.brand_name') }}" 
+                            class="h-12 w-auto object-contain group-hover:opacity-80 transition-opacity"
+                            loading="lazy"
+                        />
+                    </a>
                 </div>
                 <div class="flex space-x-4">
                     <a href="#" class="w-10 h-10 bg-blue-600 rounded-full flex items-center justify-center text-white hover:bg-blue-700 transition" aria-label="Twitter">
