@@ -1,5 +1,3 @@
-<x-slot name="title">{{ __('admin.dashboard.title') }}</x-slot>
-
 <div>
     <!-- Stats Cards -->
     <div class="grid grid-cols-1 md:grid-cols-4 gap-6 mb-8">
@@ -161,6 +159,88 @@
         </div>
     </div>
 
+    <!-- Charts Section -->
+    <div class="mb-8">
+        <!-- Time Range Filter -->
+        <div class="bg-white rounded-lg shadow p-4 mb-6">
+            <div class="flex flex-wrap items-center gap-4">
+                <span class="text-sm font-medium text-gray-700">{{ __('admin.dashboard.time_range') }}:</span>
+                <div class="flex gap-2">
+                    <button wire:click="$set('timeRange', '7days')" 
+                            class="px-3 py-1 rounded-md text-sm font-medium transition {{ $timeRange === '7days' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200' }}">
+                        {{ __('admin.dashboard.last_7_days') }}
+                    </button>
+                    <button wire:click="$set('timeRange', '30days')" 
+                            class="px-3 py-1 rounded-md text-sm font-medium transition {{ $timeRange === '30days' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200' }}">
+                        {{ __('admin.dashboard.last_30_days') }}
+                    </button>
+                    <button wire:click="$set('timeRange', '3months')" 
+                            class="px-3 py-1 rounded-md text-sm font-medium transition {{ $timeRange === '3months' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200' }}">
+                        {{ __('admin.dashboard.last_3_months') }}
+                    </button>
+                    <button wire:click="$set('timeRange', '1year')" 
+                            class="px-3 py-1 rounded-md text-sm font-medium transition {{ $timeRange === '1year' ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700 hover:bg-gray-200' }}">
+                        {{ __('admin.dashboard.last_year') }}
+                    </button>
+                </div>
+                <div class="flex items-center gap-2 ml-auto">
+                    <input type="date" wire:model.live.debounce.300ms="customStartDate" 
+                           class="border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm"
+                           placeholder="{{ __('admin.dashboard.from') }}">
+                    <span class="text-gray-500">-</span>
+                    <input type="date" wire:model.live.debounce.300ms="customEndDate" 
+                           class="border-gray-300 rounded-md shadow-sm focus:border-blue-500 focus:ring-blue-500 text-sm"
+                           placeholder="{{ __('admin.dashboard.to') }}">
+                </div>
+            </div>
+        </div>
+
+        <!-- Charts Grid -->
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-6">
+            <!-- Appointments Trend Line Chart -->
+            <div class="bg-white rounded-lg shadow">
+                <div class="px-6 py-4 border-b border-gray-200">
+                    <h2 class="text-xl font-semibold text-gray-900">{{ __('admin.dashboard.appointments_trend') }}</h2>
+                </div>
+                <div class="p-6">
+                    <div wire:ignore id="appointments-trend-chart"></div>
+                </div>
+            </div>
+
+            <!-- Revenue by Month Bar Chart -->
+            <div class="bg-white rounded-lg shadow">
+                <div class="px-6 py-4 border-b border-gray-200">
+                    <h2 class="text-xl font-semibold text-gray-900">{{ __('admin.dashboard.monthly_revenue_chart') }}</h2>
+                </div>
+                <div class="p-6">
+                    <div wire:ignore id="revenue-month-chart"></div>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Popular Services Pie Chart -->
+            <div class="bg-white rounded-lg shadow">
+                <div class="px-6 py-4 border-b border-gray-200">
+                    <h2 class="text-xl font-semibold text-gray-900">{{ __('admin.dashboard.popular_services_chart') }}</h2>
+                </div>
+                <div class="p-6">
+                    <div wire:ignore id="popular-services-chart"></div>
+                </div>
+            </div>
+
+            <!-- Appointment Status Doughnut Chart -->
+            <div class="bg-white rounded-lg shadow">
+                <div class="px-6 py-4 border-b border-gray-200">
+                    <h2 class="text-xl font-semibold text-gray-900">{{ __('admin.dashboard.appointment_status_chart') }}</h2>
+                </div>
+                <div class="p-6">
+                    <div wire:ignore id="appointment-status-chart"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Quick Actions -->
     <div class="bg-white rounded-lg shadow p-6">
         <h2 class="text-xl font-semibold text-gray-900 mb-4">{{ __('admin.dashboard.quick_actions') }}</h2>
@@ -180,5 +260,129 @@
         </div>
     </div>
 </div>
+
+@push('scripts')
+<script>
+    function renderCharts() {
+        // Clean up existing charts
+        if (window.charts) {
+            Object.values(window.charts).forEach(chart => {
+                if (chart && typeof chart.destroy === 'function') {
+                    chart.destroy();
+                }
+            });
+        }
+        window.charts = {};
+        
+        // Appointments Trend Line Chart
+        window.charts['appointments-trend'] = window.renderChart('#appointments-trend-chart', {
+            type: 'line',
+            height: 300,
+            colors: ['#3b82f6'],
+            series: [{
+                name: '{{ __('admin.dashboard.appointments') }}',
+                data: @json($chartTrendData['series'])
+            }],
+            labels: @json($chartTrendData['labels']),
+            xaxis: {
+                type: 'category'
+            },
+            yaxis: {
+                title: {
+                    text: '{{ __('admin.dashboard.appointments') }}'
+                }
+            },
+            tooltip: {
+                y: {
+                    formatter: function(val) {
+                        return val + ' {{ __('admin.dashboard.appointments') }}'
+                    }
+                }
+            }
+        });
+
+        // Revenue by Month Bar Chart
+        window.charts['revenue-month'] = window.renderChart('#revenue-month-chart', {
+            type: 'bar',
+            height: 300,
+            colors: ['#10b981'],
+            series: [{
+                name: '{{ __('admin.dashboard.revenue') }}',
+                data: @json($chartRevenueData['series'])
+            }],
+            labels: @json($chartRevenueData['labels']),
+            xaxis: {
+                type: 'category'
+            },
+            yaxis: {
+                title: {
+                    text: '{{ __('admin.dashboard.revenue') }} ($)'
+                }
+            },
+            tooltip: {
+                y: {
+                    formatter: function(val) {
+                        return '$' + val.toFixed(2)
+                    }
+                }
+            }
+        });
+
+        // Popular Services Pie Chart
+        window.charts['popular-services'] = window.renderChart('#popular-services-chart', {
+            type: 'pie',
+            height: 300,
+            series: @json($chartPopularData['series']),
+            labels: @json($chartPopularData['labels']),
+            legend: {
+                position: 'right'
+            },
+            tooltip: {
+                y: {
+                    formatter: function(val) {
+                        return val + ' {{ __('admin.dashboard.bookings') }}'
+                    }
+                }
+            }
+        });
+
+        // Appointment Status Doughnut Chart
+        window.charts['appointment-status'] = window.renderChart('#appointment-status-chart', {
+            type: 'donut',
+            height: 300,
+            series: @json($chartStatusData['series']),
+            labels: @json($chartStatusData['labels']),
+            colors: ['#f59e0b', '#3b82f6', '#10b981', '#ef4444', '#6b7280'],
+            legend: {
+                position: 'right'
+            },
+            tooltip: {
+                y: {
+                    formatter: function(val) {
+                        return val + ' {{ __('admin.dashboard.appointments') }}'
+                    }
+                }
+            }
+        });
+    }
+
+    document.addEventListener('livewire:initialized', () => {
+        setTimeout(renderCharts, 250);
+    });
+
+    Livewire.on('chart-updated', () => {
+        setTimeout(renderCharts, 250);
+    });
+
+    document.addEventListener('livewire:navigated', () => {
+        setTimeout(() => {
+            if (window.charts) {
+                Object.values(window.charts).forEach(chart => chart.destroy());
+                window.charts = {};
+            }
+        }, 100);
+    });
+</script>
+@endpush
 
 

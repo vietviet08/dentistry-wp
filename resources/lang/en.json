@@ -459,7 +459,20 @@
             "manage_appointments": "Manage Appointments",
             "manage_patients": "Manage Patients",
             "manage_doctors": "Manage Doctors",
-            "manage_services": "Manage Services"
+            "manage_services": "Manage Services",
+            "time_range": "Time Range",
+            "last_7_days": "Last 7 Days",
+            "last_30_days": "Last 30 Days",
+            "last_3_months": "Last 3 Months",
+            "last_year": "Last Year",
+            "from": "From",
+            "to": "To",
+            "appointments_trend": "Appointments Trend",
+            "monthly_revenue_chart": "Monthly Revenue",
+            "popular_services_chart": "Popular Services",
+            "appointment_status_chart": "Appointment Status Distribution",
+            "appointments": "Appointments",
+            "revenue": "Revenue"
         },
         "menu": {
             "services": "Services",
@@ -748,7 +761,17 @@
             "quick_actions": "Quick Actions",
             "view_appointments": "View Appointments",
             "view_calendar": "View Calendar",
-            "manage_schedule": "Manage Schedule"
+            "manage_schedule": "Manage Schedule",
+            "time_range": "Time Range",
+            "last_7_days": "Last 7 Days",
+            "last_30_days": "Last 30 Days",
+            "last_3_months": "Last 3 Months",
+            "from": "From",
+            "to": "To",
+            "daily_appointments": "Daily Appointments",
+            "appointment_status_chart": "Appointment Status",
+            "weekly_schedule": "Weekly Schedule",
+            "appointments": "Appointments"
         },
         "appointments": {
             "title": "My Appointments",

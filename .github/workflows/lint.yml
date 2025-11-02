@@ -4,11 +4,11 @@ on:
   push:
     branches:
       - develop
-      - main
+      - master
   pull_request:
     branches:
       - develop
-      - main
+      - master
 
 permissions:
   contents: write
@@ -16,14 +16,14 @@ permissions:
 jobs:
   quality:
     runs-on: ubuntu-latest
-    environment: Testing
+    environment: Linting Tests
     steps:
       - uses: actions/checkout@v4
 
       - name: Setup PHP
         uses: shivammathur/setup-php@v2
         with:
-          php-version: '8.4'
+          php-version: "8.4"
 
       - name: Add Flux Credentials Loaded From ENV
         run: composer config http-basic.composer.fluxui.dev "${{ secrets.FLUX_USERNAME }}" "${{ secrets.FLUX_LICENSE_KEY }}"

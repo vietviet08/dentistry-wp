@@ -459,7 +459,20 @@
             "manage_appointments": "Quản lý lịch hẹn",
             "manage_patients": "Quản lý bệnh nhân",
             "manage_doctors": "Quản lý bác sĩ",
-            "manage_services": "Quản lý dịch vụ"
+            "manage_services": "Quản lý dịch vụ",
+            "time_range": "Khoảng thời gian",
+            "last_7_days": "7 ngày qua",
+            "last_30_days": "30 ngày qua",
+            "last_3_months": "3 tháng qua",
+            "last_year": "1 năm qua",
+            "from": "Từ",
+            "to": "Đến",
+            "appointments_trend": "Xu hướng lịch hẹn",
+            "monthly_revenue_chart": "Doanh thu hàng tháng",
+            "popular_services_chart": "Dịch vụ phổ biến",
+            "appointment_status_chart": "Phân bố trạng thái lịch hẹn",
+            "appointments": "Lịch hẹn",
+            "revenue": "Doanh thu"
         },
         "menu": {
             "services": "Dịch vụ",
@@ -748,7 +761,17 @@
             "quick_actions": "Thao tác nhanh",
             "view_appointments": "Xem lịch hẹn",
             "view_calendar": "Xem lịch",
-            "manage_schedule": "Quản lý lịch làm việc"
+            "manage_schedule": "Quản lý lịch làm việc",
+            "time_range": "Khoảng thời gian",
+            "last_7_days": "7 ngày qua",
+            "last_30_days": "30 ngày qua",
+            "last_3_months": "3 tháng qua",
+            "from": "Từ",
+            "to": "Đến",
+            "daily_appointments": "Lịch hẹn hàng ngày",
+            "appointment_status_chart": "Trạng thái lịch hẹn",
+            "weekly_schedule": "Lịch trong tuần",
+            "appointments": "Lịch hẹn"
         },
         "appointments": {
             "title": "Lịch hẹn của tôi",
