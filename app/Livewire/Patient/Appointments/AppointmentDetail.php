@@ -15,6 +15,11 @@ class AppointmentDetail extends Component
     {
         $this->authorize('view', $appointment);
         $this->appointment = $appointment->load(['doctor', 'service', 'patient']);
+        
+        // Generate QR code if it doesn't exist
+        if ($appointment->status !== 'cancelled') {
+            $this->appointment->generateQRCodeIfNeeded();
+        }
     }
 
     public $isRescheduling = false;

@@ -111,13 +111,29 @@ class AppointmentCreate extends Component
             // Calculate end time
             $appointment->calculateEndTime();
 
-            // Generate QR code (simple placeholder for now)
-            $qrCodeData = route('appointments.show', $appointment);
-            $qrCodePath = $this->generateQRCode($qrCodeData, $appointment->id);
-            
-            $appointment->update(['qr_code' => $qrCodePath]);
-
             DB::commit();
+
+            // Generate QR code for check-in (outside transaction to not block appointment creation)
+            try {
+                $qrCodeService = app(\App\Services\QRCodeService::class);
+                $qrCodePath = $qrCodeService->generateForAppointment($appointment);
+                $appointment->update(['qr_code' => $qrCodePath]);
+                // Refresh appointment to get updated qr_code
+                $appointment->refresh();
+                
+                \Log::info('QR code generated successfully', [
+                    'appointment_id' => $appointment->id,
+                    'qr_code_path' => $qrCodePath,
+                ]);
+            } catch (\Exception $qrException) {
+                // Log QR code generation error but don't fail the appointment
+                \Log::warning('QR code generation failed for appointment', [
+                    'appointment_id' => $appointment->id,
+                    'error' => $qrException->getMessage(),
+                    'trace' => $qrException->getTraceAsString(),
+                ]);
+                // QR code can be generated later when viewing appointment detail
+            }
 
             // Dispatch email notification
             \App\Jobs\SendAppointmentConfirmationEmail::dispatch($appointment);
@@ -132,21 +148,13 @@ class AppointmentCreate extends Component
             
             \Log::error('Appointment booking failed', [
                 'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString(),
                 'user_id' => auth()->id(),
                 'appointment_data' => $this->only(['service_id', 'doctor_id', 'appointment_date', 'appointment_time']),
             ]);
         }
     }
 
-    private function generateQRCode(string $data, int $appointmentId): string
-    {
-        // Simple text-based QR representation for now
-        // In production, you'd use a proper QR library or API
-        $filename = "appointments/qr-{$appointmentId}.txt";
-        \Storage::disk('public')->put($filename, "Appointment ID: {$appointmentId}\nData: {$data}");
-        
-        return $filename;
-    }
 
     private function getStepValidationRules(): array
     {

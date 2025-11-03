@@ -209,5 +209,32 @@ class Appointment extends Model
             'end_time' => $endTime->format('H:i:s'),
         ]);
     }
+
+    /**
+     * Generate QR code if it doesn't exist yet
+     * Useful for appointments created before QR code feature was added
+     */
+    public function generateQRCodeIfNeeded(): void
+    {
+        if ($this->qr_code && \Storage::disk('public')->exists($this->qr_code)) {
+            return;
+        }
+
+        try {
+            $qrCodeService = app(\App\Services\QRCodeService::class);
+            $qrCodePath = $qrCodeService->generateForAppointment($this);
+            
+            $this->update(['qr_code' => $qrCodePath]);
+        } catch (\Exception $e) {
+            // Log error but don't crash the page
+            \Log::warning('QR code generation failed in generateQRCodeIfNeeded', [
+                'appointment_id' => $this->id,
+                'error' => $e->getMessage(),
+                'trace' => $e->getTraceAsString(),
+            ]);
+            // QR code generation failed, but we continue without it
+            // It can be generated later or manually
+        }
+    }
 }
 
