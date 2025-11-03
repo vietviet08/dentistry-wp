@@ -1,0 +1,110 @@
+name: Database Migrations
+
+on:
+    workflow_dispatch:
+        inputs:
+            environment:
+                description: "Environment to run migrations on"
+                required: true
+                type: choice
+                options:
+                    - production
+                    - staging
+
+env:
+    AWS_REGION: ap-southeast-1
+
+jobs:
+    migrate:
+        runs-on: ubuntu-latest
+        environment: ${{ github.event.inputs.environment }}
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Configure AWS credentials
+              uses: aws-actions/configure-aws-credentials@v4
+              with:
+                  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                  aws-region: ${{ env.AWS_REGION }}
+
+            - name: Run database migrations
+              run: |
+                  CLUSTER_NAME="${{ secrets.AWS_CLUSTER_NAME }}"
+                  TASK_DEFINITION="${{ secrets.AWS_TASK_DEFINITION }}"
+                  SUBNET_IDS="${{ secrets.AWS_SUBNET_IDS }}"
+                  SECURITY_GROUP="${{ secrets.AWS_SECURITY_GROUP }}"
+                  ENVIRONMENT="${{ github.event.inputs.environment }}"
+
+                  echo "Running migrations on $ENVIRONMENT environment..."
+
+                  # Run migration task
+                  TASK_ARN=$(aws ecs run-task \
+                    --cluster $CLUSTER_NAME \
+                    --task-definition $TASK_DEFINITION \
+                    --launch-type FARGATE \
+                    --network-configuration "awsvpcConfiguration={subnets=[$SUBNET_IDS],securityGroups=[$SECURITY_GROUP],assignPublicIp=DISABLED}" \
+                    --overrides '{
+                      "containerOverrides": [{
+                        "name": "app",
+                        "command": ["php", "artisan", "migrate", "--force"]
+                      }]
+                    }' \
+                    --region ${{ env.AWS_REGION }} \
+                    --query 'tasks[0].taskArn' \
+                    --output text)
+
+                  if [ -z "$TASK_ARN" ] || [ "$TASK_ARN" == "None" ]; then
+                    echo "Failed to start migration task"
+                    exit 1
+                  fi
+
+                  echo "Migration task started: $TASK_ARN"
+
+                  # Wait for task to complete (max 10 minutes)
+                  TIMEOUT=600
+                  ELAPSED=0
+                  while [ $ELAPSED -lt $TIMEOUT ]; do
+                    TASK_STATUS=$(aws ecs describe-tasks \
+                      --cluster $CLUSTER_NAME \
+                      --tasks $TASK_ARN \
+                      --region ${{ env.AWS_REGION }} \
+                      --query 'tasks[0].lastStatus' \
+                      --output text)
+                    
+                    if [ "$TASK_STATUS" == "STOPPED" ]; then
+                      break
+                    fi
+                    
+                    echo "Waiting for migration to complete... (Status: $TASK_STATUS)"
+                    sleep 10
+                    ELAPSED=$((ELAPSED + 10))
+                  done
+
+                  # Check exit code
+                  EXIT_CODE=$(aws ecs describe-tasks \
+                    --cluster $CLUSTER_NAME \
+                    --tasks $TASK_ARN \
+                    --region ${{ env.AWS_REGION }} \
+                    --query 'tasks[0].containers[0].exitCode' \
+                    --output text)
+
+                  if [ "$EXIT_CODE" != "0" ]; then
+                    echo "Migration failed with exit code $EXIT_CODE"
+                    
+                    # Get logs
+                    LOG_STREAM=$(aws ecs describe-tasks \
+                      --cluster $CLUSTER_NAME \
+                      --tasks $TASK_ARN \
+                      --region ${{ env.AWS_REGION }} \
+                      --query 'tasks[0].containers[0].logStreamName' \
+                      --output text)
+                    
+                    echo "Log stream: $LOG_STREAM"
+                    
+                    exit 1
+                  fi
+
+                  echo "Migration completed successfully"

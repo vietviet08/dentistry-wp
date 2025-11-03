@@ -127,6 +127,17 @@ return [
             'path' => storage_path('logs/laravel.log'),
         ],
 
+        'cloudwatch' => [
+            'driver' => 'monolog',
+            'handler' => StreamHandler::class,
+            'with' => [
+                'stream' => 'php://stderr',
+            ],
+            'level' => env('LOG_LEVEL', 'debug'),
+            'processors' => [PsrLogMessageProcessor::class],
+            'formatter' => env('LOG_STDERR_FORMATTER'),
+        ],
+
     ],
 
 ];

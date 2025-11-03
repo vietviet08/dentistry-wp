@@ -21,3 +21,9 @@ yarn-error.log
 /.nova
 /.vscode
 /.zed
+/infrastructure/terraform/.terraform
+*.tfstate
+*.tfstate.*
+.terraform.lock.hcl
+/infrastructure/terraform/environments/*/terraform.tfstate
+/infrastructure/terraform/environments/*/.terraform

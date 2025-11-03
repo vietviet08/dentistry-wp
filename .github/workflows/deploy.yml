@@ -1,0 +1,212 @@
+name: Deploy to AWS
+
+on:
+    push:
+        branches:
+            - main
+            - production
+    workflow_dispatch:
+        inputs:
+            environment:
+                description: "Environment to deploy to"
+                required: true
+                type: choice
+                options:
+                    - production
+                    - staging
+
+env:
+    AWS_REGION: ap-southeast-1
+
+jobs:
+    build:
+        runs-on: ubuntu-latest
+        outputs:
+            image-tag: ${{ steps.meta.outputs.tags }}
+            image-digest: ${{ steps.build.outputs.digest }}
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Set up Docker Buildx
+              uses: docker/setup-buildx-action@v3
+
+            - name: Configure AWS credentials
+              uses: aws-actions/configure-aws-credentials@v4
+              with:
+                  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                  aws-region: ${{ env.AWS_REGION }}
+
+            - name: Login to Amazon ECR
+              id: login-ecr
+              uses: aws-actions/amazon-ecr-login@v2
+
+            - name: Extract metadata
+              id: meta
+              uses: docker/metadata-action@v5
+              with:
+                  images: ${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPOSITORY }}
+                  tags: |
+                      type=ref,event=branch
+                      type=sha,prefix={{branch}}-
+                      type=raw,value=latest,enable={{is_default_branch}}
+
+            - name: Add Flux Credentials
+              run: |
+                  composer config http-basic.composer.fluxui.dev "${{ secrets.FLUX_USERNAME }}" "${{ secrets.FLUX_LICENSE_KEY }}"
+
+            - name: Build and push Docker image
+              id: build
+              uses: docker/build-push-action@v5
+              with:
+                  context: .
+                  push: true
+                  tags: ${{ steps.meta.outputs.tags }}
+                  cache-from: type=registry,ref=${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPOSITORY }}:buildcache
+                  cache-to: type=registry,ref=${{ steps.login-ecr.outputs.registry }}/${{ secrets.ECR_REPOSITORY }}:buildcache,mode=max
+                  build-args: |
+                      BUILDKIT_INLINE_CACHE=1
+
+    test:
+        runs-on: ubuntu-latest
+        needs: build
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Setup PHP
+              uses: shivammathur/setup-php@v2
+              with:
+                  php-version: 8.4
+                  tools: composer:v2
+                  coverage: none
+
+            - name: Setup Node
+              uses: actions/setup-node@v4
+              with:
+                  node-version: "22"
+                  cache: "npm"
+
+            - name: Install Node Dependencies
+              run: npm ci
+
+            - name: Add Flux Credentials
+              run: |
+                  composer config http-basic.composer.fluxui.dev "${{ secrets.FLUX_USERNAME }}" "${{ secrets.FLUX_LICENSE_KEY }}"
+
+            - name: Install PHP Dependencies
+              run: composer install --no-interaction --prefer-dist --optimize-autoloader
+
+            - name: Run Tests
+              run: php artisan test
+
+    deploy:
+        runs-on: ubuntu-latest
+        needs: [build, test]
+        environment:
+            name: ${{ github.event.inputs.environment || (github.ref == 'refs/heads/main' && 'production' || 'staging') }}
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Configure AWS credentials
+              uses: aws-actions/configure-aws-credentials@v4
+              with:
+                  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                  aws-region: ${{ env.AWS_REGION }}
+
+            - name: Set environment
+              id: env
+              run: |
+                  if [ "${{ github.ref }}" == "refs/heads/main" ] || [ "${{ github.event.inputs.environment }}" == "production" ]; then
+                    echo "environment=production" >> $GITHUB_OUTPUT
+                  else
+                    echo "environment=staging" >> $GITHUB_OUTPUT
+                  fi
+
+            - name: Update ECS service
+              run: |
+                  CLUSTER_NAME="${{ secrets.AWS_CLUSTER_NAME }}"
+                  SERVICE_NAME="${{ steps.env.outputs.environment }}-dentistry-service"
+                  IMAGE_TAG="${{ needs.build.outputs.image-tag }}"
+
+                  aws ecs update-service \
+                    --cluster $CLUSTER_NAME \
+                    --service $SERVICE_NAME \
+                    --force-new-deployment \
+                    --region ${{ env.AWS_REGION }}
+
+            - name: Wait for service to stabilize
+              run: |
+                  CLUSTER_NAME="${{ secrets.AWS_CLUSTER_NAME }}"
+                  SERVICE_NAME="${{ steps.env.outputs.environment }}-dentistry-service"
+
+                  aws ecs wait services-stable \
+                    --cluster $CLUSTER_NAME \
+                    --services $SERVICE_NAME \
+                    --region ${{ env.AWS_REGION }}
+
+    migrate-db:
+        runs-on: ubuntu-latest
+        needs: [build, deploy]
+        environment:
+            name: ${{ github.event.inputs.environment || (github.ref == 'refs/heads/main' && 'production' || 'staging') }}
+        if: github.ref == 'refs/heads/main' || github.event.inputs.environment == 'production'
+
+        steps:
+            - name: Checkout code
+              uses: actions/checkout@v4
+
+            - name: Configure AWS credentials
+              uses: aws-actions/configure-aws-credentials@v4
+              with:
+                  aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+                  aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+                  aws-region: ${{ env.AWS_REGION }}
+
+            - name: Run database migrations
+              run: |
+                  CLUSTER_NAME="${{ secrets.AWS_CLUSTER_NAME }}"
+                  TASK_DEFINITION="${{ secrets.AWS_TASK_DEFINITION }}"
+                  SUBNET_IDS="${{ secrets.AWS_SUBNET_IDS }}"
+                  SECURITY_GROUP="${{ secrets.AWS_SECURITY_GROUP }}"
+
+                  # Run migration task
+                  TASK_ARN=$(aws ecs run-task \
+                    --cluster $CLUSTER_NAME \
+                    --task-definition $TASK_DEFINITION \
+                    --launch-type FARGATE \
+                    --network-configuration "awsvpcConfiguration={subnets=[$SUBNET_IDS],securityGroups=[$SECURITY_GROUP],assignPublicIp=DISABLED}" \
+                    --overrides '{
+                      "containerOverrides": [{
+                        "name": "app",
+                        "command": ["php", "artisan", "migrate", "--force"]
+                      }]
+                    }' \
+                    --region ${{ env.AWS_REGION }} \
+                    --query 'tasks[0].taskArn' \
+                    --output text)
+
+                  # Wait for task to complete
+                  aws ecs wait tasks-stopped \
+                    --cluster $CLUSTER_NAME \
+                    --tasks $TASK_ARN \
+                    --region ${{ env.AWS_REGION }}
+
+                  # Check exit code
+                  EXIT_CODE=$(aws ecs describe-tasks \
+                    --cluster $CLUSTER_NAME \
+                    --tasks $TASK_ARN \
+                    --region ${{ env.AWS_REGION }} \
+                    --query 'tasks[0].containers[0].exitCode' \
+                    --output text)
+
+                  if [ "$EXIT_CODE" != "0" ]; then
+                    echo "Migration failed with exit code $EXIT_CODE"
+                    exit 1
+                  fi

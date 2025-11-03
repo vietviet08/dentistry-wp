@@ -1,0 +1,68 @@
+# Git
+.git
+.gitignore
+.gitattributes
+
+# Documentation
+README.md
+*.md
+docs/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment files
+.env
+.env.*
+!.env.example
+
+# Dependencies
+/vendor
+/node_modules
+/package-lock.json
+/yarn.lock
+
+# Storage and logs
+/storage/*.key
+/storage/logs/*
+/storage/framework/cache/*
+/storage/framework/sessions/*
+/storage/framework/views/*
+!/storage/app
+!/storage/framework
+/storage/app/public/*
+!/storage/app/public/.gitkeep
+
+# Tests
+/phpunit.xml
+/tests
+
+# CI/CD
+.github/
+.gitlab-ci.yml
+
+# Build artifacts
+/public/build
+/public/hot
+/public/storage
+
+# Terraform
+infrastructure/
+*.tf
+*.tfstate
+*.tfstate.*
+
+# Docker
+docker-compose*.yml
+Dockerfile
+.dockerignore
+
+# Misc
+*.log
+.DS_Store
+Thumbs.db
+

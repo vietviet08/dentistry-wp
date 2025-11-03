@@ -5,6 +5,14 @@ use Laravel\Fortify\Features;
 use Livewire\Volt\Volt;
 use Illuminate\Support\Facades\Session;
 
+// Health check endpoint for load balancer
+Route::get('/health', function () {
+    return response()->json([
+        'status' => 'healthy',
+        'timestamp' => now()->toIso8601String(),
+    ]);
+})->name('health');
+
 // Locale Switch Route
 Route::get('/locale/{locale}', function ($locale) {
     if (in_array($locale, ['vi', 'en'])) {
