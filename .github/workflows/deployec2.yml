@@ -28,12 +28,11 @@ jobs:
           set -e
 
           echo "🚀 Go to project directory"
-          cd /ubuntu/detistry
+          cd ~/dentistry
 
           echo "📥 Fetch & pull latest code"
           git fetch origin
-          git pull origin main
-
+          git pull origin master
           echo "🛑 Stop laravel.test container"
           docker compose stop laravel.test
           docker compose rm -f laravel.test
