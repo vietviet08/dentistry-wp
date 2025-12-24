@@ -27,3 +27,9 @@ yarn-error.log
 .terraform.lock.hcl
 /infrastructure/terraform/environments/*/terraform.tfstate
 /infrastructure/terraform/environments/*/.terraform
+*.md
+*.sh
+*.bat
+*.ps1
+*.mdc
+nul

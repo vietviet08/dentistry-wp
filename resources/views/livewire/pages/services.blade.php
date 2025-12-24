@@ -47,7 +47,7 @@ new class extends Component {
                         <!-- Service Image -->
                         <div class="w-full h-48 bg-gradient-to-br from-blue-100 to-blue-200 rounded-lg mb-4 flex items-center justify-center overflow-hidden">
                             @if($service->image)
-                                <img src="{{ Storage::url($service->image) }}" alt="{{ $service->name }}" class="w-full h-full object-cover">
+                                <img src="{{ Storage::disk(config('filesystems.default'))->url($service->image) }}" alt="{{ $service->name }}" class="w-full h-full object-cover">
                             @else
                                 <div class="text-blue-600 text-6xl">
                                     <svg class="w-16 h-16 mx-auto" fill="currentColor" viewBox="0 0 24 24">

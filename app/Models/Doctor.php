@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 use Illuminate\Support\Str;
 
 class Doctor extends Model
@@ -73,5 +74,17 @@ class Doctor extends Model
                 $doctor->slug = Str::slug($doctor->name);
             }
         });
+    }
+
+    /**
+     * Get photo URL
+     */
+    public function getPhotoUrlAttribute(): ?string
+    {
+        if (!$this->photo) {
+            return null;
+        }
+
+        return Storage::disk(config('filesystems.default'))->url($this->photo);
     }
 }

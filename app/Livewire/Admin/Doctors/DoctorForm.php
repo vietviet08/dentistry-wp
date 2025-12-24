@@ -4,6 +4,7 @@ namespace App\Livewire\Admin\Doctors;
 
 use App\Models\Doctor;
 use App\Models\User;
+use App\Services\FileUploadService;
 use Livewire\Component;
 use Livewire\Attributes\Layout;
 use Livewire\WithFileUploads;
@@ -111,7 +112,8 @@ class DoctorForm extends Component
         $doctor->order = $validated['order'];
 
         if ($this->photo) {
-            $doctor->photo = $this->photo->store('doctors', 'public');
+            $fileUploadService = app(FileUploadService::class);
+            $doctor->photo = $fileUploadService->uploadDoctorPhoto($this->photo);
         }
 
         $doctor->save();

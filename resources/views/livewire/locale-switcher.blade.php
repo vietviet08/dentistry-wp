@@ -4,16 +4,12 @@
             class="flex items-center space-x-2 px-3 py-2 text-gray-700 hover:bg-gray-100 rounded-lg transition">
         @if($currentLocale === 'vi')
             <div class="w-6 h-4 relative overflow-hidden rounded-sm">
-                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    🇻🇳
-                </div>
+                <img src="{{ asset('vn.svg') }}" alt="VN" class="w-full h-full object-cover">
             </div>
             <span class="text-sm font-medium">VI</span>
         @else
              <div class="w-6 h-4 relative overflow-hidden rounded-sm">
-                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    🇬🇧
-                </div>
+                <img src="{{ asset('eng.svg') }}" alt="EN" class="w-full h-full object-cover">
             </div>
             <span class="text-sm font-medium">EN</span>
         @endif
@@ -37,9 +33,7 @@
         <button wire:click="switchLocale('vi')" 
                 class="flex items-center space-x-3 px-4 py-2 w-full text-left hover:bg-gray-50 {{ $currentLocale === 'vi' ? 'bg-blue-50 text-blue-600 font-semibold' : 'text-gray-700' }}">
             <div class="w-6 h-4 relative overflow-hidden rounded-sm">
-                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    🇻🇳
-                </div>
+                <img src="{{ asset('vn.svg') }}" alt="VN" class="w-full h-full object-cover">
             </div>
             <span>Tiếng Việt</span>
             @if($currentLocale === 'vi')
@@ -53,9 +47,7 @@
         <button wire:click="switchLocale('en')" 
                 class="flex items-center space-x-3 px-4 py-2 w-full text-left hover:bg-gray-50 {{ $currentLocale === 'en' ? 'bg-blue-50 text-blue-600 font-semibold' : 'text-gray-700' }}">
             <div class="w-6 h-4 relative overflow-hidden rounded-sm">
-                <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                    🇬🇧
-                </div>
+                <img src="{{ asset('eng.svg') }}" alt="EN" class="w-full h-full object-cover">
             </div>
             <span>English</span>
             @if($currentLocale === 'en')

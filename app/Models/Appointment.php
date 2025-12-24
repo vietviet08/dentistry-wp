@@ -216,7 +216,7 @@ class Appointment extends Model
      */
     public function generateQRCodeIfNeeded(): void
     {
-        if ($this->qr_code && \Storage::disk('public')->exists($this->qr_code)) {
+        if ($this->qr_code && \Storage::disk(config('filesystems.default'))->exists($this->qr_code)) {
             return;
         }
 

@@ -1,0 +1,45 @@
+name: Deploy Laravel to EC2
+
+on:
+  push:
+    branches:
+      - master
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Setup SSH key
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.EC2_SSH_KEY }}" > ~/.ssh/sing.pem
+          chmod 600 ~/.ssh/sing.pem
+          ssh-keyscan -H ${{ secrets.EC2_HOST }} >> ~/.ssh/known_hosts
+
+      - name: Deploy via SSH
+        run: |
+          ssh -i ~/.ssh/sing.pem \
+            ${{ secrets.EC2_USER }}@${{ secrets.EC2_HOST }} << 'EOF'
+          
+          set -e
+
+          echo "🚀 Go to project directory"
+          cd /ubuntu/detistry
+
+          echo "📥 Fetch & pull latest code"
+          git fetch origin
+          git pull origin main
+
+          echo "🛑 Stop laravel.test container"
+          docker compose stop laravel.test
+          docker compose rm -f laravel.test
+
+          echo "🔄 Rebuild & start laravel.test"
+          docker compose up -d --build laravel.test
+
+          echo "✅ Deploy done"
+          EOF

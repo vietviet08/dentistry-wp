@@ -46,14 +46,14 @@
             </div>
 
             <!-- QR Code Section -->
-            @if($appointment->qr_code && $appointment->status !== 'cancelled' && \Storage::disk('public')->exists($appointment->qr_code))
+            @if($appointment->qr_code && $appointment->status !== 'cancelled' && \Storage::disk(config('filesystems.default'))->exists($appointment->qr_code))
                 <div class="bg-gradient-to-br from-emerald-50 to-teal-50 border-b border-emerald-100 px-8 py-8">
                     <div class="flex flex-col md:flex-row items-center justify-center gap-6">
                         <div class="relative">
                             <div class="w-48 h-48 bg-white rounded-2xl p-6 shadow-2xl ring-4 ring-emerald-200/50">
                                 <div class="w-full h-full flex items-center justify-center bg-gray-50 rounded-lg overflow-hidden">
                                     <img 
-                                        src="{{ \Storage::disk('public')->url($appointment->qr_code) }}" 
+                                        src="{{ \Storage::disk(config('filesystems.default'))->url($appointment->qr_code) }}" 
                                         alt="{{ __('patient.appointments.detail.alt_qr_code', ['id' => $appointment->id]) }}"
                                         class="w-full h-full object-contain"
                                     />
@@ -71,7 +71,7 @@
                                 {{ __('patient.appointments.detail.qr_code_header') }}
                             </h3>
                             <p class="text-gray-600 mb-4">{{ __('patient.appointments.detail.qr_code_title') }}</p>
-                            <a href="{{ \Storage::disk('public')->url($appointment->qr_code) }}" 
+                            <a href="{{ \Storage::disk(config('filesystems.default'))->url($appointment->qr_code) }}" 
                                download="appointment-{{ $appointment->id }}-qr-code.png"
                                class="inline-flex items-center gap-2 px-5 py-2.5 bg-white border-2 border-emerald-500 text-emerald-700 rounded-xl font-semibold hover:bg-emerald-50 transition-colors shadow-md">
                                 <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -300,7 +300,7 @@
                     @endif
 
                     @if($appointment->qr_code && $appointment->status !== 'cancelled')
-                        <a href="{{ \Storage::disk('public')->url($appointment->qr_code) }}" 
+                        <a href="{{ \Storage::disk(config('filesystems.default'))->url($appointment->qr_code) }}" 
                            download
                            class="inline-flex items-center gap-2 px-6 py-3 bg-gradient-to-r from-gray-600 to-gray-700 text-white rounded-xl font-semibold shadow-lg shadow-gray-500/30 hover:shadow-xl hover:shadow-gray-600/40 hover:-translate-y-0.5 transition-all duration-300">
                             <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">

@@ -87,7 +87,7 @@
                 <input type="file" wire:model="featured_image" accept="image/*" class="w-full px-4 py-2 border border-gray-300 rounded-lg">
                 @error('featured_image') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                 @if($featuredImagePreview)
-                    <img src="{{ asset('storage/' . $featuredImagePreview) }}" alt="Preview" class="mt-4 h-40 rounded-lg">
+                    <img src="{{ $featuredImagePreview }}" alt="Preview" class="mt-4 h-40 rounded-lg">
                 @endif
             </div>
 

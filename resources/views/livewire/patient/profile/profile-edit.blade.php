@@ -21,17 +21,28 @@
                     <label class="block text-sm font-medium text-gray-700 mb-2">Profile Photo</label>
                     <div class="flex items-center space-x-6">
                         @if($avatarPreview)
-                            <img src="{{ Storage::url($avatarPreview) }}" alt="Avatar" class="w-24 h-24 rounded-full object-cover">
+                            <img src="{{ Storage::disk(config('filesystems.default'))->url($avatarPreview) }}" alt="Avatar" class="w-24 h-24 rounded-full object-cover border-2 border-gray-200">
                         @else
-                            <div class="w-24 h-24 rounded-full bg-gray-200 flex items-center justify-center">
+                            <div class="w-24 h-24 rounded-full bg-gray-200 flex items-center justify-center border-2 border-gray-300">
                                 <span class="text-3xl text-gray-500">{{ substr(auth()->user()->name, 0, 1) }}</span>
                             </div>
                         @endif
-                        <div>
-                            <input type="file" wire:model="avatar" accept="image/*" class="text-sm">
-                            @error('avatar') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
+                        <div class="flex-1">
+                            <input type="file" 
+                                   wire:model="avatar" 
+                                   accept="image/*" 
+                                   class="block w-full text-sm text-gray-500 file:mr-4 file:py-2 file:px-4 file:rounded-lg file:border-0 file:text-sm file:font-semibold file:bg-blue-50 file:text-blue-700 hover:file:bg-blue-100">
+                            @error('avatar') 
+                                <span class="text-red-500 text-sm mt-1 block">{{ $message }}</span> 
+                            @enderror
                             @if ($avatar)
-                                <p class="text-sm text-gray-500 mt-1">{{ $avatar->getClientOriginalName() }}</p>
+                                <p class="text-sm text-gray-500 mt-1">
+                                    <span class="font-medium">Selected:</span> {{ $avatar->getClientOriginalName() }} 
+                                    ({{ number_format($avatar->getSize() / 1024, 2) }} KB)
+                                </p>
+                                <div wire:loading wire:target="avatar" class="mt-2">
+                                    <span class="text-sm text-blue-600">Uploading...</span>
+                                </div>
                             @endif
                         </div>
                     </div>
@@ -52,7 +63,7 @@
                     <label for="email" class="block text-sm font-medium text-gray-700 mb-2">Email</label>
                     <input type="email" 
                            id="email" 
-                           wire:model="email" 
+                           wire:model.blur="email" 
                            class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent @error('email') border-red-500 @enderror">
                     @error('email') <span class="text-red-500 text-sm">{{ $message }}</span> @enderror
                 </div>

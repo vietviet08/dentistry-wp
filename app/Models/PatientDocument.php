@@ -5,6 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 
 class PatientDocument extends Model
 {
@@ -43,6 +44,26 @@ class PatientDocument extends Model
             return number_format($bytes / 1024, 2) . ' KB';
         } else {
             return $bytes . ' bytes';
+        }
+    }
+
+    /**
+     * Get file URL (temporary URL for private documents)
+     */
+    public function getFileUrlAttribute(): ?string
+    {
+        if (!$this->file_path) {
+            return null;
+        }
+
+        $disk = config('filesystems.default');
+        
+        // For private documents, use temporary URL
+        try {
+            return Storage::disk($disk)->temporaryUrl($this->file_path, now()->addHours(1));
+        } catch (\Exception $e) {
+            // Fallback to regular URL if temporary URL not supported
+            return Storage::disk($disk)->url($this->file_path);
         }
     }
 }

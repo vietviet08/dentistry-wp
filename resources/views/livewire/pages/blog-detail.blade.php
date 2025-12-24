@@ -35,7 +35,7 @@ new class extends Component {
     <!-- Hero Section -->
     <div class="bg-blue-100 py-20 relative">
         <div class="absolute inset-0 overflow-hidden">
-            <img src="{{ $post->featured_image ?: 'https://source.unsplash.com/random/1200x650/?dentistry,dental' }}" 
+            <img src="{{ $post->featured_image_url ?: 'https://source.unsplash.com/random/1200x650/?dentistry,dental' }}" 
                  alt="{{ $post->title }}" 
                  class="w-full h-full object-cover opacity-20">
         </div>
@@ -109,9 +109,9 @@ new class extends Component {
                     </div>
 
                     <!-- Featured Image in Content -->
-                    @if($post->featured_image)
+                    @if($post->featured_image_url)
                         <div class="my-8">
-                            <img src="{{ $post->featured_image }}" 
+                            <img src="{{ $post->featured_image_url }}" 
                                  alt="{{ $post->title }}" 
                                  class="w-full h-auto rounded-2xl shadow-lg">
                         </div>
@@ -151,19 +151,6 @@ new class extends Component {
                             </ul>
                         </section>
 
-                        <!-- Gallery Images -->
-                        <div class="grid grid-cols-3 gap-4 my-8">
-                            <img src="https://source.unsplash.com/random/400x300/?dentistry,dental,smile" 
-                                 alt="Dental procedure" 
-                                 class="w-full h-auto rounded-xl shadow-lg">
-                            <img src="https://source.unsplash.com/random/400x300/?dentistry,dental,teeth" 
-                                 alt="Dental care" 
-                                 class="w-full h-auto rounded-xl shadow-lg">
-                            <img src="https://source.unsplash.com/random/400x300/?dentistry,dental,clinic" 
-                                 alt="Dental clinic" 
-                                 class="w-full h-auto rounded-xl shadow-lg">
-                        </div>
-
                         <section id="conclusion">
                             <h2 class="text-2xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-blue-600 to-blue-800 mb-4">
                                 {{ __('blog.show.conclusion') }}
@@ -185,7 +172,7 @@ new class extends Component {
                             @foreach($relatedPosts as $relatedPost)
                                 <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition">
                                     <div class="relative h-48 overflow-hidden">
-                                        <img src="{{ $relatedPost->featured_image ?: 'https://source.unsplash.com/random/400x300/?dentistry,dental' }}" 
+                                        <img src="{{ $relatedPost->featured_image_url ?: 'https://source.unsplash.com/random/400x300/?dentistry,dental' }}" 
                                              alt="{{ $relatedPost->title }}" 
                                              class="w-full h-full object-cover hover:scale-110 transition-transform duration-300">
                                     </div>

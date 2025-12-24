@@ -3,6 +3,7 @@
 namespace App\Livewire\Admin\Services;
 
 use App\Models\Service;
+use App\Services\FileUploadService;
 use Livewire\Component;
 use Livewire\Attributes\Layout;
 use Livewire\WithFileUploads;
@@ -104,7 +105,8 @@ class ServiceForm extends Component
         $service->meta_description = $validated['meta_description'];
 
         if ($this->image) {
-            $service->image = $this->image->store('services', 'public');
+            $fileUploadService = app(FileUploadService::class);
+            $service->image = $fileUploadService->uploadServiceImage($this->image);
         }
 
         $service->save();

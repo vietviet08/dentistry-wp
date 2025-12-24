@@ -47,7 +47,7 @@
                 @foreach($items as $item)
                     <div class="border border-gray-200 rounded-lg overflow-hidden">
                         @if($item->image_path)
-                            <img src="{{ asset('storage/' . $item->image_path) }}" alt="{{ $item->title }}" class="w-full h-48 object-cover">
+                            <img src="{{ $item->image_url }}" alt="{{ $item->title }}" class="w-full h-48 object-cover">
                         @else
                             <div class="w-full h-48 bg-gray-200 flex items-center justify-center">
                                 <span class="text-gray-400">{{ __('admin.gallery.no_image') }}</span>

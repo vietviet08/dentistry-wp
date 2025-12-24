@@ -53,7 +53,7 @@ new class extends Component {
                         <article class="bg-white rounded-2xl shadow-lg overflow-hidden hover:shadow-xl transition-shadow group cursor-pointer">
                             <!-- Featured Image -->
                             <div class="relative h-56 overflow-hidden">
-                                <img src="{{ $post->featured_image ?: 'https://source.unsplash.com/random/800x600/?dentistry,dental' }}" 
+                                <img src="{{ $post->featured_image_url ?: 'https://source.unsplash.com/random/800x600/?dentistry,dental' }}" 
                                      alt="{{ $post->title }}" 
                                      class="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300">
                             </div>

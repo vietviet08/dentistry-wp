@@ -28,9 +28,9 @@ class QRCodeService
             $writer = new Writer($renderer);
             $qrCodeString = $writer->writeString($data);
             
-            // Save to storage
+            // Save to storage (use default disk - MinIO)
             $filename = "appointments/qr-{$appointment->id}.png";
-            Storage::disk('public')->put($filename, $qrCodeString);
+            Storage::disk(config('filesystems.default'))->put($filename, $qrCodeString);
             
             return $filename;
         } catch (\Exception $e) {

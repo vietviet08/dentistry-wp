@@ -538,6 +538,30 @@
                     "date_time": "Ngày & Giờ",
                     "notes": "Ghi chú"
                 }
+            },
+            "detail": {
+                "back": "Quay lại lịch hẹn",
+                "at_time": "lúc",
+                "alt_qr_code": "Mã QR cho lịch hẹn #:id",
+                "qr_code_header": "Mã QR Check-in",
+                "qr_code_title": "Xuất trình mã QR này khi check-in",
+                "download_qr": "Tải mã QR",
+                "service_details": "Chi tiết dịch vụ",
+                "duration": "Thời lượng",
+                "duration_minutes": ":minutes phút",
+                "price": "Giá",
+                "doctor_information": "Thông tin bác sĩ",
+                "doctor_prefix": "BS.",
+                "years_experience": ":years năm kinh nghiệm",
+                "appointment_date": "Ngày hẹn",
+                "patient_information": "Thông tin bệnh nhân",
+                "your_notes": "Ghi chú của bạn",
+                "admin_notes": "Ghi chú quản trị viên",
+                "cancellation_reason": "Lý do hủy",
+                "reschedule_title": "Đổi lịch hẹn",
+                "new_date": "Ngày mới",
+                "new_time": "Giờ mới",
+                "confirm_reschedule": "Xác nhận đổi lịch"
             }
         },
         "profile": {

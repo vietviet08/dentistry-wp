@@ -130,7 +130,7 @@
                                                 {{ $document->created_at->format('M d, Y') }}
                                             </td>
                                             <td class="px-6 py-4 whitespace-nowrap text-right text-sm font-medium">
-                                                <a href="{{ Storage::url($document->file_path) }}" 
+                                                <a href="{{ Storage::disk(config('filesystems.default'))->url($document->file_path) }}" 
                                                    target="_blank"
                                                    class="text-blue-600 hover:text-blue-900 mr-4">View</a>
                                                 <button wire:click="delete({{ $document->id }})" 

@@ -3,10 +3,12 @@
 namespace App\Livewire\Admin\Posts;
 
 use App\Models\Post;
+use App\Services\FileUploadService;
 use Livewire\Component;
 use Livewire\Attributes\Layout;
 use Livewire\WithFileUploads;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Storage;
 
 #[Layout('components.layouts.admin')]
 class PostEditor extends Component
@@ -70,7 +72,10 @@ class PostEditor extends Component
             $this->meta_title = $post->meta_title;
             $this->meta_description = $post->meta_description;
             $this->meta_keywords = $post->meta_keywords;
-            $this->featuredImagePreview = $post->featured_image;
+            // Get URL from MinIO bucket using Storage facade
+            $this->featuredImagePreview = $post->featured_image 
+                ? Storage::disk(config('filesystems.default'))->url($post->featured_image)
+                : null;
         }
     }
 
@@ -78,6 +83,14 @@ class PostEditor extends Component
     {
         if (!$this->postId) {
             $this->slug = \Str::slug($this->title);
+        }
+    }
+
+    public function updatedFeaturedImage()
+    {
+        // Show temporary preview when new file is uploaded
+        if ($this->featured_image) {
+            $this->featuredImagePreview = $this->featured_image->temporaryUrl();
         }
     }
 
@@ -105,7 +118,10 @@ class PostEditor extends Component
         $post->meta_keywords = $validated['meta_keywords'];
 
         if ($this->featured_image) {
-            $post->featured_image = $this->featured_image->store('posts', 'public');
+            $fileUploadService = app(FileUploadService::class);
+            $post->featured_image = $fileUploadService->uploadPostImage($this->featured_image);
+            // Update preview URL after upload
+            $this->featuredImagePreview = Storage::disk(config('filesystems.default'))->url($post->featured_image);
         }
 
         $post->save();

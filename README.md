@@ -21,8 +21,10 @@ npm install
 cp .env.example .env
 php artisan key:generate
 
-# 3. Start services (PostgreSQL + pgAdmin)
-docker-compose up -d
+# 3. Start services (PostgreSQL + pgAdmin + MinIO)
+./vendor/bin/sail up -d
+# hoặc nếu chưa có Sail alias:
+docker compose up -d
 
 # 4. Run migrations
 php artisan migrate --seed
@@ -46,6 +48,8 @@ php artisan queue:work
 - **Application**: http://localhost
 - **pgAdmin**: http://localhost:5050 (admin@admin.com / admin)
 - **PostgreSQL**: localhost:5432
+- **MinIO Console**: http://localhost:9001 (minioadmin / minioadmin)
+- **MinIO API**: http://localhost:9000
 
 ## 📚 Documentation
 
@@ -57,7 +61,7 @@ See [SYSTEM_SPECIFICATION.md](SYSTEM_SPECIFICATION.md) for complete system archi
 - **Frontend**: Tailwind CSS 4, Flux UI, Vite
 - **Database**: PostgreSQL 17
 - **Cache/Queue**: Database (Redis optional)
-- **Storage**: Local (S3-compatible ready)
+- **Storage**: MinIO (S3-compatible object storage)
 
 ## 📦 Key Features
 

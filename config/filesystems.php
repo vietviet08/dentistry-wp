@@ -62,6 +62,28 @@ return [
             'report' => false,
         ],
 
+        'minio' => [
+            'driver' => 's3',
+            'key' => env('AWS_ACCESS_KEY_ID') ?: env('MINIO_ROOT_USER', 'minioadmin'),
+            'secret' => env('AWS_SECRET_ACCESS_KEY') ?: env('MINIO_ROOT_PASSWORD', 'minioadmin'),
+            'region' => env('AWS_DEFAULT_REGION', 'us-east-1'),
+            'bucket' => env('AWS_BUCKET') ?: env('MINIO_BUCKET', 'dentistry'),
+            // URL for accessing files: MinIO with path-style needs bucket in path
+            'url' => env('AWS_URL') ?: env('MINIO_URL') ?: (
+                (env('AWS_BUCKET') ?: env('MINIO_BUCKET', 'dentistry'))
+                ? 'http://localhost:9000/' . (env('AWS_BUCKET') ?: env('MINIO_BUCKET', 'dentistry'))
+                : 'http://localhost:9000'
+            ),
+            // Auto-detect endpoint: use 'minio' hostname if running in Docker, 'localhost' if on host
+            'endpoint' => env('AWS_ENDPOINT') ?: env('MINIO_ENDPOINT') ?: (
+                // Check if running in Docker (Laravel Sail) or on host
+                env('LARAVEL_SAIL') ? 'http://minio:9000' : 'http://localhost:9000'
+            ),
+            'use_path_style_endpoint' => true, // Required for MinIO
+            'throw' => false,
+            'report' => false,
+        ],
+
     ],
 
     /*

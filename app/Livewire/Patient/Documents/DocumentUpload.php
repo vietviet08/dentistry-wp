@@ -3,6 +3,7 @@
 namespace App\Livewire\Patient\Documents;
 
 use App\Models\PatientDocument;
+use App\Services\FileUploadService;
 use Livewire\Component;
 use Livewire\Attributes\Layout;
 use Livewire\WithFileUploads;
@@ -39,7 +40,8 @@ class DocumentUpload extends Component
     {
         $this->validate();
 
-        $path = $this->file->store('documents/' . auth()->id(), 'public');
+        $fileUploadService = app(FileUploadService::class);
+        $path = $fileUploadService->uploadDocument($this->file, auth()->id(), $this->type);
 
         PatientDocument::create([
             'patient_id' => auth()->id(),
@@ -66,8 +68,9 @@ class DocumentUpload extends Component
         }
 
         // Delete file from storage
-        if (Storage::disk('public')->exists($document->file_path)) {
-            Storage::disk('public')->delete($document->file_path);
+        $fileUploadService = app(FileUploadService::class);
+        if ($fileUploadService->fileExists($document->file_path)) {
+            $fileUploadService->deleteFile($document->file_path);
         }
 
         $document->delete();

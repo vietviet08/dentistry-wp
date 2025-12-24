@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Support\Facades\Storage;
 
 class Post extends Model
 {
@@ -50,5 +51,17 @@ class Post extends Model
                 $post->slug = \Str::slug($post->title);
             }
         });
+    }
+
+    /**
+     * Get featured image URL
+     */
+    public function getFeaturedImageUrlAttribute(): ?string
+    {
+        if (!$this->featured_image) {
+            return null;
+        }
+
+        return Storage::disk(config('filesystems.default'))->url($this->featured_image);
     }
 }
